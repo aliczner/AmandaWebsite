@@ -1,0 +1,114 @@
+---
+import Footer from '../components/Footer.astro';
+import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav bar with social
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  
+	<head>
+		<style> 
+            body {
+            background-image: url("pictures/rose-petals.png");
+            background-color: rgba(0,0,0,.5);
+            background-blend-mode: multiply;
+            color: #f7f3ed; 
+        }
+        .page-title {
+            font-size: 4em;
+            font-family: Century Gothic;
+            color: #f7f3ed;
+        }
+
+        .hyperlinks {
+            color: #ECD498;
+        }
+        li {
+    margin-left: 5%;
+    list-style-type: circle;
+ }
+ .fullscreen-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* set a negative z-index to put it behind the text */
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%); /* apply brightness filter to darken the video */
+ 
+}
+
+
+.container {
+  position: relative; /* make the container a positioning context */
+  z-index: 1; /* set a higher z-index than the video to put it in front */
+}
+
+            </style>
+
+            </head>
+        
+        <main>
+
+
+            <div> <HeaderFull / > </div> 
+                <div class="container">
+                    <div class="fullscreen-bg">
+                        <div class="fullscreen-bg__overlay"></div>
+                      <video loop muted autoplay poster="video/poster.jpg" class="fullscreen-bg__video">
+                        <source src="beeVid.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <h1 class="page-title content flex py-12 px-12"> Collaborate </h1>
+                    <div class="content">
+                      <div class="content flex py-6 px-12 mx-24 grid grid-cols-8">
+                        <div class="item-body col-span-4 col-start-2 text-xl">
+                          <p class="text-xl mb-8">As a researcher with a passion for bumble bees and eco-friendly agriculture practices, I am always eager to collaborate with others who share my interest. If you are looking for a partner to help with your research, I would love to explore the possibility of collaborating with you. Work with me on projects such as:</p>
+                          <br>
+                          <ul>
+                            <li>Bumble bee research</li>
+                            <li>Pollinator surveys</li>
+                            <li>Plant surveys</li>
+                            <li>Habitat modelling</li>
+                            <li>Conservation research</li>
+                            <li>Conservation modelling</li>
+                            <li>Pollinator habitat restoration</li>
+                            <li>Recovery documents, status reports</li>
+                            <li>Species at-risk research</li>
+                            <li>Report and scientific publication writing</li>
+                            <li>Grant and proposal writing</li>
+                            <li>Scientific communication</li>
+                            <li>Agri-environmental practices</li>
+                            <li>Project management</li>
+                          </ul>
+                          <div class="py-6">
+                            Want to collaborate? Check out my contact page to get in touch!
+                            <br>
+                            <br>
+                            <a href="/aboutme" class="bg-transparent hover:bg-lime-700 text-gray-100 font-semibold hover:text-white py-2 px-4 border border-slate-200 hover:border-transparent rounded">
+                              Contact
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                  
+        </main>
+		<Footer />
+
+</html>
+
+// npm start
