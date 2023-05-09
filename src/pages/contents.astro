@@ -1,0 +1,108 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro'; // this is social media icons
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<style> 
+
+body, html {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("pictures/contentsbg.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+        .flex-wrapper {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: space-between;
+        }
+        .content-button{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border: 2px solid #FFFFFF;
+           padding: 10px;
+            border-radius: 12px;
+            font-size: 20px;
+            color:#FFFFFF;
+            font-family: "Century Gothic";
+            transition-duration: 0.4s;
+        }
+
+.content-button:hover {
+  background-color: #373D20;
+  color: #DAD7CD;
+}
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("pictures/contentsbg.jpeg");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+            </style>
+
+            </head>
+            <body>
+
+       
+
+                <div class="flex flex-col h-screen">
+                  <!-- Run dis for social media. Just the one line under this -->
+                 <div> <Header / > </div> 
+            <div class="py-12">
+                <h1 style="color:white; font-family: Century Gothic; font-size: 102px; text-align: center; font-weight: 100; ">Contents</h1>
+            </div>
+
+            <div class= "px-12 py-36">
+            <section class = "h-56 grid grid-cols-3 gap-3 content-between">
+              <a href ="/aboutme" class = "content-button">
+                About Me
+            </a>
+            <a href ="/education" class = "content-button">
+                Education
+              </a>
+              <a href ="/skills" class = "content-button">
+                Skills
+              </a>
+              <a href ="/currentWork" class = "content-button">
+                Current work
+              </a>
+              <a href ="/experience" class = "content-button">
+                    Experience
+              </a>
+              <a href ="/WorkTogether" class = "content-button">
+                    Let's work together!
+              </a>
+              <a href ="/contact" class = "content-button col-start-2">
+                    Contact
+              </a>
+
+        </section>
+     
+<Footer />
+</div>
+        </div>
+        
+
+		
+</body>
+
+
+</html>

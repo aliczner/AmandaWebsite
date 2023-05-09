@@ -1,0 +1,84 @@
+---
+import Footer from '../components/Footer.astro';
+import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav bar with social
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  
+	<head>
+		<style> 
+            body {
+            background-image: url("pictures/educationbackground.jpg");
+            background-size:cover;
+            color: #f7f3ed; 
+            text-shadow: 0.25px 0.25px #717E8E;
+            background-color: rgba(0,0,0,.6);
+            background-blend-mode: multiply;
+        }
+        .page-title {
+            font-size: 4em;
+            font-family: Century Gothic;
+            color: #f7f3ed;
+            text-shadow: 1px 1px #717E8E;
+        }
+
+        img {
+            border-radius: 50%;
+           ;
+        }
+
+        .hyperlinks {
+            color: #ECD498;
+        }
+        .degree-text{
+            color: #ECD498;
+        }
+        li {
+    margin-left: 5%;
+    list-style-type: circle;
+ }
+            </style>
+            </head>
+        
+        <main>
+
+            <div> <HeaderFull / > </div> 
+            <h1 class="page-title content flex py-12 px-12"> Education </h1>
+            <div class="content flex mx-24 grid grid-cols-12">
+                <div class="item-body col-span-5 col-start-2 text-xl">
+                   <h2 class="degree-text font-semibold text-2xl"> Ph.D. Biology - York University, Canada </h2>
+                   <ul>
+                    <li> 2016-2020 </li>
+                    <li> Supervised by Dr. Sheila Colla </li>
+                    <li class="italic"> The conservation management and ecology of Northeastern North American bumble bees.</li>
+                    </ul>
+
+
+                <div class="py-8">  
+                    <h2 class="degree-text font-semibold text-2xl">  M.Sc. Biology - York University, Canada </h2>
+                <ul>
+                <li> 2014-2026 </li>
+                <li> Supervised by Dr. Christopher Lortie</li>
+                <li class="italic"> Nursing back to health: Shrubs facilitate the restoration of native forbs with reductions in non-native competition in an invaded arid shrubland.</li>
+
+            </ul></div>
+            <div >
+                <h2 class="degree-text font-semibold text-2xl">Spec. Hons. B.Sc. Biology - York University, Canada </h2>
+                <ul>
+                <li> 2009 - 2013 </li>
+                <li> Undergraduate thesis supervised by Dr. Christopher Lortie</li>
+                <li class="italic"> Honors thesis: A desert nurste plant (Larrea tridentata) facilitates the germination and seed characteristics of winter annuals in California.
+            </ul> 
+        </div>
+    </div>
+    <div class="col-span-3 col-start-8">
+                <img  src="./education.jpg" style="width:20em; height:auto" alt="Amanda Liczner graduation headshot">
+            </div>
+        </div>
+
+        </main>
+		<Footer /> Image by <a href="https://www.freepik.com/free-photo/suitcase-with-books-top_1103553.htm#query=book%20in%20moss&position=3&from_view=search&track=ais">Freepik</a></a>
+  
+
+</html>

@@ -1,0 +1,84 @@
+---
+import Footer from '../components/Footer.astro';
+import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav bar with social
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  
+	<head>
+		<style> 
+            body {
+            background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("pictures/skillsbg.jpg");
+            background-size: cover;
+            color: #FFFFFF; 
+        }
+        .page-title {
+            font-size: 4em;
+            font-family: Century Gothic;
+            color: #FFFFFF;
+        }
+
+        .hyperlinks {
+            color: #ECD498;
+        }
+        li {
+    margin-left: 5%;
+    list-style-type: circle;
+ }
+
+
+            </style>
+            </head>
+        
+        <main>
+
+            <div> <HeaderFull / > </div> 
+            <h1 class="page-title content flex py-24 px-12"> Skills </h1>
+                <div class="content flex py-6 px-12 mx-24 grid grid-cols-12">
+                    <div class="col-span-4  text-xl">
+               <h2 class="degree-text font-semibold text-2xl underline"> Technical Skills  </h2>
+                <ul>
+                <li>Data analysis, management and manipulation
+                <ul>
+                    <li>spatial analysis</li>
+                    <li>machine learning</li>
+                    <li>climate modelling</li>
+                    <li>conservation planning</li>
+                    <li>movement analysis</li>
+                    <li>version control</li>
+                    <li>big data anlysis</li>
+                    </ul>
+                </li>
+                <li>Telemetry</li> 
+                <li>Pollinator and plant surveys</li>
+                <li>Habitat analysis</li>
+                <li>Experimental Design</li>
+                <li>Project Management</li>
+                <li>Literature search</li>
+            </ul>
+                    </div>
+                    <div class=" col-span-4  text-xl">
+                <h2 class="degree-text font-semibold text-2xl underline"> Tools and Software</h2>
+                <li>R programming language</li>
+                <li>QGIS</li>
+                <li>Github</li>
+                <li>Open Science Framework</li>
+            </div>
+                <div class="col-span-4  text-xl">
+               <h2 class="degree-text font-semibold text-2xl underline"> Communication skills</h2>
+                <li>Technical Writing and report writing</li>
+                <li>Scientific publications</li>
+                <li>Ability to distill complex information for wide audiences</li>
+                <li>Social media management</li>
+                <li>Blogging</li>
+                <li>Teaching</li>
+                </div>
+                
+                   
+              </div>
+        </main>
+		<Footer />
+
+</html>
+
