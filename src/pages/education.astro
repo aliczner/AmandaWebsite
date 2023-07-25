@@ -31,13 +31,31 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
         .hyperlinks {
             color: #ECD498;
         }
-        .degree-text{
-            color: #ECD498;
-        }
+
         li {
     margin-left: 5%;
     list-style-type: circle;
+    font-size: 1rem;
  }
+
+ .font-header {
+    color: #ECD498;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+
+@media (max-width: 640px) {
+            .font-header {
+                font-size: 1rem;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+            .li {
+                font-size: 0.5rem;
+        }
+        }
             </style>
             </head>
         
@@ -45,9 +63,9 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
 
             <div> <HeaderFull / > </div> 
             <h1 class="page-title content flex py-12 px-12"> Education </h1>
-            <div class="content flex mx-24 grid grid-cols-12">
-                <div class="item-body col-span-5 col-start-2 text-xl">
-                   <h2 class="degree-text font-semibold text-2xl"> Ph.D. Biology - York University, Canada </h2>
+            <div class="content flex mx-4 md:mx-24 grid grid-cols-12">
+                <div class="item-body col-span-5 col-start-2">
+                   <h2 class=" font-semibold font-header"> Ph.D. Biology - York University, Canada </h2>
                    <ul>
                     <li> 2016-2020 </li>
                     <li> Supervised by Dr. Sheila Colla </li>
@@ -56,7 +74,7 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
 
 
                 <div class="py-8">  
-                    <h2 class="degree-text font-semibold text-2xl">  M.Sc. Biology - York University, Canada </h2>
+                    <h2 class="font-semibold font-header">  M.Sc. Biology - York University, Canada </h2>
                 <ul>
                 <li> 2014-2026 </li>
                 <li> Supervised by Dr. Christopher Lortie</li>
@@ -64,7 +82,7 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
 
             </ul></div>
             <div >
-                <h2 class="degree-text font-semibold text-2xl">Spec. Hons. B.Sc. Biology - York University, Canada </h2>
+                <h2 class="font-semibold font-header">Spec. Hons. B.Sc. Biology - York University, Canada </h2>
                 <ul>
                 <li> 2009 - 2013 </li>
                 <li> Undergraduate thesis supervised by Dr. Christopher Lortie</li>
@@ -72,8 +90,8 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
             </ul> 
         </div>
     </div>
-    <div class="col-span-3 col-start-8">
-                <img  src="./education.jpg" style="width:20em; height:auto" alt="Amanda Liczner graduation headshot">
+    <div class="col-span-4 col-start-8">
+                <img  src="./education.jpg" style="width:100%; height:auto" alt="Amanda Liczner graduation headshot">
             </div>
         </div>
 
