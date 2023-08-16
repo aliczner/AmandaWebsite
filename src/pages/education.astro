@@ -7,6 +7,7 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
 <html lang="en">
   
 	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style> 
             body {
             background-image: url("pictures/educationbackground.png");
@@ -44,7 +45,6 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
     line-height: 2rem;
 }
 
-
 @media (max-width: 640px) {
             .font-header {
                 font-size: 1rem;
@@ -54,44 +54,71 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
             }
             .li {
                 font-size: 0.5rem;
+            }
+            .all-content {
+                flex-direction: column;
+            }
+            .item-body,
+            .image-body {
+                flex: 0 0 100%; /* Stack elements on top of each other */
+                padding: 0 20px; /* Adjust padding as needed */
+                min-width: 100%;
+            }
         }
+
+        /* For larger screens */
+        @media (min-width: 641px) {
+            .all-content {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: stretch;
+            }
+            .item-body {
+                flex: 0 0 40%;
+                padding-left: 50px;
+                padding-right: 20px;
+            }
+            .image-body {
+                flex: 1;
+                padding-left: 20px;
+                padding-right: 50px;
+             }
+    
         }
+
             </style>
             </head>
-        
+            
         <main>
 
             <div> <HeaderFull / > </div> 
-            <h1 class="page-title content flex py-12 px-12"> Education </h1>
-            <div class="content flex mx-4 md:mx-24 grid grid-cols-12">
-                <div class="item-body col-span-5 col-start-2">
+            <h1 class="page-title py-12 px-12"> Education </h1>
+            <div class="all-content">
+                <div class="item-body">
                    <h2 class=" font-semibold font-header"> Ph.D. Biology - York University, Canada </h2>
                    <ul>
                     <li> 2016-2020 </li>
                     <li> Supervised by Dr. Sheila Colla </li>
                     <li class="italic"> The conservation management and ecology of Northeastern North American bumble bees.</li>
                     </ul>
-
-
-                <div class="py-8">  
                     <h2 class="font-semibold font-header">  M.Sc. Biology - York University, Canada </h2>
                 <ul>
                 <li> 2014-2026 </li>
                 <li> Supervised by Dr. Christopher Lortie</li>
                 <li class="italic"> Nursing back to health: Shrubs facilitate the restoration of native forbs with reductions in non-native competition in an invaded arid shrubland.</li>
 
-            </ul></div>
-            <div >
+            </ul>
+       
                 <h2 class="font-semibold font-header">Spec. Hons. B.Sc. Biology - York University, Canada </h2>
                 <ul>
                 <li> 2009 - 2013 </li>
                 <li> Undergraduate thesis supervised by Dr. Christopher Lortie</li>
                 <li class="italic"> Honors thesis: A desert nurste plant (Larrea tridentata) facilitates the germination and seed characteristics of winter annuals in California.
             </ul> 
-        </div>
+
     </div>
-    <div class="col-span-4 col-start-8">
-                <img  src="/education.jpg" style="width:80%; height:auto" alt="Amanda Liczner graduation headshot">
+    <div class="image-body">
+                <img  src="/education.jpg "  alt="Amanda Liczner graduation headshot">
             </div>
         </div>
 
