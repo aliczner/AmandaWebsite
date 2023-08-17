@@ -48,17 +48,11 @@ import FadeIn from "../components/FadeIn"
 }
 
 @media (max-width: 640px) {
-            /* .font-header {
-                font-size: 1rem;
-            }
-            .page-title {
-                font-size: 2rem;
-            }
-            .li {
-                font-size: 0.5rem;
-            } */
             .all-content {
                 flex-direction: column;
+            animation: fadeInAnimation ease 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
             }
             .item-body,
             .image-body {
@@ -74,6 +68,9 @@ import FadeIn from "../components/FadeIn"
                 display: flex;
                 flex-wrap: nowrap;
                 align-items: stretch;
+                animation: fadeInAnimation ease 2s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
             }
             .item-body {
                 flex:0 0 50%; 
@@ -90,6 +87,16 @@ import FadeIn from "../components/FadeIn"
              }
     
         }
+ 
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
 
             </style>
             </head>
