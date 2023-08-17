@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav bar with social
+import FadeIn from "../components/FadeIn"
 ---
 
 <!DOCTYPE html>
@@ -36,17 +37,18 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
         li {
     margin-left: 5%;
     list-style-type: circle;
-    font-size: 1rem;
+    font-size: 1.2rem;
  }
 
  .font-header {
+    padding-top: 20px;
     color: #ECD498;
     font-size: 1.5rem;
     line-height: 2rem;
 }
 
 @media (max-width: 640px) {
-            .font-header {
+            /* .font-header {
                 font-size: 1rem;
             }
             .page-title {
@@ -54,14 +56,14 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
             }
             .li {
                 font-size: 0.5rem;
-            }
+            } */
             .all-content {
                 flex-direction: column;
             }
             .item-body,
             .image-body {
                 flex: 0 0 100%; /* Stack elements on top of each other */
-                padding: 0 20px; /* Adjust padding as needed */
+                padding: 10% 10px; /* Adjust padding as needed */
                 min-width: 100%;
             }
         }
@@ -74,14 +76,17 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
                 align-items: stretch;
             }
             .item-body {
-                flex: 0 0 40%;
+                flex:0 0 50%; 
                 padding-left: 50px;
                 padding-right: 20px;
+                padding: 1em;
             }
             .image-body {
                 flex: 1;
-                padding-left: 20px;
-                padding-right: 50px;
+                padding: 1.5em;
+                width: 100%; /* Set the width of the container to fill its parent */
+                max-width: 70vh; /* Set the maximum width of the container to 80% of the viewport height */
+
              }
     
         }
@@ -93,9 +98,9 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
 
             <div> <HeaderFull / > </div> 
             <h1 class="page-title py-12 px-12"> Education </h1>
-            <div class="all-content">
+            <div class="all-content px-12">
                 <div class="item-body">
-                   <h2 class=" font-semibold font-header"> Ph.D. Biology - York University, Canada </h2>
+                   <h2 class=" font-header"> Ph.D. Biology - York University, Canada </h2>
                    <ul>
                     <li> 2016-2020 </li>
                     <li> Supervised by Dr. Sheila Colla </li>
@@ -113,9 +118,8 @@ import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav
                 <ul>
                 <li> 2009 - 2013 </li>
                 <li> Undergraduate thesis supervised by Dr. Christopher Lortie</li>
-                <li class="italic"> Honors thesis: A desert nurste plant (Larrea tridentata) facilitates the germination and seed characteristics of winter annuals in California.
+                <li class="italic"> Honors thesis: A desert nurse plant (Larrea tridentata) facilitates the germination and seed characteristics of winter annuals in California.
             </ul> 
-
     </div>
     <div class="image-body">
                 <img  src="/education.jpg "  alt="Amanda Liczner graduation headshot">
