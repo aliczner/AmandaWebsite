@@ -1,7 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
-import HeaderFull from '../components/HeaderFull.astro'; // this is the full nav bar with social
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import HeaderFull from '../components/HamburgerHeader.astro';
 ---
 
 <!DOCTYPE html>
@@ -9,17 +8,17 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
   
 	<head>
 		<style> 
-
+            body {
+            color: #f7f3ed; 
+        }
         .page-title {
             font-size: 4em;
             font-family: Century Gothic;
-            color: #FFFFFF;
+            color: #f7f3ed;
         }
 
-        .hyperlinks {
-            color: #ECD498;
-        }
-        .fullscreen-bg {
+
+ .fullscreen-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -39,22 +38,10 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
   filter: brightness(50%); /* apply brightness filter to darken the video */
  
 }
-
-
-
-
-  .header-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-  }
-
   .google-form-container {
     position: relative;
-    padding-bottom: 100%; /* 1:1 Aspect Ratio (adjust as needed) */
-    height: 0;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
   }
 
@@ -64,39 +51,33 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.9;
+    border: none; /* Remove iframe border */
   }
 
+  .container {
+    position: relative;
+    overflow: hidden;
+  }
+</style>
 
-            </style>
-            </head>
-        
-        <main>
+</head>
 
-
-
-            <div class="container">
-              <div class="header-container"> <HeaderFull / > </div> 
-                <div class="fullscreen-bg">
-    
-                    <div class="fullscreen-bg__overlay"></div>
-                    
-                  <video loop muted autoplay  class="fullscreen-bg__video">
-                    <source src="/contactVid.mp4" type="video/mp4">
-                  </video>
-                </div>
-      
-                <h1 class="page-title content flex py-24 px-12"> Contact </h1>
-                <div class="w-4/5">
-                  <div class="google-form-container">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfrcxFYMimZ8d9Ph3AgzNMrn9iWkp2Zh8-7fDJT1p76k0aNtQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                  </div>
-                </div>
-            </div>
-        </div>
-        </main>
+<main>
+  <div class="container">
+    <HeaderFull />
+    <div class="fullscreen-bg">
+      <div class="fullscreen-bg__overlay"></div>
+      <video loop muted autoplay class="fullscreen-bg__video">
+        <source src="/contactVid.mp4" type="video/mp4">
+      </video>
+    </div>
+  
+    <h1 class="page-title py-12 px-12">Contact</h1>
+    <div class="google-form-container">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfrcxFYMimZ8d9Ph3AgzNMrn9iWkp2Zh8-7fDJT1p76k0aNtQ/viewform?embedded=true">Loading…</iframe>
+    </div>
+  </div>
+</main>
 		<Footer />
 
 </html>
-
-// npm start
