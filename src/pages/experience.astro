@@ -9,6 +9,22 @@ import HeaderFull from '../components/HamburgerHeader.astro';
 <html lang="en">
 	<head>
 		<style> 
+       @media (max-width: 760px) {
+            /* Styles for smaller screens (e.g., mobile devices) */
+            .content {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 761px) {
+            /* Styles for larger screens (e.g., desktop) */
+            .content {
+                flex-direction: row;
+                align-items: stretch;
+            }
+
+        }
             body {
             background-image: url("/pictures/ExperienceBG.png");
             background-color: rgba(0,0,0,.5);
@@ -30,24 +46,41 @@ import HeaderFull from '../components/HamburgerHeader.astro';
         <main>
             <div> <HeaderFull / > </div> 
             <h1 class="page-title content flex py-24 px-12"> Experience </h1>
-                <div class="content flex py-6 px-12 mx-24 grid grid-cols-12">
-                    <div class="item-body col-span-5 col-start-2 text-xl">
-                        My first postdoctoral fellowship position was at the University of British Columbia Okanagan (supervised by: Drs. Jason Pither, Adam Ford, Lael Parrot, Josie Hughes and Richard Pither). We are working in a large collaborative group to synthesize future research directions for connectivity conservation.
-                    </div>
-                    <img class="col-span-5 col-start-7" src="/pictures/Experience1.jpg" alt="A lookout of an alpine lake and mountain in the Rocky Mountains of Canada">
+
+            <div class="max-w-md mx-auto bg-neutral-100/90 rounded-xl shadow-md overflow-hidden md:max-w-2xl my-4">
+                <div class="md:flex">
+                  <div class="md:shrink-0">
+                    <img class="h-72 w-full object-cover md:h-full md:w-48" src="/pictures/Experience1.jpg" alt="A lookout of an alpine lake and mountain in the Rocky Mountains of Canada">
+                  </div>
+                  <div class="p-8">
+                    <a href="https://ok.ubc.ca/"class="uppercase tracking-wide text-sm font-semibold text-black hover:underline">University of British Columbia Okanagan</a>
+                    <div  class="block mt-1 text-lg leading-tight font-medium text-black">Connectivity and conservation</div>
+                    <p class="mt-2 text-slate-500">My first postdoctoral fellowship position was at the University of British Columbia Okanagan (supervised by: Drs. Jason Pither, Adam Ford, Lael Parrot, Josie Hughes and Richard Pither). We are working in a large collaborative group to synthesize future research directions for connectivity conservation.</p>
+                  </div>
                 </div>
-                <div class="content flex py-6 px-12 mx-24 grid grid-cols-12">
-                      <img class="col-span-4 col-start-2" src="/pictures/Experience2.jpg" alt="Amanda taking a selfie with a dog used for the detection of bumble bee nests">
-                      <div class="item-body col-span-5 text-xl col-start-7">
-                        My PhD research focused on at-risk bumble bee species habitat with the native pollinator research lab (supervised by Dr. Sheila Colla). Check out some of <a class="hyperlinks" href="https://www.savethebumblebees.ca/">this work! </a>
+              </div>
+              <div class="max-w-md mx-auto bg-neutral-100/90 rounded-xl shadow-md overflow-hidden md:max-w-2xl my-4">
+                <div class="md:flex">
+                  <div class="md:shrink-0">
+                    <img class="h-72 w-full object-cover md:h-full md:w-48" src="/pictures/Experience2.jpg" alt="Amanda taking a selfie with a dog used for the detection of bumble bee nests.">
+                  </div>
+                  <div class="p-8">
+                    <a href="https://www.yorku.ca/"class="uppercase tracking-wide text-sm font-semibold text-black hover:underline">York University</a>
+                    <div  class="block mt-1 text-lg leading-tight font-medium text-black">Bumble bee conservation</div>
+                    <p class="mt-2 text-slate-500">   My PhD research focused on at-risk bumble bee species habitat with the native pollinator research lab (supervised by Dr. Sheila Colla). Check out some of <a class="hyperlinks" href="https://www.savethebumblebees.ca/">this work! </a>
                         I used a variety of methods to determine bumble bee habitat. These included literature reviews, local-scale surveys, landscape-scale models, and detection dogs. I also mapped bumble bee conservation priority areas across Canada.
                     </div>
                 </div>
-                <div class="content flex py-6 px-12 mx-24 grid grid-cols-12">
-                    <div class="item-body col-span-5 col-start-2 text-xl">
-                        Earlier research experience including my MSc and BSc have taken me to a variety of locations including: Californian deserts to study native plant restoration and examining endangered species behaviour, northern Ontario lakes to investigate local and landscape factors that determine cyanobacteria abundance, and the alpine-tundra of northern British Columbia to compare seed germination with and without plant interactions.
-                    </div>
-                    <img class="col-span-5 col-start-7" src="/pictures/Experience3.jpg" alt="A lookout of an alpine lake and mountain in the Rocky Mountains of Canada">
+              </div>
+              <div class="max-w-md mx-auto bg-neutral-100/90 rounded-xl shadow-md overflow-hidden md:max-w-2xl my-4">
+                <div class="md:flex">
+                  <div class="md:shrink-0">
+                    <img class="h-72 w-full object-cover md:h-full md:w-48" src="/pictures/Experience3.jpg" alt="Amanda on top of a boulder in the Granite Mountains of the Mojave Desert.">
+                  </div>
+                  <div class="p-8">
+                    <a href="https://www.yorku.ca/"class="uppercase tracking-wide text-sm font-semibold text-black hover:underline">York University</a>
+                    <div  class="block mt-1 text-lg leading-tight font-medium text-black">Native plant restoration</div>
+                    <p class="mt-2 text-slate-500">  Earlier research experience including my MSc and BSc have taken me to a variety of locations including: Californian deserts to study native plant restoration and examining endangered species behaviour, northern Ontario lakes to investigate local and landscape factors that determine cyanobacteria abundance, and the alpine-tundra of northern British Columbia to compare seed germination with and without plant interactions. </div>
                 </div>
               </div>
               <div class="grid h-screen place-items-center">
