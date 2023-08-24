@@ -5,6 +5,8 @@ import HeaderFull from '../components/HamburgerHeader.astro';
 
 <!DOCTYPE html>
 <html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
 	<head>
 		<style> 
@@ -35,25 +37,33 @@ import HeaderFull from '../components/HamburgerHeader.astro';
         list-style-type: number;
          }
 
+         @media (max-width: 640px) {
+      .small-screen-padding {
+        padding: 1rem 2rem; /* Adding padding on small screens */
+      }
+    }
+
             </style>
             </head>
         
         <main>
-
             <div> <HeaderFull / > </div> 
-            <h1 class="page-title content flex py-24 px-12"> Current work </h1>
-            <h2 class="px-12 font-semibold text-2xl py-2 text-amber-100"> <a href="#project1"> Project 1: Impacts of environmental stressors on bumble bee queen movement.</a></h2>
-            <h2 class="px-12 font-semibold text-2xl py-2 text-amber-100"> <a href="#project2"> Project 2: Learning their needs by tracking the bees. </a> </h2>
-            <h2 class="px-12 font-semibold text-2xl py-2 text-amber-100"><a href="#project3"> Project 3: Does soil temperature predict bumble bee queen emergence in spring? </a> </h2>
-            <div class="py-6 px-12 mx-24">
-            <h2 class="font-semibold text-2xl py-6" id="project1"> Project 1: Impacts of environmental stressors on bumble bee queen movement.</h2>
-            <hr>
-            <div class="content flex grid grid-cols-12">
-            <div class="item-body col-span-5 col-start-2 text-xl px-6 py-6">
+                <h1 class="page-title  py-12 md:px-12 mx-auto px-2 text-3xl md:text-6xl"> Current Work </h1>
+                <div class="max-w-md mx-auto overflow-hidden md:max-w-3xl my-4 md:text-xl small-screen-padding font-semibold text-2xl">
+                
+            <h2 class=" py-2 text-amber-100"> <a href="#project1"> Project 1: Impacts of environmental stressors on bumble bee queen movement.</a></h2>
+            <h2 class="py-2 text-amber-100"> <a href="#project2"> Project 2: Learning their needs by tracking the bees. </a> </h2>
+            <h2 class=" py-2 text-amber-100"><a href="#project3"> Project 3: Does soil temperature predict bumble bee queen emergence in spring? </a> </h2>
+        </div>
+            <div class="max-w-md mx-auto overflow-hidden md:max-w-3xl my-4 md:text-xl small-screen-padding">
+            <h2 class="font-semibold text-xl md:text-2xl py-6" id="project1"> Project 1: Impacts of environmental stressors on bumble bee queen movement.</h2>
+            <div class="md:flex">
+                    <div class="md:w-3/5">
                 Bumble bees are important pollinators for wild flowers and crops. They pollinate flowers while collecting the flower&#39;s pollen and nectar that they collect to feed themselves and their young. While collecting pollen and nectar in agricultural areas, they can become exposed to pesticides sprayed on crops to fend off crop pests. Although the levels of these pesticides that are sprayed on crops are not allowed to reach limits that are lethal to bumble bees, researchers have noted there can be sublethal impacts of these chemicals.
            </div>
-             <div class="col-span-5 col-start-7 text-xl item-body px-6 py-6">
-             <img  class="rounded-full" src="/pictures/Project1A.JPG" alt="A bumble bee landed on a flower in the field">
+           <div class="md:w-2/5">
+             <img  class="h-72 w-full object-cover md:h-full rounded-full" src="./pictures/Project1A.JPG" alt="A bumble bee landed on a flower in the field">
+           </div>
            </div>
             <div class="item-body col-span-5 col-start-2 text-xl px-6 py-6">
           Sublethal impacts do not cause the bees to die, but can still cause harm for example by limiting learning and memory (1, 2), limiting foraging ability(3, 4), interrupt sleep and circadian rhythms(5, 6), and change flight behaviour(7, 8). Although we know that sublethal impacts do occur, pesticide regulatory agencies are not required to test for these impacts before approving the use of pesticides.  
