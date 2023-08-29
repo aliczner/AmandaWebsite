@@ -13,7 +13,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	line-height: 1.5;
-	color: #444;
+
 }
 h1,
 h2,
@@ -22,12 +22,8 @@ h4,
 h5,
 h6,
 strong,
-b {
-	color: #222;
-}
-a {
-	color: #3273dc;
-}
+
+
 nav a {
 	margin-right: 10px;
 }
@@ -71,4 +67,24 @@ blockquote {
 {
     background: transparent;
     border: none;
+}
+
+@media (max-width: 640px) {
+	.small-screen-padding {
+	  padding: 1rem 2rem; /* Adding padding on small screens */
+	}
+  }
+  .all-content {
+				 animation: fadeInAnimation ease 2s;
+			  animation-iteration-count: 1;
+			  animation-fill-mode: forwards;
+		  }
+
+  @keyframes fadeInAnimation {
+  0% {
+	  opacity: 0;
+  }
+  100% {
+	  opacity: 1;
+   }
 }
