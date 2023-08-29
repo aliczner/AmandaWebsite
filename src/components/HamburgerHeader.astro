@@ -29,10 +29,11 @@ import Header from "./Header.astro"
         }
 </style>
 
-<header class="lg:flex justify-between p-5 gap-5 mx-auto container topnav text-lg">
+<header class="p-2 text-white">
+   <div class="flex justify-between items-center container mx-auto">
     <Header />
    <Astronav closeOnClick>
-      <div class="flex w-full lg:w-auto justify-between items-center">
+      <div class="flex w-full lg:w-auto justify-end items-center">
               <div class="block lg:hidden">
             <MenuIcon class="w-6 h-6 color: '#f7f3ed' m-2" />
          </div>
