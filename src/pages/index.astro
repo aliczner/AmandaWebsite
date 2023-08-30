@@ -1,22 +1,27 @@
 ---
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import { SEO } from "astro-seo";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <body>
     <head>
+      <SEO
+      title="Amanda Liczner - Homepage"
+      description="Amanda Liczner is a researcher in conservation, restoration, and community ecology. She is working currently as a post-doctoral fellow at the University of Guelph."
+      openGraph={{
+        basic: {
+          title: "Amanda Liczner - Homepage",
+          type: "website",
+          image: "/AmandaLiczner.jpg",
+        }
+      }}/>
       <style>
 
- /* html, body {
-  height: 100%;
-  width: 100%;
-} */
+
 
 .hero-image {
-/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
 background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/pictures/homepagepiccrop.png");
 
 /* Set a specific height */

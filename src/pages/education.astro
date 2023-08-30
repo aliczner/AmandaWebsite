@@ -1,13 +1,25 @@
 ---
 import Footer from '../components/Footer.astro';
 import HamburgerHeader from '../components/HamburgerHeader.astro';
+import { SEO } from "astro-seo";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   
 	<head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <SEO
+        title="Amanda Liczner - Education"
+        description="Amanda Liczner has a Ph.D., M.Sc., and B.Sc. in Biology and is currently a post-doctoral fellow."
+        openGraph={{
+          basic: {
+            title: "Amanda Liczner - Education",
+            type: "website",
+            image: "/education.jpg",
+          }
+        }}/>
 		<style> 
             body {
             background-image: url("pictures/educationbackground.png");

@@ -2,6 +2,7 @@
 import Footer from '../components/Footer.astro';
 import HeaderFull from '../components/HamburgerHeader.astro';
 import "../styles/global.css"
+import { SEO } from "astro-seo";
 ---
 
 <!DOCTYPE html>
@@ -9,6 +10,16 @@ import "../styles/global.css"
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<head>
+    <SEO
+    title="Amanda Liczner - Collaborate"
+    description="I am eager to collaborate with others who share a passion for bumble bees and eco-friendly agriculture practices."
+    openGraph={{
+      basic: {
+        title: "Amanda Liczner - Collaborate",
+        type: "website",
+        image: "/AmandaLiczner.jpg",
+      }
+    }}/>
 		<style> 
             body {
             background-image: url("/pictures/rose-petals.png");

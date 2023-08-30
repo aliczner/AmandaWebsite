@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import HeaderFull from '../components/HamburgerHeader.astro';
+import { SEO } from "astro-seo";
 ---
 
 <!DOCTYPE html>
@@ -9,6 +10,16 @@ import HeaderFull from '../components/HamburgerHeader.astro';
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<head>
+    <SEO
+    title="Amanda Liczner - Contact"
+    description="Contact me for more information about my research or to collaborate."
+    openGraph={{
+      basic: {
+        title: "Amanda Liczner - Contact",
+        type: "website",
+        image: "/AmandaLiczner.jpg",
+      }
+    }}/>
 		<style> 
             body {
             color: #f7f3ed; 

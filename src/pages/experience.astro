@@ -1,7 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import HeaderFull from '../components/HamburgerHeader.astro';
-// import 'bootstrap/dist/css/bootstrap.css'
+import { SEO } from "astro-seo";
 ---
 
 
@@ -11,6 +11,16 @@ import HeaderFull from '../components/HamburgerHeader.astro';
 	<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <SEO
+    title="Amanda Liczner - Experience"
+    description="My past experience includes bumble bee conservation, desert plant restoration, and connectivity conservation."
+    openGraph={{
+      basic: {
+        title: "Amanda Liczner - Experience",
+        type: "website",
+        image: "./pictures/Experience2.jpg",
+      }
+    }}/>
 		<style> 
    
      

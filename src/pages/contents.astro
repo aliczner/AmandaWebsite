@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro'; // this is social media icons
+import { SEO } from "astro-seo";
 ---
 
 <!DOCTYPE html>
@@ -8,6 +9,16 @@ import Header from '../components/Header.astro'; // this is social media icons
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<head>
+    <SEO
+    title="Amanda Liczner - Contents"
+    description="Contents of my website including about me, current work, past experience, and education."
+    openGraph={{
+      basic: {
+        title: "Amanda Liczner - Contents",
+        type: "website",
+        image: "/AmandaLiczner.jpg",
+      }
+    }}/>
         <style>
             body, html {
               background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/pictures/contentsbg.png") center/cover no-repeat;
