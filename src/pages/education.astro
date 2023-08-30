@@ -2,6 +2,7 @@
 import Footer from '../components/Footer.astro';
 import HamburgerHeader from '../components/HamburgerHeader.astro';
 import { SEO } from "astro-seo";
+import "../styles/global.css"
 ---
 
 <!DOCTYPE html>
@@ -115,8 +116,8 @@ import { SEO } from "astro-seo";
         <main>
 
             <div> <HamburgerHeader / > </div> 
-            <h1 class="page-title py-12 px-12"> Education </h1>
-            <div class="all-content px-12">
+            <h1 class="page-title  py-12 md:px-12 mx-auto px-2 text-3xl md:text-6xl"> Education </h1>
+            <div class="max-w-md mx-auto overflow-hidden md:max-w-4xl my-4 md:text-xl small-screen-padding all-content">
                 <div class="item-body">
                    <h2 class=" font-header"> Ph.D. Biology - York University, Canada </h2>
                    <ul>
