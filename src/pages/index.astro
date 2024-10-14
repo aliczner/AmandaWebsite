@@ -24,16 +24,20 @@ import { SEO } from "astro-seo";
 .hero-image {
 background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/pictures/homepagepiccrop.png");
 
-/* Set a specific height */
 height: 100vh;
 width: 100vw;
 overflow-y: hidden; 
 
-/* Position and center the image to scale nicely on all screens */
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
-position: relative;
+}
+
+@media (min-width: 768px) {
+  .hero-image {
+    background-position: 15% 50%;
+    background-size: cover;
+  }
 }
 
 /* Place text in the middle of the image */
