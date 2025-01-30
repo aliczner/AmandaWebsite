@@ -76,15 +76,16 @@ import { SEO } from "astro-seo";
 </head>
 
 <main>
+
   <div class="container">
-    <HeaderFull />
+
     <div class="fullscreen-bg">
       <div class="fullscreen-bg__overlay"></div>
       <video loop muted autoplay class="fullscreen-bg__video">
         <source src="/contactVid.mp4" type="video/mp4">
       </video>
     </div>
-  
+    <header class="m-6">   <HeaderFull /></header>
     <h1 class="page-title py-12 px-12 overflow-hidden">Contact</h1>
     <div class="google-form-container">
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfrcxFYMimZ8d9Ph3AgzNMrn9iWkp2Zh8-7fDJT1p76k0aNtQ/viewform?embedded=true">Loading…</iframe>
