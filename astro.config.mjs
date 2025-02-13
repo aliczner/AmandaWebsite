@@ -1,15 +1,24 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-
-// https://astro.build/config
-import tailwind from "@astrojs/tailwind";
-
-// https://astro.build/config
-import react from "@astrojs/react";
+import { defineConfig } from 'astro/config'
+import tailwind from '@astrojs/tailwind'
+import vercel from '@astrojs/vercel/serverless'
+import astroExpressiveCode from 'astro-expressive-code'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
-  integrations: [mdx(), sitemap(), tailwind(), react()]
-});
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
+  integrations: [
+    tailwind(),
+    astroExpressiveCode({
+      themes: ['poimandres', 'light-plus'],
+      styleOverrides: {
+        borderRadius: '0.5rem',
+        borderWidth: '0px',
+      },
+    }),
+  ],
+})

@@ -1,25 +1,60 @@
 ---
-import "../styles/social.css"
+import { Icon, ThemeSwitch } from 'free-astro-components'
+import Hamburguer from './Hamburguer.astro'
+import Social from './Social.astro'
 ---
-<header>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" />
-    <div class="social flex space-x-4">
-   
-        <a href="https://bsky.app/profile/bumblebeehaviour.bsky.social" target="_blank" class="text-gray-300 hover:text-gray-500 transition duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-6 h-6 fab mt-1">
-                <path fill="currentColor" d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 353.1 304.5c102.9 17.5 129.1 75.5 72.5 133.5c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.6-7.8-3.3-7.8s-1.6 3-3.3 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-58-30.4-116 72.5-133.5C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z"/>
-            </svg>
-        </a>
 
-        <a href="https://www.instagram.com/bumblebeehaviour/" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
+<header
+  class="relative inset-x-0 top-0 bg-off-white/80 text-neutral-700 py-2 border-b backdrop-blur-md z-20"
+>
+  <div class="container flex justify-between items-center gap-8 relative">
+    <Social />
+    <a
+      class="text-primary hover:text-secondary text-4xl font-bold leading-none transition duration-300 ease-in-out"
+      href="/"
+      aria-label="Free Astro components"
+    >
+    </a>
+
+    <nav>
+      <ul class="flex items-center gap-8">
+        <li>
+          <a
+            class="text-sm hover:text-primary transition duration-300 ease-in-out"
+            href="/guide/installation">Documentation</a
+          >
+        </li>
+        <li class="hidden lg:block">
+          <a
+            class="text-sm hover:text-primary transition duration-300 ease-in-out"
+            href="/components/button">Components</a
+          >
+        </li>
+        <li>
+          <ThemeSwitch />
+        </li>
+        <li class="lg:hidden">
+          <Hamburguer />
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
+<script>
+  import { DOMLoaded } from '../ts/utils'
 
-<body>
+  DOMLoaded(() => {
+    const body = document.querySelector('body') as HTMLElement
+    const hamburguer = document.querySelector(
+      '[data-hamburguer]'
+    ) as HTMLButtonElement
+    const nav = document.querySelector('[data-nav]') as HTMLElement
 
-
-</body>
+    hamburguer.addEventListener('click', () => {
+      hamburguer.toggleAttribute('open')
+      nav.toggleAttribute('open')
+      body.classList.toggle('overflow-hidden')
+    })
+  })
+</script>

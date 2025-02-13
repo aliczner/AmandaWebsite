@@ -1,0 +1,33 @@
+---
+interface Props {
+  text: string
+  href?: string
+  className?: string
+  variant: string
+}
+const { text, href, className, variant } = Astro.props
+
+const bgColour =
+  variant === 'primary'
+    ? 'bg-primary text-white'
+    : 'bg-secondary text-neutral-700'
+
+const hoverEffects = 'hover:shadow-lg hover:bg-opacity-80'
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={`px-8 py-4 rounded-md transition ${className} ${bgColour} ${hoverEffects}`}
+    >
+      {text}
+    </a>
+  ) : (
+    <button
+      class={`px-8 py-4 rounded-md transition ${className} ${bgColour}  ${hoverEffects}`}
+    >
+      {text}
+    </button>
+  )
+}

@@ -1,65 +1,72 @@
-# Astro Starter Kit: Blog
+# Free Astro Components
 
+Welcome to the **Free Astro Components** repository! This library offers a collection of free, customizable components designed specifically for [Astro.js](https://astro.build/).
+
+## About
+
+This repository powers the documentation site available at [free-astro-components.vercel.app](https://free-astro-components.vercel.app), where you can find detailed usage examples, API references, and customization options for each component in this library.
+
+You can explore the full repository on GitHub [here](https://github.com/denv17/free-astro-components).
+
+## Components
+
+The library currently includes the following components:
+
+- **Icons**: A set of icons for various uses.
+- **Buttons**: Stylish and functional buttons for your web applications.
+- **Controls**
+  - **Checkbox**: A checkbox component.
+  - **Radio**: A radio button component.
+  - **Switch**: A toggle switch component for user interactions.
+- **Input**: A versatile input component for user text entry.
+- **Textarea**: A textarea component for larger text input.
+- **Select**: A select dropdown component.
+- **Tab**: A tab component for organizing content into tabs.
+  - **TabItem**: A subcomponent for individual tab items.
+- **Modal**: A modal component for displaying content in a dialog.
+  - **ModalHeader**: The header section of the modal, usually containing a title and a close button.
+  - **ModalBody**: The main content area of the modal.
+  - **ModalFooter**: The footer section of the modal, typically containing action buttons.
+- **Accordion**
+  - A component for creating collapsible content sections.
+  - **AccordionItem**: A subcomponent for individual accordion items.
+
+You can find the code for these components in the [components directory](https://github.com/denv17/free-astro-components/tree/main/src/components) of the GitHub repository.
+
+## Installation
+
+To install the components in your Astro.js project, run:
+
+```bash
+npm install free-astro-components
 ```
-npm create astro@latest -- --template blog
+
+## Usage
+
+Each component comes with its own documentation and usage examples, which you can find in the [documentation site](https://free-astro-components.vercel.app). Here is a basic example of how to use a component:
+
+```astro
+---
+import { Button } from 'free-astro-components';
+---
+
+<Button label="Click me" />
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/blog)
+## Customization
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Most components come with customizable CSS variables, making it easy to adapt the design to your project. For more details, refer to the [Customize Colors](https://free-astro-components.vercel.app/customize-colors) section in the documentation.
 
+## Contributing
 
-![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
+Contributions are welcome! If you have suggestions or find bugs, please [open an issue](https://github.com/denv17/free-astro-components/issues) or submit a pull request.
 
-Features:
+## License
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+This project is licensed under the MIT License.
 
-## 🚀 Project Structure
+## Thanks
 
-Inside of your Astro project, you'll see the following folders and files:
+If you find this project helpful and would like to support its development, consider buying me a coffee:
 
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >](https://buymeacoffee.com/denv)

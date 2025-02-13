@@ -1,0 +1,63 @@
+.fab:hover {
+    color: #A3B18A;
+    stroke-width: 5.3px;
+    -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #3A5A40;
+    -webkit-fill-color: #3A5A40;
+    text-shadow: 1px 0px 20px #3A5A40;
+    -webkit-transition: all 0.1s ease 0s;
+    -moz-transition: all 0.1s ease 0s;
+    -o-transition: all 0.1s ease 0s;
+    transition: all 0.1s ease 0s;
+  }
+
+  .fab:hover:before {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    -ms-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+  }
+  .fab:hover:after {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    -ms-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  
+.fa-tiktok {
+
+    color: #D1DBD3;
+    font-size: 26px;
+    padding: 10px;
+}
+
+.fa-twitter {
+
+    color: #D1DBD3;
+    font-size: 26px;
+    padding: 10px;
+}
+
+
+.fa-mastodon {
+
+    color: #D1DBD3;
+    font-size: 26px;
+    padding: 10px;
+}
+
+.fa-instagram {
+
+    color: #D1DBD3;
+    font-size: 26px;
+    padding: 5px;
+}
+

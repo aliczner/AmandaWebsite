@@ -1,0 +1,89 @@
+:root {
+    --ac-white: 238, 229, 233;
+    --ac-primary: 136, 90, 90;
+    --ac-secondary: 171, 163, 97;
+    --ac-dark: 57, 79, 73;
+    --ac-gray-100: 245, 245, 245;
+    --ac-gray-200: 233, 233, 233;
+    --ac-gray-300: 200, 200, 200;
+    --ac-gray-400: 160, 160, 160;
+    --ac-gray-500: 120, 120, 120;
+    --ac-color-100: 250, 250, 250;
+    --ac-color-200: 240, 240, 240;
+    --ac-color-300: 220, 220, 220;
+    --ac-color-400: 180, 180, 180;
+    --ac-color-500: 140, 140, 140;
+    --ac-color-600: 100, 100, 100;
+    --ac-color-700: 60, 60, 60;
+}
+
+body {
+    background-color: rgb(var(--ac-white));
+    color: rgb(var(--ac-dark));
+}
+
+.primary {
+    background-color: rgb(var(--ac-primary));
+    color: rgb(var(--ac-white));
+}
+
+.secondary {
+    background-color: rgb(var(--ac-secondary));
+    color: rgb(var(--ac-white));
+}
+
+.off-white {
+    background-color: rgb(var(--ac-white));
+}
+
+.gray-100 {
+    background-color: rgb(var(--ac-gray-100));
+}
+
+.gray-200 {
+    background-color: rgb(var(--ac-gray-200));
+}
+
+.gray-300 {
+    background-color: rgb(var(--ac-gray-300));
+}
+
+.gray-400 {
+    background-color: rgb(var(--ac-gray-400));
+}
+
+.gray-500 {
+    background-color: rgb(var(--ac-gray-500));
+}
+
+.neutral-100 {
+    background-color: rgb(var(--ac-color-100));
+}
+
+.neutral-200 {
+    background-color: rgb(var(--ac-color-200));
+}
+
+.neutral-300 {
+    background-color: rgb(var(--ac-color-300));
+}
+
+.neutral-400 {
+    background-color: rgb(var(--ac-color-400));
+}
+
+.neutral-500 {
+    background-color: rgb(var(--ac-color-500));
+}
+
+.neutral-600 {
+    background-color: rgb(var(--ac-color-600));
+}
+
+.neutral-700 {
+    background-color: rgb(var(--ac-color-700));
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
