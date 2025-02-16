@@ -1,39 +1,49 @@
 ---
 import Card from '../components/Card.astro'
+import fs from 'fs'
+
+const bumblebeeIcon = fs.readFileSync('./src/icons/bee.svg', 'utf-8')
+const book = fs.readFileSync('./src/icons/book.svg', 'utf-8')
 ---
 
 <section class="py-8 lg:py-16">
   <div class="container flex flex-col gap-16">
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-16">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-16">
       <li>
         <Card
           type="primary"
-          icon="star"
-          title="Education"
+          icon={book}
+          title="Skills & Education"
+          href="/guide/installation"
+        />
+      </li>
+
+      <li>
+        <Card
+          type="primary"
+          icon={bumblebeeIcon}
+          title="Current Work"
           href="/guide/installation"
         />
       </li>
       <li>
         <Card
-          type="secondary"
-          icon="ellipse"
-          title="Easy Integration"
-          href="/guide/installation"
-        />
-      </li>
-      <li>
-        <Card
-          type="secondary"
-          icon="square"
-          title="Responsive Design"
-          href="/guide/installation"
-        />
-      </li>
-      <li>
-        <Card
-          type="secondary"
-          icon="triangle"
-          title="Customizable"
+          type="primary"
+          icon={`
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              class="lucide lucide-trophy"
+            >
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+              <path d="M4 22h16" />
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+            </svg>
+          `}
+          title="Experience"
           href="/guide/installation"
         />
       </li>
@@ -41,15 +51,7 @@ import Card from '../components/Card.astro'
         <Card
           type="primary"
           icon="hexagon"
-          title="Scalable"
-          href="/guide/installation"
-        />
-      </li>
-      <li>
-        <Card
-          type="secondary"
-          icon="circle"
-          title="User-Friendly"
+          title="Collaborate & Contact"
           href="/guide/installation"
         />
       </li>
