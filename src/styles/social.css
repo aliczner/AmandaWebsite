@@ -1,22 +1,22 @@
 .fab:hover, 
 .social svg:hover path {
-  fill: rgba(136, 90, 90, 0.6); 
-  stroke: rgba(136, 90, 90, 0.6);
+  fill: rgb(var(--ac-secondary)); 
+  color: rgb(var(--ac-secondary));
   stroke-width: 3px; 
-    text-shadow: 1px 0px 20px #885A5A;
+    text-shadow: rgb(var(--ac-secondary));
     transition: all 0.1s ease 0s;
 }
   
 .fa-tiktok {
 
-    color: #885A5A;
+    color: rgb(var(--ac-primary));
     font-size: 26px;
     padding: 10px;
 }
 
 .fa-twitter {
 
-    color: #885A5A;
+    color: rgb(var(--ac-primary));
     font-size: 26px;
     padding: 10px;
 }
@@ -24,14 +24,13 @@
 
 .fa-bluesky {
 
-    color: #885A5A;
     margin-top: 5px;
   
 }
 
 .fa-instagram {
 
-    color: #885A5A;
+    color: rgb(var(--ac-primary));
     font-size: 26px;
     padding: 5px;
 }
