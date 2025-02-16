@@ -2,6 +2,7 @@
     --ac-white: 238, 229, 233;
     --ac-primary: 182, 140, 184; /* #B68CB8 */
     --ac-secondary: 103, 2, 81; /* #670251 */
+    --ac-accent:1, 27, 11 ; /* #E9D758  */    
     --ac-dark: 107, 96, 84; /* #6B6054 */    
     --ac-gray-100: 245, 245, 245;
     --ac-gray-200: 233, 233, 233;
@@ -24,13 +25,19 @@ body {
 
 .primary {
     background-color: rgb(var(--ac-primary));
-    color: rgb(var(--ac-white));
+    color: rgb(var(--ac-primary));
 }
 
 .secondary {
     background-color: rgb(var(--ac-secondary));
-    color: rgb(var(--ac-white));
+    color: rgb(var(--ac-secondary));
 }
+
+.accent {
+    background-color: rgb(var(--ac-accent));
+    color: rgb(var(--ac-accent));
+}
+
 
 .off-white {
     background-color: rgb(var(--ac-white));

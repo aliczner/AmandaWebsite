@@ -4,13 +4,19 @@ import Hamburguer from './Hamburguer.astro'
 import Social from './Social.astro'
 ---
 
+<style>
+  .header {
+    background-color: rgba(var(--ac-accent), 0.9);
+  }
+</style>
+
 <header
-  class="relative inset-x-0 top-0 bg-off-white/80 text-neutral-700 py-2 border-b backdrop-blur-md z-20"
+  class="header relative inset-x-0 top-0 text-white py-2 backdrop-blur-md z-20"
 >
   <div class="container flex justify-between items-center gap-8 relative">
     <Social />
     <a
-      class="text-primary hover:text-secondary text-4xl font-bold leading-none transition duration-300 ease-in-out"
+      class="text-primary hover:text-primary text-4xl font-bold leading-none transition duration-300 ease-in-out"
       href="/"
       aria-label="Free Astro components"
     >

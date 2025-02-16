@@ -1,22 +1,22 @@
 .fab:hover, 
 .social svg:hover path {
-  fill: rgb(var(--ac-secondary)); 
-  color: rgb(var(--ac-secondary));
+  fill: rgb(var(--ac-primary)); 
+  color: rgb(var(--ac-primary));
   stroke-width: 3px; 
-    text-shadow: rgb(var(--ac-secondary));
+    text-shadow: rgb(var(--ac-primary));
     transition: all 0.1s ease 0s;
 }
   
 .fa-tiktok {
 
-    color: rgb(var(--ac-primary));
+    color: rgb(var(--ac-white));
     font-size: 26px;
     padding: 10px;
 }
 
 .fa-twitter {
 
-    color: rgb(var(--ac-primary));
+    color: rgb(var(--ac-white));
     font-size: 26px;
     padding: 10px;
 }
@@ -30,7 +30,7 @@
 
 .fa-instagram {
 
-    color: rgb(var(--ac-primary));
+    color: rgb(var(--ac-white));
     font-size: 26px;
     padding: 5px;
 }
