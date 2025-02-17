@@ -1,0 +1,32 @@
+---
+import Content from '../../layouts/Content.astro'
+import Heading from '../../components/Heading.astro'
+import Article from '../../components/Article.astro'
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Header from '../../components/Header.astro'
+import ProjectCard from '../components/project-card.astro'
+---
+
+<Layout title="Homepage - Amanda Licnzer">
+  <Sidebar class="lg:hidden" />
+  <Header />
+  <Content>
+    <Article>
+      <Heading
+        slot="header"
+        level={1}
+        gradient
+        class="inline-block"
+        text="My Work"
+      />
+      <ProjectCard
+        image="/pictures/Project1A.JPG"
+        title="Bee Tagging"
+        description="We are testing for possible impacts of pesticides on the movement of bumble bees. We are doing this with the help of tiny radio tags that track their movement!"
+        buttonText="Learn More"
+        buttonLink="/current-work/bee-tagging"
+      />
+    </Article></Content
+  ></Layout
+>
