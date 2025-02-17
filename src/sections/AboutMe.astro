@@ -1,0 +1,153 @@
+---
+import '../styles/main.scss'
+import Content from '../layouts/Content.astro'
+import Heading from '../components/Heading.astro'
+import Article from '../components/Article.astro'
+---
+
+<style>
+  .page-title {
+    font-family: Century Gothic;
+  }
+
+  .bee-list {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+
+  .bee-list li::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('./pictures/bumblebee2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+  }
+
+  .polaroid {
+    background-color: azure;
+  }
+</style>
+
+<Content>
+  <section>
+    <Article>
+      <Heading
+        slot="header"
+        level={1}
+        gradient
+        class="inline-block"
+        text="About me"
+      />
+
+      <div class="mx-auto overflow-hidden my-4 md:text-xl small-screen-padding">
+        <div class="md:flex my-4 md:space-x-4">
+          <div class="md:w-3/5 bee-list">
+            I am a postdoctoral research fellow at the University of Guelph
+            supervised by <a
+              class="hyperlinks"
+              href="https://1in3mouthfuls.org/"
+            >
+              Dr. Nigel Raine.
+            </a> We are testing for possible impacts of pesticides on the movement
+            of bumble bees. We are doing this with the help of tiny radio tags that
+            track their movement! See my <a
+              class="hyperlinks"
+              href="https://www.tiktok.com/@bumblebeehaviour">TikTok</a
+            > for some cool photos and videos and check out my current work page
+            for more details!
+            <br />
+            <br />
+            My research interests are:
+            <ul>
+              <li>behavioural ecology</li>
+              <li>conservation</li>
+              <li>restoration</li>
+              <li>pollinators</li>
+              <li>all things bumble bees!</li>
+            </ul>
+          </div>
+
+          <div class="md:w-1/4 my-4">
+            <div
+              class="polaroid p-2 shadow-lg rounded-lg border border-gray-300"
+            >
+              <img
+                class="h-72 w-full object-cover md:h-full"
+                src="/pictures/AmandaLiczner.jpg"
+                alt="Amanda Liczner headshot in the field"
+              />
+              <p class="text-center text-sm mt-2 font-semibold">
+                Amanda in the field
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:flex my-4 md:space-x-4">
+          <div class="md:w-2/5 my-4">
+            <div
+              class="polaroid p-2 shadow-lg rounded-lg border border-gray-300"
+            >
+              <img
+                class="h-72 w-full object-cover md:h-full"
+                src="/pictures/Bumble.jpg"
+                alt="Bumble bee with a radio tag on dandelions"
+              />
+              <p class="text-center text-sm mt-2 font-semibold">
+                Bumble bee with a radio tag
+              </p>
+            </div>
+          </div>
+          <div class="md:w-3/5 bee-list">
+            I have studied bumble bees using a variety of methods:
+            <ul>
+              <li>field sampling of bees, nests, and plants</li>
+              <li>statistical modelling</li>
+              <li>conservation planning</li>
+              <li>systematic literature reviews</li>
+              <li>radio telemetry to study movement behaviour</li>
+              <br />
+            </ul>
+            You can learn more about the skills I have picked up along the way on
+            my skills page.
+            <br />
+            <br />
+            Why so much focus on bumble bees? BEE-cause they are the best! They can
+            be found across many continents, are great pollinators for wild and crop
+            plants, and have a very interesting life history.
+          </div>
+        </div>
+
+        <div class="md:flex my-4 md:space-x-4 pt-6">
+          <div class="md:w-2/5 my-4">
+            <div
+              class="polaroid p-2 shadow-lg rounded-lg border border-gray-300"
+            >
+              <img
+                class="h-36 w-full object-cover md:h-full"
+                src="/pictures/Phoebe.jpg"
+                alt="Amanda Liczner with Phoebe in a kayak"
+              />
+              <p class="text-center text-sm mt-2 font-semibold">
+                Amanda & Phoebe in a kayak
+              </p>
+            </div>
+          </div>
+          <div class="md:w-3/5 my-4">
+            Although my specialty is bumble bee research, I am open to working
+            on any ecological research project, especially those with an applied
+            angle (see some of my past research examples on my experience page).
+            <br />
+            <br />
+            When I am not out searching for bumble bees or analyzing data, you can
+            find me hanging out with my dog, gardening, hiking, playing violin, baking
+            or crafting!
+          </div>
+        </div>
+      </div>
+    </Article>
+  </section>
+</Content>
