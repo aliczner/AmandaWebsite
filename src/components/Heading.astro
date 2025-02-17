@@ -2,11 +2,19 @@
 interface Props {
   level?: number
   text: string
+  id?: string
   gradient?: boolean
   class?: string
 }
 
-const { level = 2, text, gradient, class: className, ...props } = Astro.props
+const {
+  id,
+  level = 2,
+  text,
+  gradient,
+  class: className,
+  ...props
+} = Astro.props
 
 const levelClasses = {
   1: 'text-4xl lg:text-5xl',
@@ -28,7 +36,7 @@ const headingClasses = [levelClasses, gradientClasses, className]
 
 {
   level === 1 && (
-    <h1 class={headingClasses} {...props}>
+    <h1 class={headingClasses} id={id} {...props}>
       {text}
     </h1>
   )
@@ -36,7 +44,7 @@ const headingClasses = [levelClasses, gradientClasses, className]
 
 {
   level === 2 && (
-    <h2 class={headingClasses} {...props}>
+    <h2 class={headingClasses} id={id} {...props}>
       {text}
     </h2>
   )
@@ -44,7 +52,7 @@ const headingClasses = [levelClasses, gradientClasses, className]
 
 {
   level === 3 && (
-    <h3 class={headingClasses} {...props}>
+    <h3 class={headingClasses} id={id} {...props}>
       {text}
     </h3>
   )
@@ -52,7 +60,7 @@ const headingClasses = [levelClasses, gradientClasses, className]
 
 {
   level === 4 && (
-    <h4 class={headingClasses} {...props}>
+    <h4 class={headingClasses} id={id} {...props}>
       {text}
     </h4>
   )
@@ -60,7 +68,7 @@ const headingClasses = [levelClasses, gradientClasses, className]
 
 {
   level === 5 && (
-    <h5 class={headingClasses} {...props}>
+    <h5 class={headingClasses} id={id} {...props}>
       {text}
     </h5>
   )
@@ -68,7 +76,7 @@ const headingClasses = [levelClasses, gradientClasses, className]
 
 {
   level === 6 && (
-    <h6 class={headingClasses} {...props}>
+    <h6 class={headingClasses} id={id} {...props}>
       {text}
     </h6>
   )

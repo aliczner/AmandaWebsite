@@ -6,13 +6,8 @@ import Article from '../components/Article.astro'
 ---
 
 <style>
-  .page-title {
-    font-family: Century Gothic;
-  }
-
   .bee-list {
     list-style-type: none;
-    padding-left: 20px;
   }
 
   .bee-list li::before {
@@ -28,6 +23,8 @@ import Article from '../components/Article.astro'
 
   .polaroid {
     background-color: azure;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 </style>
 
@@ -40,9 +37,10 @@ import Article from '../components/Article.astro'
         gradient
         class="inline-block"
         text="About me"
+        id="about-me"
       />
 
-      <div class="mx-auto overflow-hidden my-4 md:text-xl small-screen-padding">
+      <div class="overflow-hidden my-4 md:text-xl">
         <div class="md:flex my-4 md:space-x-4">
           <div class="md:w-3/5 bee-list">
             I am a postdoctoral research fellow at the University of Guelph
@@ -70,7 +68,7 @@ import Article from '../components/Article.astro'
             </ul>
           </div>
 
-          <div class="md:w-1/4 my-4">
+          <div class="md:w-1/3 my-4">
             <div
               class="polaroid p-2 shadow-lg rounded-lg border border-gray-300"
             >
@@ -79,9 +77,7 @@ import Article from '../components/Article.astro'
                 src="/pictures/AmandaLiczner.jpg"
                 alt="Amanda Liczner headshot in the field"
               />
-              <p class="text-center text-sm mt-2 font-semibold">
-                Amanda in the field
-              </p>
+              <br />
             </div>
           </div>
         </div>
@@ -96,9 +92,7 @@ import Article from '../components/Article.astro'
                 src="/pictures/Bumble.jpg"
                 alt="Bumble bee with a radio tag on dandelions"
               />
-              <p class="text-center text-sm mt-2 font-semibold">
-                Bumble bee with a radio tag
-              </p>
+              <br />
             </div>
           </div>
           <div class="md:w-3/5 bee-list">
@@ -131,9 +125,7 @@ import Article from '../components/Article.astro'
                 src="/pictures/Phoebe.jpg"
                 alt="Amanda Liczner with Phoebe in a kayak"
               />
-              <p class="text-center text-sm mt-2 font-semibold">
-                Amanda & Phoebe in a kayak
-              </p>
+              <br />
             </div>
           </div>
           <div class="md:w-3/5 my-4">
