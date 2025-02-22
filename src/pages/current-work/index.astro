@@ -6,27 +6,30 @@ import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
 import ProjectCard from '../components/project-card.astro'
+import '../../styles/main.scss'
 ---
 
-<Layout title="Homepage - Amanda Licnzer">
+<Layout title="Homepage - Amanda Liczner">
   <Sidebar class="lg:hidden" />
   <Header />
   <Content>
-    <Article>
-      <Heading
-        slot="header"
-        level={1}
-        gradient
-        class="inline-block"
-        text="My Work"
-      />
-      <ProjectCard
-        image="/pictures/Project1A.JPG"
-        title="Bee Tagging"
-        description="We are testing for possible impacts of pesticides on the movement of bumble bees. We are doing this with the help of tiny radio tags that track their movement!"
-        buttonText="Learn More"
-        buttonLink="/current-work/bee-tagging"
-      />
-    </Article></Content
-  ></Layout
->
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="My Work"
+        />
+        <ProjectCard
+          image="/pictures/Project1A.JPG"
+          title="Bee Tagging"
+          description="We are testing for possible impacts of pesticides on the movement of bumble bees. We are doing this with the help of tiny radio tags that track their movement!"
+          buttonText="Learn More"
+          buttonLink="/current-work/env-stressors"
+        />
+      </Article>
+    </section>
+  </Content>
+</Layout>
