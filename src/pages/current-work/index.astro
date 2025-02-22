@@ -6,6 +6,7 @@ import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
 import ProjectCard from '../components/project-card.astro'
+import Text from '../../components/Text.astro'
 import '../../styles/main.scss'
 ---
 
@@ -19,13 +20,21 @@ import '../../styles/main.scss'
           slot="header"
           level={1}
           gradient
-          class="inline-block"
+          class="inline-block py-1"
           text="My Work"
         />
+        <Text>Click on a project below to learn about my work </Text>
         <ProjectCard
           image="/pictures/Project1A.JPG"
-          title="Bee Tagging"
+          title="Impacts of environmental stressors on bumble bee queen movement"
           description="We are testing for possible impacts of pesticides on the movement of bumble bees. We are doing this with the help of tiny radio tags that track their movement!"
+          buttonText="Learn More"
+          buttonLink="/current-work/env-stressors"
+        />
+        <ProjectCard
+          image="/pictures/Project2A.jpg"
+          title="Learning their needs by tracking the bees"
+          description="In this project we tagged spring bumble bee queens and late summer bumble bee queens to learn more about their movement behaviour, habitat selection, and about their nesting and overwintering habitat locations."
           buttonText="Learn More"
           buttonLink="/current-work/env-stressors"
         />

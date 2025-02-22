@@ -11,20 +11,22 @@ const { image, title, description, buttonText, buttonLink } = Astro.props
 ---
 
 <div
-  class="md:flex my-4 md:space-x-4 mx-auto border border-gray-300 rounded-lg shadow-md p-4"
+  class="md:flex my-4 md:space-x-4 mx-auto border border-gray-300 rounded-lg shadow-md p-4 bg-gray-100"
 >
   <!-- Left: Image (Fixed Width) -->
   <div class="md:w-1/4">
-    <img src={image} alt={title} class="h-auto object-cover rounded-lg" />
+    <a href={buttonLink}>
+      <img src={image} alt={title} class="h-auto object-cover rounded-lg" />
+    </a>
   </div>
   <!-- Middle: Title & Description (Flexible Width) -->
-  <div class="md:w-2/4 md:py-2">
+  <div class="md:w-2/4 py-2 max-w-full">
     <h3 class="text-xl font-semibold">{title}</h3>
     <p class="text-gray-600 text-sm mt-2">{description}</p>
   </div>
 
   <!-- Right: Button (Fixed Width) -->
-  <div class="w-1/4 py-4">
+  <div class="md:w-1/4 py-4 flex md:items-center md:justify-center w-full">
     <Button
       href={buttonLink}
       text={buttonText}
