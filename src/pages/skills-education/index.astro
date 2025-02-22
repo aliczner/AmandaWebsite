@@ -15,18 +15,16 @@ import '../../styles/main.scss'
   <Content>
     <section>
       <Article>
-        <!-- Page Title -->
         <Heading
           slot="header"
           level={1}
           gradient
-          class="inline-block py-12 md:px-12 mx-auto px-2 text-3xl md:text-6xl"
+          class="inline-block mx-auto"
           text="Skills"
         />
-
         <div class="md:flex my-4 md:space-x-4">
           <!-- Technical Skills -->
-          <div class="md:w-1/3">
+          <div class="md:w-1/2">
             <Heading level={2} class="my-4" text="Technical Skills" />
             <ul class="list-disc pl-6">
               <li>
@@ -51,7 +49,7 @@ import '../../styles/main.scss'
           </div>
 
           <!-- Tools and Software -->
-          <div class="md:w-1/3">
+          <div class="md:w-1/2">
             <Heading level={2} class="my-4" text="Tools and Software" />
             <ul class="list-disc pl-6">
               <li>R programming language</li>
@@ -60,10 +58,9 @@ import '../../styles/main.scss'
               <li>Open Science Framework</li>
               <li>Web Development (HTML, CSS, Astro)</li>
             </ul>
-          </div>
 
-          <!-- Communication Skills -->
-          <div class="md:w-1/3">
+            <!-- Communication Skills -->
+
             <Heading level={2} class="my-4" text="Communication Skills" />
             <ul class="list-disc pl-6">
               <li>Technical writing and report writing</li>
@@ -73,6 +70,88 @@ import '../../styles/main.scss'
               <li>Blogging</li>
               <li>Teaching</li>
             </ul>
+          </div>
+        </div>
+        <div>
+          <Heading
+            slot="header"
+            level={1}
+            gradient
+            class="inline-block"
+            text="Education"
+          />
+          <div class="md:flex my-4 md:space-x-4">
+            <div class="md:w-1/2">
+              <Heading
+                slot="header"
+                level={4}
+                gradient
+                class="inline-block mx-auto my-4 w-full"
+                text="Ph.D. Biology - York University, Canada"
+              />
+
+              <Text class="px-4">
+                <ul>
+                  <li class="font-semibold">2016-2020</li>
+                  <li>
+                    Dissertation: "The effects of climate change on bumble bee
+                    movement and habitat selection"
+                  </li>
+                  <li>Supervisor: Dr. Sheila Colla, York University, Canada</li>
+                </ul>
+              </Text>
+              <Heading
+                slot="header"
+                level={4}
+                gradient
+                class="inline-block mx-auto my-4 w-full"
+                text="M.Sc. Biology - York University, Canada"
+              />
+
+              <Text class="px-4">
+                <ul>
+                  <li class="font-semibold">2014-2016</li>
+                  <li>
+                    Dissertation: "Nursing back to health: Shrubs facilitate the
+                    restoration of native forbs with reductions in non-native
+                    competition in an invaded arid shrubland."
+                  </li>
+
+                  <li>
+                    Supervisor: Dr. Christopher Lortie, York University, Canada
+                  </li>
+                </ul>
+              </Text>
+              <Heading
+                slot="header"
+                level={4}
+                gradient
+                class="inline-block mx-auto my-4 w-full"
+                text="Spec. Hons. B.Sc. Biology - York University, Canada"
+              />
+
+              <Text class="px-4">
+                <ul>
+                  <li class="font-semibold">2009 - 2013</li>
+                  <li>
+                    Honours thesis: "A desert nurse plant (Larrea tridentata)
+                    facilitates the germination and seed characteristics of
+                    winter annuals in California."
+                  </li>
+
+                  <li>
+                    Supervisor: Dr. Christopher Lortie, York University, Canada
+                  </li>
+                </ul>
+              </Text>
+            </div>
+            <div class="md:w-1/2">
+              <img
+                class="flex-1 p-6 w-full max-w-[40vh] md:max-w-[50vh] rounded-full"
+                src="/pictures/education.jpg"
+                alt="Amanda Liczner graduation headshot"
+              />
+            </div>
           </div>
         </div>
       </Article>
