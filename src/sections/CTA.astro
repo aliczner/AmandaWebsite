@@ -8,14 +8,12 @@ interface Props {
 const { title, description, align } = Astro.props
 ---
 
-<section class="pb-16 lg:pb-32">
-  <div class="container">
-    <div
-      class="bg-gradient-to-r from-primary/50 to-secondary/50 rounded-3xl p-px"
-    >
+<section class="pb-12 lg:pb-24">
+  <div class="container mx-auto">
+    <div class="max-w-4xl mx-auto border border-gray-300 rounded-3xl p-px">
       <div
         class:list={[
-          'flex flex-col gap-16 bg-neutral-100 rounded-3xl px-8 lg:px-16 xl:px-24 py-16 lg:py-32',
+          'flex flex-col gap-12 bg-neutral-100/80 rounded-3xl px-6 lg:px-12 xl:px-18 py-12 lg:py-24',
           align === 'center' ? 'text-center' : '',
         ]}
       >

@@ -1,8 +1,8 @@
-:root {
-    --ac-white: 238, 229, 233;
-    --ac-primary: 182, 140, 184; /* #B68CB8 */
-    --ac-secondary: 103, 2, 81; /* #670251 */
-    --ac-accent:1, 27, 11 ; /* #E9D758 Header  */    
+:root { 
+    --ac-white: 231, 223, 198;
+    --ac-primary: 108, 58, 92;  /* #B68CB8 */
+    --ac-secondary: 180, 130, 145;   /* #670251 */
+    --ac-accent: 6, 47, 12 ; /* #E9D758 Header  */    
     --ac-dark: 107, 96, 84; /* #6B6054 */    
     --ac-gray-100: 245, 245, 245;
     --ac-gray-200: 233, 233, 233;
@@ -44,7 +44,7 @@ body {
 }
 
 .gray-100 {
-    background-color: rgb(var(--ac-gray-100));
+    background-color: rgba(var(--ac-gray-100)); 
 }
 
 .gray-200 {
