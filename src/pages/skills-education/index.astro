@@ -22,56 +22,82 @@ import '../../styles/main.scss'
           class="inline-block mx-auto"
           text="Skills"
         />
-        <div class="md:flex my-4 md:space-x-4">
-          <!-- Technical Skills -->
-          <div class="md:w-1/2">
-            <Heading level={2} class="my-4" text="Technical Skills" />
-            <ul class="list-disc pl-6">
-              <li>
+        <div class="grid md:grid-cols-2 gap-6 my-6">
+          <!-- Data & Analysis Skills -->
+          <div class="bg-gray-100/80 p-6 rounded-lg shadow-md">
+            <Heading
+              level={2}
+              class="text-lg font-semibold mb-4"
+              text="Data & Analysis Skills"
+            />
+            <ul class="space-y-2">
+              <li class="font-semibold">
                 Data analysis, management, and manipulation
-                <ul class="list-disc pl-6">
-                  <li>Spatial analysis</li>
-                  <li>Machine learning</li>
-                  <li>Climate modelling</li>
-                  <li>Conservation planning</li>
-                  <li>Movement analysis</li>
-                  <li>Version control</li>
-                  <li>Big data analysis</li>
-                </ul>
               </li>
+              <ul class="ml-4 text-gray-600">
+                <li>Spatial analysis</li>
+                <li>Machine learning</li>
+                <li>Climate modelling</li>
+                <li>Conservation planning</li>
+                <li>Movement analysis</li>
+                <li>Big data analysis</li>
+              </ul>
               <li>Telemetry</li>
-              <li>Pollinator and plant surveys</li>
               <li>Habitat analysis</li>
               <li>Experimental design</li>
-              <li>Project management</li>
-              <li>Literature search</li>
             </ul>
           </div>
 
-          <!-- Tools and Software -->
-          <div class="md:w-1/2">
-            <Heading level={2} class="my-4" text="Tools and Software" />
-            <ul class="list-disc pl-6">
-              <li>R programming language</li>
+          <!-- Software & Tools -->
+          <div class="bg-gray-100/80 p-6 rounded-lg shadow-md">
+            <Heading
+              level={2}
+              class="text-lg font-semibold mb-4"
+              text="Software & Tools"
+            />
+            <ul class="space-y-2">
+              <li>R programming</li>
               <li>QGIS</li>
               <li>GitHub</li>
               <li>Open Science Framework</li>
               <li>Web Development (HTML, CSS, Astro)</li>
+              <li>Version control</li>
             </ul>
+          </div>
 
-            <!-- Communication Skills -->
+          <!-- Research & Project Management -->
+          <div class="bg-gray-100/80 p-6 rounded-lg shadow-md">
+            <Heading
+              level={2}
+              class="text-lg font-semibold mb-4"
+              text="Research & Project Management"
+            />
+            <ul class="space-y-2">
+              <li>Project management</li>
+              <li>Literature search</li>
+              <li>Experimental design</li>
+              <li>Conservation planning</li>
+              <li>Data organization & curation</li>
+            </ul>
+          </div>
 
-            <Heading level={2} class="my-4" text="Communication Skills" />
-            <ul class="list-disc pl-6">
-              <li>Technical writing and report writing</li>
+          <!-- Communication & Outreach -->
+          <div class="bg-gray-100/80 p-6 rounded-lg shadow-md">
+            <Heading
+              level={2}
+              class="text-lg font-semibold mb-4"
+              text="Communication & Outreach"
+            />
+            <ul class="space-y-2">
+              <li>Technical & report writing</li>
               <li>Scientific publications</li>
-              <li>Distilling complex information for wide audiences</li>
-              <li>Social media management</li>
-              <li>Blogging</li>
+              <li>Distilling complex information</li>
+              <li>Blogging & Social Media</li>
               <li>Teaching</li>
             </ul>
           </div>
         </div>
+
         <div>
           <Heading
             slot="header"
@@ -81,7 +107,7 @@ import '../../styles/main.scss'
             text="Education"
           />
           <div class="md:flex my-4 md:space-x-4">
-            <div class="md:w-1/2">
+            <div class="md:w-2/3">
               <Heading
                 slot="header"
                 level={4}
@@ -145,7 +171,7 @@ import '../../styles/main.scss'
                 </ul>
               </Text>
             </div>
-            <div class="md:w-1/2">
+            <div class="md:w-1/3">
               <img
                 class="flex-1 p-6 w-full max-w-[40vh] md:max-w-[50vh] rounded-full"
                 src="/pictures/education.jpg"
