@@ -1,0 +1,100 @@
+---
+import Content from '../../layouts/Content.astro'
+import Heading from '../../components/Heading.astro'
+import Article from '../../components/Article.astro'
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Header from '../../components/Header.astro'
+import { SEO } from 'astro-seo'
+import '../../styles/main.scss'
+---
+
+<SEO
+  title="Amanda Liczner - Contact"
+  description="Contact me for more information about my research or to collaborate."
+  openGraph={{
+    basic: {
+      title: 'Amanda Liczner - Contact',
+      type: 'website',
+      image: '/AmandaLiczner.jpg',
+    },
+  }}
+/>
+<style>
+  .fullscreen-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* set a negative z-index to put it behind the text */
+  }
+
+  .fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%); /* apply brightness filter to darken the video */
+  }
+  .google-form-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .google-form-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .google-form-container iframe {
+    position: relative;
+    width: 60%; /* Adjust width as needed */
+    height: 90vh;
+    border: none;
+    background: transparent;
+    z-index: 2;
+  }
+
+  .container {
+    position: relative;
+    overflow: hidden;
+  }
+</style>
+
+<Layout title="Contact - Amanda Liczner">
+  <Sidebar class="lg:hidden" />
+  <Header />
+  <Content>
+    <Article>
+      <div class="fullscreen-bg">
+        <video loop muted autoplay class="fullscreen-bg__video">
+          <source src="/contactVid.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <Heading
+        slot="header"
+        level={1}
+        gradient
+        class="inline-block mx-auto"
+        text="Contact me"
+      />
+      <div class="google-form-container">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfrcxFYMimZ8d9Ph3AgzNMrn9iWkp2Zh8-7fDJT1p76k0aNtQ/viewform?embedded=true"
+          >Loading…</iframe
+        >
+      </div>
+    </Article>
+  </Content>
+</Layout>
