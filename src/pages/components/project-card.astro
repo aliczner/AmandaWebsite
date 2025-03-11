@@ -3,35 +3,52 @@ export interface Props {
   image: string
   title: string
   description: string
-  buttonText: string
-  buttonLink: string
+  buttonText?: string
+  buttonLink?: string
 }
 import Button from '../../components/Button.astro'
 const { image, title, description, buttonText, buttonLink } = Astro.props
+
+const pictureClass = buttonText && buttonLink ? 'md:w-1/4' : 'md:w-1/3'
+const textClass =
+  buttonText && buttonLink
+    ? 'md:w-2/4 py-2 max-w-full px-4'
+    : 'md:w-2/3 py-2 max-w-full px-4'
 ---
 
 <div
-  class="md:flex my-4 md:space-x-4 mx-auto border border-gray-300 rounded-lg shadow-md p-4 bg-gray-100/80"
+  class="md:flex my-2 md:space-x-4 mx-auto border border-gray-300 rounded-lg shadow-md p-4 bg-gray-100/80"
 >
   <!-- Left: Image (Fixed Width) -->
-  <div class="md:w-1/4">
-    <a href={buttonLink}>
-      <img src={image} alt={title} class="h-auto object-cover rounded-lg" />
-    </a>
-  </div>
-  <!-- Middle: Title & Description (Flexible Width) -->
-  <div class="md:w-2/4 py-2 max-w-full">
-    <h3 class="text-xl font-semibold">{title}</h3>
-    <p class="text-gray-600 text-sm mt-2">{description}</p>
+  <div class={pictureClass}>
+    {
+      buttonLink ? (
+        <a href={buttonLink}>
+          <img src={image} alt={title} class="h-auto object-cover rounded-lg" />
+        </a>
+      ) : (
+        <img src={image} alt={title} class="h-auto object-cover rounded-lg" />
+      )
+    }
   </div>
 
-  <!-- Right: Button (Fixed Width) -->
-  <div class="md:w-1/4 py-4 flex md:items-center md:justify-center w-full">
-    <Button
-      href={buttonLink}
-      text={buttonText}
-      variant="primary"
-      className="lg:text-xl text-lg tracking-wide bg-primary"
-    />
+  <!-- Middle: Title & Description (Flexible Width) -->
+  <div class={textClass}>
+    <h3 class="text-xl font-semibold">{title}</h3>
+    <p class="text-gray-600 text-sm">{description}</p>
   </div>
+
+  <!-- Right: Button (Fixed Width, Only If Provided) -->
+  {
+    buttonText && buttonLink ? (
+      <div class="md:w-1/4 py-4 flex md:items-center md:justify-center w-full">
+        <Button
+          href={buttonLink}
+          text={buttonText}
+          variant="primary"
+          className="lg:text-xl text-lg tracking-wide bg-primary"
+        />
+      </div>
+    ) : null
+  }
 </div>

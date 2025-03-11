@@ -1,0 +1,81 @@
+---
+import { SEO } from 'astro-seo'
+import Content from '../../layouts/Content.astro'
+import Heading from '../../components/Heading.astro'
+import Article from '../../components/Article.astro'
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Header from '../../components/Header.astro'
+import ProjectCard from '../components/project-card.astro'
+import '../../styles/main.scss'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <SEO
+      title="Amanda Liczner - Experience"
+      description="My past experience includes bumble bee conservation, desert plant restoration, and connectivity conservation."
+      openGraph={{
+        basic: {
+          title: 'Amanda Liczner - Experience',
+          type: 'website',
+          image: '/pictures/Experience2.jpg',
+        },
+      }}
+    />
+  </head>
+
+  <main>
+    <Layout title="Experience - Amanda Liczner">
+      <Sidebar class="lg:hidden" />
+      <Header />
+      <Content>
+        <section>
+          <Article>
+            <Heading
+              slot="header"
+              level={1}
+              gradient
+              class="inline-block py-1"
+              text="Experience"
+            />
+
+            <ProjectCard
+              image="/pictures/Experience1.JPG"
+              title="Connectivity and Conservation"
+              description="My first postdoctoral fellowship position was at the University of British Columbia Okanagan, supervised by Drs. Jason Pither, Adam Ford, Lael Parrot, Josie Hughes, and Richard Pither. We are working in a large collaborative group to synthesize future research directions for connectivity conservation."
+            />
+
+            <ProjectCard
+              image="/pictures/Experience2.jpg"
+              title="Bumble Bee Conservation"
+              description="My PhD research at York University focused on at-risk bumble bee species' habitat with the Native Pollinator Research Lab (supervised by Dr. Sheila Colla). I used a variety of methods, including literature reviews, local-scale surveys, landscape-scale models, and detection dogs, to map bumble bee conservation priority areas across Canada."
+            />
+
+            <ProjectCard
+              image="/pictures/Experience3.JPG"
+              title="Native Plant Restoration & Ecological Research"
+              description="Earlier research experiences, including my MSc and BSc, have taken me across various ecosystems. I studied native plant restoration in the Californian deserts, investigated cyanobacteria abundance in northern Ontario lakes, and examined seed germination with and without plant interactions in the alpine-tundra of northern British Columbia."
+            />
+
+            <!-- CV Embed -->
+            <div class="grid place-items-center my-8">
+              <object
+                data="/AmandaLicznerCV.pdf#toolbar=0"
+                type="application/pdf"
+                width="80%"
+                height="800px"
+              >
+              </object>
+            </div>
+          </Article>
+        </section>
+      </Content>
+    </Layout>
+  </main>
+</html>
