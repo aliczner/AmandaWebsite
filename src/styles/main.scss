@@ -1,9 +1,18 @@
+@use "sass:color";
+
+// Define your colors in hex
+$ac-white: #e7dfc6;
+$ac-primary: #6c3a5c;
+$ac-secondary: #b48291;
+$ac-accent: #062f0c;
+$ac-dark: #6b6054;
+
 :root { 
-    --ac-white: 231, 223, 198;
-    --ac-primary: 108, 58, 92;  /* #B68CB8 */
-    --ac-secondary: 180, 130, 145;   /* #670251 */
-    --ac-accent: 6, 47, 12 ; /* #E9D758 Header  */    
-    --ac-dark: 107, 96, 84; /* #6B6054 */    
+    --ac-white: #{color.channel($ac-white, "red")}, #{color.channel($ac-white, "green")}, #{color.channel($ac-white, "blue")};
+    --ac-primary: #{color.channel($ac-primary, "red")}, #{color.channel($ac-primary, "green")}, #{color.channel($ac-primary, "blue")};
+    --ac-secondary: #{color.channel($ac-secondary, "red")}, #{color.channel($ac-secondary, "green")}, #{color.channel($ac-secondary, "blue")};
+    --ac-accent: #{color.channel($ac-accent, "red")}, #{color.channel($ac-accent, "green")}, #{color.channel($ac-accent, "blue")};
+    --ac-dark: #{color.channel($ac-dark, "red")}, #{color.channel($ac-dark, "green")}, #{color.channel($ac-dark, "blue")};
     --ac-gray-100: 245, 245, 245;
     --ac-gray-200: 233, 233, 233;
     --ac-gray-300: 200, 200, 200;
