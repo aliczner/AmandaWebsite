@@ -20,6 +20,7 @@ import '../../styles/main.scss'
     },
   }}
 />
+
 <style>
   .fullscreen-bg {
     position: fixed;
@@ -89,12 +90,77 @@ import '../../styles/main.scss'
         class="inline-block mx-auto"
         text="Contact me"
       />
-      <div class="google-form-container">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfrcxFYMimZ8d9Ph3AgzNMrn9iWkp2Zh8-7fDJT1p76k0aNtQ/viewform?embedded=true"
-          >Loading…</iframe
+      <form
+        id="contact-form"
+        method="POST"
+        action="/api/contact"
+        class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md w-full max-w-lg"
+      >
+        <label class="block mb-2">
+          <span class="text-gray-700">Name</span>
+          <input
+            name="name"
+            type="text"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          />
+        </label>
+
+        <label class="block mb-2">
+          <span class="text-gray-700">Email</span>
+          <input
+            name="email"
+            type="email"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          />
+        </label>
+
+        <label class="block mb-4">
+          <span class="text-gray-700">Message</span>
+          <textarea
+            name="message"
+            rows="5"
+            required
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+          ></textarea>
+        </label>
+
+        <button
+          type="submit"
+          class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
         >
-      </div>
+          Send Message
+        </button>
+        <div id="form-message" class="mt-4 text-center text-sm"></div>
+      </form>
     </Article>
   </Content>
+  <script is:client>
+    const form = document.getElementById('contact-form')
+    const messageBox = document.getElementById('form-message')
+
+    if (form && messageBox) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault()
+
+        const formData = new FormData(form)
+
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+        })
+
+        if (res.ok) {
+          form.reset()
+          messageBox.textContent = 'Thanks! Your message has been sent.'
+          messageBox.className = 'mt-4 text-green-700 text-sm'
+        } else {
+          messageBox.textContent =
+            'Oops! Something went wrong. Please try again later.'
+          messageBox.className = 'mt-4 text-red-700 text-sm'
+        }
+      })
+    }
+  </script>
 </Layout>

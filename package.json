@@ -18,6 +18,7 @@
     "astro": "^5.1.9",
     "astro-seo": "^0.8.4",
     "fs": "^0.0.1-security",
+    "nodemailer": "^6.10.0",
     "solid-js": "^1.9.4",
     "tailwindcss": "^3.4.6",
     "typescript": "^5.5.3"
