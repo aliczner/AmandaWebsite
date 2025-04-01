@@ -1,0 +1,57 @@
+---
+import Header from '../components/Header.astro'; // this is social media icons
+
+---
+
+
+<header>
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="topmenu flex grid grid-cols-12">
+    <div class="social  col-span-3">
+<Header />
+    </div>
+    <div class="topnav col-span-8 col-start-5">
+        <a href="/contact">Contact</a>
+        <a href="/contents">Contents</a>
+        <a href="/collaborate">Collaborate</a>
+        <a href="/experience">Experience</a>
+        <a href="/currentWork">Current work</a>
+        <a href="/skills">Skills</a>
+        <a href="/education">Education</a>
+        <a href="/aboutme">About</a>
+      </div>
+    </div>
+</header>
+<style>
+/* Add a black background color to the top navigation */
+.topmenu {
+  background-color: #3B4A1C;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #BCB382;
+  color: white;
+}
+        .hyperlinks {
+            color: #ECD498;
+        }
+</style>
