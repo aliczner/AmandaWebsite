@@ -41,6 +41,10 @@ import '../../styles/main.scss'
     object-fit: cover;
     filter: brightness(50%); /* apply brightness filter to darken the video */
   }
+
+  .text-shadow-white-glow {
+    text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.8);
+  }
 </style>
 
 <Layout title="Contact - Amanda Liczner">
@@ -57,7 +61,7 @@ import '../../styles/main.scss'
         slot="header"
         level={1}
         gradient
-        class="inline-block mx-auto drop-shadow-md"
+        class="inline-block mx-auto text-shadow-white-glow"
         text="Contact me"
       />
       <form
