@@ -19,18 +19,15 @@ export const POST: APIRoute = async ({ request }) => {
     port: 587,
     secure: false, // use TLS
     auth: {
-      user: import.meta.env.AWS_SES_USERNAME,
-      pass: import.meta.env.AWS_SES_PASSWORD,
-    },
-    tls: {
-      rejectUnauthorized: false, // <- allows self-signed certs
-    },
+      user: import.meta.env.SES_USERNAME,
+      pass: import.meta.env.SES_PASSWORD,
+    }
   })
   
   try {
     await transporter.sendMail({
-      from: import.meta.env.AWS_SES_EMAIL, 
-      to: import.meta.env.AWS_SES_EMAIL, 
+      from: import.meta.env.SES_EMAIL, 
+      to: import.meta.env.SES_EMAIL, 
       subject: 'Amanda Liczner Website - Contact Form Submission',
       text: message.toString(),
     })
