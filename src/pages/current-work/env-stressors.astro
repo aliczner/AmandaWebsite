@@ -1,0 +1,161 @@
+---
+import Content from '../../layouts/Content.astro'
+import Heading from '../../components/Heading.astro'
+import Article from '../../components/Article.astro'
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Header from '../../components/Header.astro'
+import '../../styles/main.scss'
+---
+
+<style>
+  li {
+    margin-left: 5%;
+    margin-bottom: 5px;
+    list-style-type: number;
+  }
+</style>
+<Layout title="Homepage - Amanda Licnzer">
+  <Sidebar class="lg:hidden" />
+  <Header />
+  <Content>
+    <Article>
+      <Heading
+        slot="header"
+        level={1}
+        gradient
+        class="inline-block"
+        text="Impacts of environmental stressors on bumble bee queen movement"
+      />
+
+      <div class="mx-auto overflow-hidden md:max-w-3xl my-4 md:text-xl">
+        <div class="md:flex my-4 md:space-x-4">
+          <div class="md:w-3/5">
+            Bumble bees are important pollinators for wild flowers and crops.
+            They pollinate flowers while collecting the flower&#39;s pollen and
+            nectar that they collect to feed themselves and their young. While
+            collecting pollen and nectar in agricultural areas, they can become
+            exposed to pesticides sprayed on crops to fend off crop pests.
+            Although the levels of these pesticides that are sprayed on crops
+            are not allowed to reach limits that are lethal to bumble bees,
+            researchers have noted there can be sublethal impacts of these
+            chemicals.
+          </div>
+          <div class="md:w-2/5 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/Project1A.JPG"
+              alt="A bumble bee landed on a flower in the field"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4">
+          <div class="my-4">
+            Sublethal impacts do not cause the bees to die, but can still cause
+            harm for example by limiting learning and memory (1, 2), limiting
+            foraging ability(3, 4), interrupt sleep and circadian rhythms(5, 6),
+            and change flight behaviour(7, 8). Although we know that sublethal
+            impacts do occur, pesticide regulatory agencies are not required to
+            test for these impacts before approving the use of pesticides.
+            <br />
+            <br />
+            Neonicotinoids are one class of pesticides that have become notorious
+            for their impacts to pollinators such as bumble bees. As their negative
+            impacts become widely known, neonicotinoids are becoming increasingly
+            regulated and restricted. This will lead to growers looking for alternative
+            pesticides to protect their crops from pests. Newer classes of pesticides
+            could replace neonicotinoid use but whether these newer classes have
+            sublethal impacts is not known.
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4">
+          <div class="md:w-1/2 my-4">
+            To test for possible sublethal impacts of newer pesticide classes on
+            bumble bee queen movement in spring and late summer using
+            radiotelemetry. <br />
+            <br />
+            We are radio tagging bumble bees to track their movement after being
+            exposed (or not) to different pesticides and comparing their movement
+            behaviour.
+          </div>
+          <div class="md:w-1/2 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/Project1B.jpg"
+              alt="A bumble bee with a radio tag on its back climbing on Amanda's finger"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4">
+          <div class="md:w-1/2 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/Project1C.jpg"
+              alt="Amanda inspecting a radiotelemetry tower "
+            />
+          </div>
+          <div class="md:w-1/2 my-4">
+            Their movements are tracked using radio towers set up at our study
+            sites. Using this data, we have compared the flight distance, home
+            range, habitat usage and selection of bumble bee queens. The results
+            are still preliminary, but it unfortunately looks like a newer class
+            of pesticide called diamides are just as harmful as neonicotinoids
+            when we look at their flight behaviour.
+          </div>
+        </div>
+        <div class="my-4">
+          <p class="my-2">
+            <strong>References:</strong>
+          </p>
+
+          <ol type="1" class="text-sm">
+            <li>
+              E. E. W. Samuelson, Z. P. Chen-Wishart, R. J. Gill, E. Leadbeater,
+              Effect of acute pesticide exposure on bee spatial working memory
+              using an analogue of the radial-arm maze. Scientific Reports. 6,
+              38957 (2016).
+            </li>
+            <li>
+              D. A. Stanley, K. E. Smith, N. E. Raine, Bumblebee learning and
+              memory is impaired by chronic exposure to a neonicotinoid
+              pesticide. Scientific Reports. 5, 16508 (2015).
+            </li>
+            <li>
+              D. A. Stanley, N. E. Raine, Chronic exposure to a neonicotinoid
+              pesticide alters the interactions between bumblebees and wild
+              plants. Functional Ecology. 30, 1132–1139 (2016).
+            </li>
+            <li>
+              D. A. Stanley, A. L. Russell, S. J. Morrison, C. Rogers, N. E.
+              Raine, Investigating the impacts of field-realistic exposure to a
+              neonicotinoid pesticide on bumblebee foraging, homing ability and
+              colony growth. Journal of Applied Ecology. 53, 1440–1449 (2016).
+            </li>
+            <li>
+              M. C. Tackenberg, M. A. Giannoni-Guzmán, E. Sanchez-Perez, C. A.
+              Doll, J. L. Agosto-Rivera, K. Broadie, D. Moore, D. G. McMahon,
+              Neonicotinoids disrupt circadian rhythms and sleep in honey bees.
+              Scientific Reports. 10, 17929 (2020).
+            </li>
+            <li>
+              K. Tasman, S. A. Rands, J. J. L. Hodge, The neonicotinoid
+              insecticide imidacloprid disrupts bumblebee foraging rhythms and
+              sleep. iScience. 23, 101827 (2020).
+            </li>
+            <li>
+              D. Kenna, H. Cooley, I. Pretelli, A. R. Rodrigues, S. D. Gill, R.
+              J. Gill, Pesticide exposure affects flight dynamics and reduces
+              flight endurance in bumblebees. Ecology and Evolution. 9,
+              5637–5650 (2019).
+            </li>
+            <li>
+              S. Tosi, G. Burgio, J. C. Nieh, A common neonicotinoid pesticide,
+              thiamethoxam, impairs honey bee flight ability. Scientific
+              Reports. 7, 1201 (2017).
+            </li>
+          </ol>
+        </div>
+      </div>
+    </Article>
+  </Content>
+</Layout>

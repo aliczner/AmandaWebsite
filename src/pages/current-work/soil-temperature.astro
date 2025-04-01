@@ -1,0 +1,74 @@
+---
+import Content from '../../layouts/Content.astro'
+import Heading from '../../components/Heading.astro'
+import Article from '../../components/Article.astro'
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Header from '../../components/Header.astro'
+import '../../styles/main.scss'
+---
+
+<style>
+  li {
+    margin-left: 5%;
+    margin-bottom: 5px;
+    list-style-type: number;
+  }
+</style>
+<Layout title="Homepage - Amanda Licnzer">
+  <Sidebar class="lg:hidden" />
+  <Header />
+  <Content>
+    <Article>
+      <Heading
+        slot="header"
+        level={1}
+        gradient
+        class="inline-block"
+        text="Does soil temperature predict bumble bee queen emergence in spring?"
+      />
+
+      <div class="mx-auto overflow-hidden md:max-w-3xl my-4 md:text-xl">
+        <div class="md:flex my-4 md:space-x-4">
+          <div class="md:w-3/5">
+            Bumble bee queens hibernate throughout the winter by burying
+            themselves in the ground. In the spring they emerge from their
+            hibernation and begin looking for nest sites. Researchers have
+            noticed that some species tend to wake up from hibernation earlier
+            than others. The timing of when different species wake up from
+            hibernation could be related to soil temperature; perhaps early
+            emerging species hibernate in the top layers of soil which could
+            warm up faster than deeper layers waking them up faster.
+          </div>
+          <div class="md:w-2/5 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/Project3A.jpg"
+              alt="A bumble bee landed on a flower in the field"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4"></div>
+        <div class="md:flex md:space-x-4">
+          <div class="md:w-1/2 my-4">
+            To test the impact of soil temperature on queen bumble bee emergence
+            timing, we surveyed for bumble bee queens, while simultaneously
+            measuring soil temperature at different depths.
+            <br />
+            <br />
+            In our preliminary analyses we found that some species, particularly
+            early emerging species may respond to soil temperature, while later emerging
+            species may respond more to air temperature.
+          </div>
+          <div class="md:w-1/2 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/Project3B.JPG"
+              alt="A bumble bee with a radio tag on its back climbing on Amanda's finger"
+            />
+          </div>
+        </div>
+      </div>
+    </Article>
+  </Content>
+</Layout>

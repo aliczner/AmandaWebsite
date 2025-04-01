@@ -1,0 +1,105 @@
+@use "sass:color";
+
+// Define your colors in hex
+$ac-white: #F3E9DC;
+$ac-primary: #062f0c;
+$ac-secondary: #7B886B;
+$ac-accent: #062f0c; // header 
+$ac-dark: #3D2B3D;
+
+:root { 
+    --ac-white: #{color.channel($ac-white, "red")}, #{color.channel($ac-white, "green")}, #{color.channel($ac-white, "blue")};
+    --ac-primary: #{color.channel($ac-primary, "red")}, #{color.channel($ac-primary, "green")}, #{color.channel($ac-primary, "blue")};
+    --ac-secondary: #{color.channel($ac-secondary, "red")}, #{color.channel($ac-secondary, "green")}, #{color.channel($ac-secondary, "blue")};
+    --ac-accent: #{color.channel($ac-accent, "red")}, #{color.channel($ac-accent, "green")}, #{color.channel($ac-accent, "blue")};
+    --ac-dark: #{color.channel($ac-dark, "red")}, #{color.channel($ac-dark, "green")}, #{color.channel($ac-dark, "blue")};
+    --ac-gray-100: 245, 245, 245;
+    --ac-gray-200: 233, 233, 233;
+    --ac-gray-300: 200, 200, 200;
+    --ac-gray-400: 160, 160, 160;
+    --ac-gray-500: 120, 120, 120;
+    --ac-color-100: 250, 250, 250;
+    --ac-color-200: 240, 240, 240;
+    --ac-color-300: 220, 220, 220;
+    --ac-color-400: 180, 180, 180;
+    --ac-color-500: 140, 140, 140;
+    --ac-color-600: 100, 100, 100;
+    --ac-color-700: 60, 60, 60;
+}
+
+body {
+    background-color: rgb(var(--ac-white));
+    color: rgb(var(--ac-dark));
+}
+
+.primary {
+    background-color: rgb(var(--ac-primary));
+    color: rgb(var(--ac-primary));
+}
+
+.secondary {
+    background-color: rgb(var(--ac-secondary));
+    color: rgb(var(--ac-secondary));
+}
+
+.accent {
+    background-color: rgb(var(--ac-accent));
+    color: rgb(var(--ac-accent));
+}
+
+
+.off-white {
+    background-color: rgb(var(--ac-white));
+}
+
+.gray-100 {
+    background-color: rgba(var(--ac-gray-100)); 
+}
+
+.gray-200 {
+    background-color: rgb(var(--ac-gray-200));
+}
+
+.gray-300 {
+    background-color: rgb(var(--ac-gray-300));
+}
+
+.gray-400 {
+    background-color: rgb(var(--ac-gray-400));
+}
+
+.gray-500 {
+    background-color: rgb(var(--ac-gray-500));
+}
+
+.neutral-100 {
+    background-color: rgb(var(--ac-color-100));
+}
+
+.neutral-200 {
+    background-color: rgb(var(--ac-color-200));
+}
+
+.neutral-300 {
+    background-color: rgb(var(--ac-color-300));
+}
+
+.neutral-400 {
+    background-color: rgb(var(--ac-color-400));
+}
+
+.neutral-500 {
+    background-color: rgb(var(--ac-color-500));
+}
+
+.neutral-600 {
+    background-color: rgb(var(--ac-color-600));
+}
+
+.neutral-700 {
+    background-color: rgb(var(--ac-color-700));
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');

@@ -1,0 +1,99 @@
+---
+import Content from '../../layouts/Content.astro'
+import Heading from '../../components/Heading.astro'
+import Article from '../../components/Article.astro'
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Header from '../../components/Header.astro'
+import '../../styles/main.scss'
+---
+
+<style>
+  li {
+    margin-left: 5%;
+    margin-bottom: 5px;
+    list-style-type: number;
+  }
+</style>
+<Layout title="Homepage - Amanda Licnzer">
+  <Sidebar class="lg:hidden" />
+  <Header />
+  <Content>
+    <Article>
+      <Heading
+        slot="header"
+        level={1}
+        gradient
+        class="inline-block"
+        text="Learning their needs by tracking the bees"
+      />
+
+      <div class="mx-auto overflow-hidden md:max-w-3xl my-4 md:text-xl">
+        <div class="md:flex my-4 md:space-x-4">
+          <div class="md:w-3/5">
+            Bumble bees need at least 3 resources to survive: flowers (their
+            food source), nest sites (to raise their young), and overwintering
+            sites (for queens to hibernate for the winter). However, we know
+            very little about their nesting and overwintering habitat, partly
+            because these sites are so hard to find - they are usually
+            underground!
+          </div>
+          <div class="md:w-2/5 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/Project2A.jpg"
+              alt="A bumble bee landed on a flower in the field"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4">
+          <div class="my-4">
+            We also know very little about their movement behaviour and habitat
+            selection. For larger animals, it has been easier to track their
+            movements using radio collars or GPS collars that send a signal
+            giving the animal's location. Until very recently the technology has
+            not existed for researchers to be able to follow smaller animals
+            such as bumble bees.
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4">
+          <div class="md:w-1/2 my-4">
+            In this project we tagged spring bumble bee queens and late summer
+            bumble bee queens to learn more about their movement behaviour,
+            habitat selection, and about their nesting and overwintering habitat
+            locations.
+            <br />
+            <br />
+            We are still analyzing the data, but it appears late-summer queens often
+            return to the same areas and can be active for up to 50 days. They also
+            may overwinter at the same location with many other queens.
+          </div>
+          <div class="md:w-1/2 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/Project2B.jpg"
+              alt="A bumble bee with a radio tag on its back climbing on Amanda's finger"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4">
+          <div class="md:w-1/2 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/Project1C.jpg"
+              alt="Amanda inspecting a radiotelemetry tower "
+            />
+          </div>
+          <div class="md:w-1/2 my-4">
+            Their movements are tracked using radio towers set up at our study
+            sites. Using this data, we have compared the flight distance, home
+            range, habitat usage and selection of bumble bee queens. The results
+            are still preliminary, but it unfortunately looks like a newer class
+            of pesticide called diamides are just as harmful as neonicotinoids
+            when we look at their flight behaviour.
+          </div>
+        </div>
+      </div>
+    </Article>
+  </Content>
+</Layout>

@@ -1,0 +1,74 @@
+---
+import Content from '../../layouts/Content.astro'
+import Heading from '../../components/Heading.astro'
+import Article from '../../components/Article.astro'
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Header from '../../components/Header.astro'
+import '../../styles/main.scss'
+---
+
+<style>
+  li {
+    margin-left: 5%;
+    margin-bottom: 5px;
+    list-style-type: number;
+  }
+</style>
+<Layout title="Urban Gardens - Amanda Liczner">
+  <Sidebar class="lg:hidden" />
+  <Header />
+  <Content>
+    <Article>
+      <Heading
+        slot="header"
+        level={1}
+        gradient
+        class="inline-block"
+        text="Pathogen risk to bumble bees across Canada"
+      />
+
+      <div class="mx-auto overflow-hidden md:max-w-3xl my-4 md:text-xl">
+        <div class="md:flex my-4 md:space-x-4">
+          <div class="md:w-3/5">
+            Bumble bees are facing many challenges, and one growing concern is
+            the spread of diseases from managed bees to wild populations. While
+            scientists have known about this risk for years, few studies have
+            mapped out where the danger is highest. Our research looked at this
+            issue across Canada, identifying areas where conservation efforts
+            for bumble bees overlap with regions at risk of disease spillover
+            from managed bees.
+          </div>
+          <div class="md:w-2/5 my-4">
+            <img
+              class="h-72 w-full object-cover md:h-full rounded-full"
+              src="/pictures/urbangardens.jpg"
+              alt="Pathogen research related to bumble bee conservation"
+            />
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4">
+          <div class="my-4">
+            We found that more than 15% of high-priority conservation areas for
+            bumble bees are at risk, with hotspots in southwest Alberta,
+            southern British Columbia, southern Ontario, and southern
+            Quebec—places that also happen to be home to the richest diversity
+            of bumble bee species. The risk isn’t limited to farms or cities;
+            even natural areas could be affected.
+          </div>
+        </div>
+        <div class="md:flex md:space-x-4">
+          <div class="my-4">
+            To help protect wild bumble bees, we need to adopt better management
+            practices, such as screening managed bees for disease, improving
+            colony care, treating infections, and setting up national monitoring
+            and reporting programs. Our findings give conservation groups and
+            policymakers the tools to focus their efforts where they’re needed
+            most, helping to safeguard these essential pollinators and the
+            ecosystems they support.
+          </div>
+        </div>
+      </div>
+    </Article>
+  </Content>
+</Layout>
