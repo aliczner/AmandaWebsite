@@ -5,12 +5,6 @@ import astroExpressiveCode from 'astro-expressive-code'
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
   integrations: [
     tailwind(),
     astroExpressiveCode({
