@@ -16,7 +16,7 @@ import '../../styles/main.scss'
     basic: {
       title: 'Amanda Liczner - Contact',
       type: 'website',
-      image: '/AmandaLiczner.jpg',
+      image: '/pictures/AmandaLiczner.jpg',
     },
   }}
 />
@@ -127,7 +127,8 @@ import '../../styles/main.scss'
 
         if (res.ok) {
           form.reset()
-          messageBox.textContent = 'Thanks! Your message has been sent.'
+          messageBox.textContent =
+            'Thanks! Your message has been sent. I will get back to you shortly.'
           messageBox.className = 'mt-4 text-green-700 text-sm'
         } else {
           messageBox.textContent =

@@ -9,8 +9,21 @@ import Intro from '../sections/Intro.astro'
 import Layout from '../layouts/Layout.astro'
 import Sidebar from '../layouts/Sidebar.astro'
 import AboutMe from '../sections/AboutMe.astro'
+import { SEO } from 'astro-seo'
 import '../styles/main.scss'
 ---
+
+<SEO
+  title="Amanda Liczner - Homepage"
+  description="Dr. Amanda Liczner is an ecologist and conservation biologist currently researching bumble bee behaviour. She is a post-doctoral fellow at the University of Guelph and has a radio telemetry network she uses to understand the movement of bumble bees. Come learn more about Amanda's current and past research."
+  openGraph={{
+    basic: {
+      title: 'Amanda Liczner - Homepage',
+      type: 'website',
+      image: '/pictures/AmandaLiczner.jpg',
+    },
+  }}
+/>
 
 <Layout title="Homepage - Amanda Licnzer">
   <Sidebar class="lg:hidden" />
