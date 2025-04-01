@@ -1,11 +1,11 @@
 @use "sass:color";
 
 // Define your colors in hex
-$ac-white: #e7dfc6;
-$ac-primary: #6c3a5c;
-$ac-secondary: #b48291;
-$ac-accent: #062f0c;
-$ac-dark: #6b6054;
+$ac-white: #F3E9DC;
+$ac-primary: #062f0c;
+$ac-secondary: #7B886B;
+$ac-accent: #062f0c; // header 
+$ac-dark: #3D2B3D;
 
 :root { 
     --ac-white: #{color.channel($ac-white, "red")}, #{color.channel($ac-white, "green")}, #{color.channel($ac-white, "blue")};
