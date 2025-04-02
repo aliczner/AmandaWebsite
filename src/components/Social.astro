@@ -1,8 +1,7 @@
 ---
 import '../styles/social.css'
-import fs from 'fs'
-const bumblebeeIcon = fs.readFileSync('./src/icons/bee.svg', 'utf-8')
-const iconClasses = ['fab w-10 h-10  stroke-primary stroke-2']
+const iconClasses = ['fab w-10 h-10  stroke-white stroke-1 ']
+const houseIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-10 h-10"><path d="M3 9.5L12 2l9 7.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22V12h6v10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 ---
 
 <header>
@@ -16,10 +15,7 @@ const iconClasses = ['fab w-10 h-10  stroke-primary stroke-2']
   <div class="relative container social flex space-x-4">
     <a href="/" aria-label="Free Astro components">
       <div
-        set:html={bumblebeeIcon?.replace(
-          '<svg ',
-          `<svg class="${iconClasses}" `
-        )}
+        set:html={houseIcon?.replace('<svg ', `<svg class="${iconClasses}" `)}
       />
       <a
         href="https://bsky.app/profile/bumblebeehaviour.bsky.social"
