@@ -1,5 +1,4 @@
 ---
-import { Icon, ThemeSwitch } from 'free-astro-components'
 import Hamburguer from './Hamburguer.astro'
 import Social from './Social.astro'
 ---
@@ -17,7 +16,7 @@ import Social from './Social.astro'
     <Social />
     <nav>
       <ul class="flex items-center gap-8">
-        <li>
+        <li class="hidden lg:block">
           <a
             class="text-md hover:text-primary transition duration-300 ease-in-out"
             href="/current-work">Current Work</a
@@ -41,9 +40,7 @@ import Social from './Social.astro'
             href="/contact">Contact</a
           >
         </li>
-        <!-- <li>
-          <ThemeSwitch />
-        </li> -->
+
         <li class="lg:hidden">
           <Hamburguer />
         </li>
