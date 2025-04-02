@@ -6,7 +6,7 @@ export interface Props {
   buttonText?: string
   buttonLink?: string
 }
-import Button from '../../components/Button.astro'
+import Button from './Button.astro'
 const { image, title, description, buttonText, buttonLink } = Astro.props
 
 const pictureClass = buttonText && buttonLink ? 'md:w-1/4' : 'md:w-1/3'
