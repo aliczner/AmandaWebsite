@@ -17,7 +17,7 @@ export const handler = async (event) => {
   try {
     const nodemailer = await import('nodemailer');
     const body = JSON.parse(event.body);
-    console.log('Event received:', JSON.stringify(event, null, 2));
+
 
     const transporter = nodemailer.default.createTransport({
       host: 'email-smtp.ca-central-1.amazonaws.com',
