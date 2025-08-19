@@ -5,6 +5,7 @@ import Heading from '../../components/Heading.astro'
 import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
+import Text from '../../components/Text.astro'
 import Header from '../../components/Header.astro'
 import ProjectCard from '../../components/ProjectCard.astro'
 import '../../styles/main.scss'
@@ -42,7 +43,57 @@ import '../../styles/main.scss'
               level={1}
               gradient
               class="inline-block py-1"
-              text="Experience"
+              text="Recent work"
+            />
+            <Text class="text-xl"
+              >Click on a project below to learn about my work
+            </Text>
+            <ProjectCard
+              image="/pictures/Project1A.JPG"
+              title="Impacts of environmental stressors on bumble bee queen movement"
+              description="We are testing for possible impacts of pesticides on the movement of bumble bees. We are doing this with the help of tiny radio tags that track their movement!"
+              buttonText="Learn More"
+              buttonLink="/experience/env-stressors"
+            />
+            <ProjectCard
+              image="/pictures/Project2A.jpg"
+              title="Learning their needs by tracking the bees"
+              description="In this project we tagged spring bumble bee queens and late summer bumble bee queens to learn more about their movement behaviour, habitat selection, and about their nesting and overwintering habitat locations."
+              buttonText="Learn More"
+              buttonLink="/experience/bee-needs"
+            />
+            <ProjectCard
+              image="/pictures/pathogen.jpg"
+              title="Pathogen risk to bumble bees across Canada"
+              description="In this project we aim to identify regions in Canada where pathogen spillover from managed bees poses the highest risk to wild bumble bees, helping to prioritize conservation efforts."
+              buttonText="Learn More"
+              buttonLink="/experience/pathogen"
+            />
+            <ProjectCard
+              image="/pictures/urbangardens.jpg"
+              title="Urban bees response to backyard gardens"
+              description="We looked at the diversity of native bees in bee-friendly urban gardens in Kelowna, British Columbia, and to explore how garden characteristics and surrounding urbanization influence bee populations."
+              buttonText="Learn More"
+              buttonLink="/experience/urban-gardens"
+            />
+            <ProjectCard
+              image="/pictures/Project3A.jpg"
+              title="Does soil temperature predict bumble bee queen emergence in spring?"
+              description="To test the impact of soil temperature on queen bumble bee emergence timing, we surveyed for bumble bee queens, while simultaneously measuring soil temperature at different depths."
+              buttonText="Learn More"
+              buttonLink="/experience/soil-temperature"
+            />
+          </Article>
+        </section>
+        <section>
+          <Article>
+            <Heading
+              slot="header"
+              level={1}
+              gradient
+              class="inline-block py-1"
+              text="Past experience"
+              id="past-experience"
             />
 
             <ProjectCard
