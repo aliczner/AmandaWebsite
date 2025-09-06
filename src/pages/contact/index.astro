@@ -5,6 +5,7 @@ import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
+import ContactForm from '../../components/ContactForm.astro'
 import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
 ---
@@ -29,7 +30,7 @@ import '../../styles/main.scss'
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; /* set a negative z-index to put it behind the text */
+    z-index: -1;
   }
 
   .fullscreen-bg__video {
@@ -39,11 +40,21 @@ import '../../styles/main.scss'
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(50%); /* apply brightness filter to darken the video */
+    filter: brightness(50%);
   }
 
   .text-shadow-white-glow {
     text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.8);
+  }
+
+  .contact-form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 32rem;
+    margin: 0 auto;
   }
 </style>
 
@@ -57,6 +68,7 @@ import '../../styles/main.scss'
           <source src="/contactVid.mp4" type="video/mp4" />
         </video>
       </div>
+
       <Heading
         slot="header"
         level={1}
@@ -64,87 +76,17 @@ import '../../styles/main.scss'
         class="inline-block mx-auto text-shadow-white-glow"
         text="Contact me"
       />
-      <form
-        id="contact-form"
-        class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md w-full max-w-lg"
-      >
-        <label class="block mb-2">
-          <span class="text-gray-700">Name</span>
-          <input
-            name="name"
-            type="text"
-            required
-            class="px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-white"
-          />
-        </label>
 
-        <label class="block mb-2">
-          <span class="text-gray-700">Email</span>
-          <input
-            name="email"
-            type="email"
-            required
-            class="px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-white"
-          />
-        </label>
-
-        <label class="block mb-4">
-          <span class="text-gray-700">Message</span>
-          <textarea
-            name="message"
-            rows="5"
-            required
-            class="px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-white"
-          ></textarea>
-        </label>
-
-        <button
-          type="submit"
-          class="px-8 py-4 rounded-md transition bg-primary text-white hover:shadow-lg hover:bg-secondary"
-        >
-          Send Message
-        </button>
-        <div id="form-message" class="mt-4 text-center text-sm"></div>
-      </form>
+      <div class="contact-form-container">
+        <ContactForm
+          apiEndpoint="/api/contact"
+          rateLimitMinutes={5}
+          maxMessageLength={2000}
+          showMathCaptcha={true}
+          successMessage="Thanks! Your message has been sent. I will get back to you shortly."
+          errorMessage="Oops! Something went wrong. Please try again later."
+        />
+      </div>
     </Article>
   </Content>
-  <script is:inline>
-    const form = document.getElementById('contact-form')
-    const messageBox = document.getElementById('form-message')
-
-    if (form && messageBox) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault()
-
-        const data = {
-          name: form.name.value,
-          email: form.email.value,
-          message: form.message.value,
-        }
-
-        const res = await fetch(
-          'https://vn4eo2dz4loerb452wl4lwne7e0ppsev.lambda-url.ca-central-1.on.aws/',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-            },
-            body: JSON.stringify(data),
-          }
-        )
-
-        if (res.ok) {
-          form.reset()
-          messageBox.textContent =
-            'Thanks! Your message has been sent. I will get back to you shortly.'
-          messageBox.className = 'mt-4 text-green-700 text-sm'
-        } else {
-          messageBox.textContent =
-            'Oops! Something went wrong. Please try again later.'
-          messageBox.className = 'mt-4 text-red-700 text-sm'
-        }
-      })
-    }
-  </script>
 </Layout>
