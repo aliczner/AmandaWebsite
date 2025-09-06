@@ -26,8 +26,8 @@ export const POST: APIRoute = async ({ request }) => {
   
   try {
     await transporter.sendMail({
-      from: process.env.SES_EMAIL, 
-      to: process.env.SES_EMAIL, 
+      from: process.env.EMAIL_FROM, 
+      to: process.env.EMAIL_TO, 
       subject: 'Amanda Liczner Website - Contact Form Submission',
       text: message.toString(),
     })

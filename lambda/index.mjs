@@ -30,8 +30,12 @@ export const handler = async (event) => {
     });
 
     await transporter.sendMail({
-      from: process.env.SES_EMAIL,
-      to: process.env.SES_EMAIL,
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO,
+      replyTo: {
+        name: body.name,
+        address: body.email
+      },
       subject: 'Amanda Website - Contact Form Submission',
       text: `Name: ${body.name}\nEmail: ${body.email}\nMessage: ${body.message}`
     });
