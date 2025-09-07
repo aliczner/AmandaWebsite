@@ -185,7 +185,7 @@ const randomProblem =
       minlength="10"
       maxlength={maxMessageLength}
       class="form-input form-textarea"
-      placeholder="Please tell me about yourself and your inquiry..."
+      placeholder="Your message here..."
       rows="5"></textarea>
   </div>
 
@@ -218,33 +218,47 @@ const randomProblem =
     Please wait a moment before sending another message.
   </div>
 </form>
-
 <script>
+  interface FormConfig {
+    apiEndpoint: string
+    rateLimitMinutes: number
+    maxLength: number
+    mathAnswer: string
+    successMessage: string
+    errorMessage: string
+  }
+
   class ContactForm {
-    constructor(form) {
+    private form: HTMLFormElement
+    private messageBox: HTMLElement
+    private submitButton: HTMLButtonElement
+    private rateLimitMessage: HTMLElement
+    private config: FormConfig
+
+    constructor(form: HTMLFormElement) {
       this.form = form
-      this.messageBox = form.querySelector('#form-message')
-      this.submitButton = form.querySelector('#submit-button')
-      this.rateLimitMessage = form.querySelector('#rate-limit-message')
+      this.messageBox = form.querySelector('#form-message')!
+      this.submitButton = form.querySelector('#submit-button')!
+      this.rateLimitMessage = form.querySelector('#rate-limit-message')!
 
       // Get configuration from data attributes
       this.config = {
-        apiEndpoint: form.dataset.apiEndpoint,
-        rateLimitMinutes: parseInt(form.dataset.rateLimit),
-        maxLength: parseInt(form.dataset.maxLength),
-        mathAnswer: form.dataset.mathAnswer,
-        successMessage: form.dataset.successMessage,
-        errorMessage: form.dataset.errorMessage,
+        apiEndpoint: form.dataset.apiEndpoint!,
+        rateLimitMinutes: parseInt(form.dataset.rateLimit!),
+        maxLength: parseInt(form.dataset.maxLength!),
+        mathAnswer: form.dataset.mathAnswer!,
+        successMessage: form.dataset.successMessage!,
+        errorMessage: form.dataset.errorMessage!,
       }
 
       this.init()
     }
 
-    init() {
+    init(): void {
       this.form.addEventListener('submit', this.handleSubmit.bind(this))
     }
 
-    isRateLimited() {
+    isRateLimited(): boolean {
       const lastSubmission = localStorage.getItem('lastFormSubmission')
       if (!lastSubmission) return false
 
@@ -253,14 +267,14 @@ const randomProblem =
       return timeDiff < this.config.rateLimitMinutes * 60 * 1000
     }
 
-    showRateLimit() {
+    showRateLimit(): void {
       this.rateLimitMessage.style.display = 'block'
       setTimeout(() => {
         this.rateLimitMessage.style.display = 'none'
       }, 5000)
     }
 
-    hasSpamKeywords(message) {
+    hasSpamKeywords(message: string): boolean {
       const spamKeywords = [
         'crypto',
         'bitcoin',
@@ -294,23 +308,23 @@ const randomProblem =
       return spamKeywords.some((keyword) => lowerMessage.includes(keyword))
     }
 
-    hasExcessiveLinks(message) {
+    hasExcessiveLinks(message: string): boolean {
       const linkRegex = /(https?:\/\/[^\s]+)/gi
       const links = message.match(linkRegex) || []
       return links.length > 2
     }
 
-    showMessage(text, type = 'error') {
+    showMessage(text: string, type: 'error' | 'success' = 'error'): void {
       this.messageBox.textContent = text
       this.messageBox.className = `form-message ${type}`
     }
 
-    setButtonState(disabled, text) {
+    setButtonState(disabled: boolean, text: string): void {
       this.submitButton.disabled = disabled
       this.submitButton.textContent = text
     }
 
-    async handleSubmit(e) {
+    async handleSubmit(e: Event): Promise<void> {
       e.preventDefault()
 
       // Rate limiting check
@@ -322,11 +336,11 @@ const randomProblem =
       // Get form data
       const formData = new FormData(this.form)
       const data = {
-        name: formData.get('name').trim(),
-        email: formData.get('email').trim(),
-        message: formData.get('message').trim(),
-        math: formData.get('math'),
-        website: formData.get('website'), // honeypot
+        name: (formData.get('name') as string)?.trim() || '',
+        email: (formData.get('email') as string)?.trim() || '',
+        message: (formData.get('message') as string)?.trim() || '',
+        math: formData.get('math') as string,
+        website: formData.get('website') as string, // honeypot
       }
 
       // Client-side validation
@@ -394,7 +408,9 @@ const randomProblem =
 
   // Initialize all contact forms on the page
   document.addEventListener('DOMContentLoaded', () => {
-    const forms = document.querySelectorAll('#contact-form')
+    const forms = document.querySelectorAll(
+      '#contact-form'
+    ) as NodeListOf<HTMLFormElement>
     forms.forEach((form) => new ContactForm(form))
   })
 </script>
