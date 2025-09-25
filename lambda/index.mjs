@@ -11,78 +11,73 @@ function json(statusCode, bodyObj, extraHeaders = {}) {
   };
 }
 
-export const handler = async (event) => {
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  };
+const json = (status, body) => ({
+  statusCode: status,
+  headers: { 'Content-Type': 'application/json', ...corsHeaders },
+  body: JSON.stringify(body),
+});
 
-  // Preflight
+export const handler = async (event) => {
+  // CORS preflight for Function URL
   if (event.requestContext?.http?.method === 'OPTIONS') {
-    return { statusCode: 200, headers: corsHeaders, body: 'OK' };
+    return { statusCode: 204, headers: corsHeaders, body: '' };
   }
 
   try {
-    // Parse body first
     const body = JSON.parse(event.body || '{}');
-    const {
-      name = '',
-      email = '',
-      message = '',
-      recaptchaToken: token,
-      recaptchaAction: action,
-      address2, // honeypot
-    } = body;
 
     // Honeypot (server-side)
-    if (address2 && String(address2).trim() !== '') {
-      return json(400, { ok: false, reason: 'honeypot' }, corsHeaders);
+    if (body.address2 && String(body.address2).trim() !== '') {
+      return json(400, { ok: false, reason: 'honeypot' });
     }
 
-    // Basic validation (server-side)
-    if (!name || !email || !message) {
-      return json(400, { ok: false, reason: 'missing_fields' }, corsHeaders);
-    }
-    if (message.length > 2000) { // mirror your client max
-      return json(400, { ok: false, reason: 'message_too_long' }, corsHeaders);
+    // Basic validation
+    if (!body.name || !body.email || !body.message) {
+      return json(400, { ok: false, reason: 'missing_fields' });
     }
 
-    // reCAPTCHA token required
-    if (!token) {
-      return json(400, { ok: false, reason: 'missing_token' }, corsHeaders);
-    }
+    // reCAPTCHA verification
+    const token  = body.recaptchaToken;
+    const action = body.recaptchaAction;
+    if (!token) return json(400, { ok: false, reason: 'missing_token' });
 
-    // Verify with Google
     const verifyResp = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
-        secret: process.env.CAPTCHA_SECRET_KEY,
+        secret: process.env.CAPTCHA_SECRET_KEY, // use PROD secret in prod
         response: token,
-        // optional: remoteip if available
       }),
     });
     const result = await verifyResp.json();
 
-    const hostnameOk = !result.hostname || result.hostname.endsWith('amandaliczner.ca');
-    const actionOk = !action || result.action === 'contact_submit';
-    const scoreOk = (result.score ?? 0) >= SCORE_THRESHOLD;
-    const freshEnough =
-      !result.challenge_ts || (Date.now() - Date.parse(result.challenge_ts) <= 2 * 60 * 1000);
+    // Allowlist hosts by env
+    const ENV = process.env.NODE_ENV || 'production';
+    const PROD_HOSTS = ['amandaliczner.ca', 'www.amandaliczner.ca'];
+    const DEV_HOSTS  = ['localhost', '127.0.0.1'];
+    const allowed = ENV === 'production' ? PROD_HOSTS : [...PROD_HOSTS, ...DEV_HOSTS];
+
+    const hostnameOk = !!result.hostname && allowed.some(h =>
+      result.hostname === h || result.hostname.endsWith('.' + h)
+    );
+
+    const actionOk    = result.action === 'contact_submit';
+    const scoreOk     = (result.score ?? 0) >= 0.6;
+    const freshEnough = !result.challenge_ts ||
+      (Date.now() - Date.parse(result.challenge_ts) <= 2 * 60 * 1000);
 
     const passed = result.success === true && hostnameOk && actionOk && scoreOk && freshEnough;
 
     if (!passed) {
-      return json(
-        403,
-        {
-          ok: false,
-          reason: 'recaptcha_failed',
-          details: { score: result.score, action: result.action, errors: result['error-codes'] },
-        },
-        corsHeaders
-      );
+      // log to help debug 403s
+      console.log('reCAPTCHA fail', {
+        success: result.success, score: result.score, action: result.action,
+        hostname: result.hostname, errors: result['error-codes']
+      });
+      return json(403, {
+        ok: false, reason: 'recaptcha_failed',
+        details: { score: result.score, action: result.action, hostname: result.hostname }
+      });
     }
 
     // Send email via SES SMTP
