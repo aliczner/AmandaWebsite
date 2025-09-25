@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const {
-  apiEndpoint = 'https://vn4eo2dz4loerb452wl4lwne7e0ppsev.lambda-url.ca-central-1.on.aws/',
+  apiEndpoint = '',
   rateLimitMinutes = 5,
   maxMessageLength = 2000,
   className = '',
@@ -142,7 +142,7 @@ const {
       name="name"
       type="text"
       required
-      minlength="2"
+      minlength="10"
       maxlength="100"
       class="form-input"
       autocomplete="name"
@@ -338,6 +338,16 @@ const {
 
       if (this.hasExcessiveLinks(data.message)) {
         this.showMessage('Please limit links in your message.')
+        return
+      }
+
+      if (data.message.length > this.config.maxLength) {
+        this.showMessage('Please limit your message to 2000 characters.')
+        return
+      }
+
+      if (data.message.length < 10) {
+        this.showMessage('Your message is too short.')
         return
       }
 
