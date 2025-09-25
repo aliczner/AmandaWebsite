@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const {
-  apiEndpoint = '/api/contact',
+  apiEndpoint = 'https://vn4eo2dz4loerb452wl4lwne7e0ppsev.lambda-url.ca-central-1.on.aws/',
   rateLimitMinutes = 5,
   maxMessageLength = 2000,
   className = '',
@@ -20,7 +20,8 @@ const {
 
 <script
   src="https://www.google.com/recaptcha/api.js?render=6LdKPdQrAAAAALSV3dW7pPvEezUhxT1mJuyYTiD-"
-></script>
+  async
+  defer></script>
 
 <style>
   .address-field {
@@ -276,7 +277,7 @@ const {
         'inheritance',
         'lottery',
         'million dollars',
-        'SEO',
+        'seo',
         'free gift',
         'act now',
         'special promotion',
@@ -360,25 +361,22 @@ const {
           })
         })
 
-        const response = await fetch(
-          'https://vn4eo2dz4loerb452wl4lwne7e0ppsev.lambda-url.ca-central-1.on.aws/',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Accept: 'application/json',
-            },
-            body: JSON.stringify({
-              name: data.name,
-              email: data.email,
-              message: data.message,
-              timestamp: Date.now(),
-              userAgent: navigator.userAgent.substring(0, 200),
-              recaptchaToken: token,
-              recaptchaAction: actionName,
-            }),
-          }
-        )
+        const response = await fetch(this.config.apiEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            message: data.message,
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent.substring(0, 200),
+            recaptchaToken: token,
+            recaptchaAction: actionName,
+          }),
+        })
 
         if (response.ok) {
           this.form.reset()
