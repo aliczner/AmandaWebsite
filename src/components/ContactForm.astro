@@ -35,8 +35,7 @@ const randomProblem =
 ---
 
 <style>
-  /* Honeypot field - hidden from users */
-  .honeypot {
+  .address-field {
     position: absolute !important;
     left: -9999px !important;
     width: 1px !important;
@@ -139,11 +138,10 @@ const randomProblem =
   data-success-message={successMessage}
   data-error-message={errorMessage}
 >
-  <!-- Honeypot field - bots will fill this, humans won't see it -->
   <input
-    name="website"
+    name="address"
     type="text"
-    class="honeypot"
+    class="address-field"
     tabindex="-1"
     autocomplete="off"
     aria-hidden="true"
@@ -340,11 +338,11 @@ const randomProblem =
         email: (formData.get('email') as string)?.trim() || '',
         message: (formData.get('message') as string)?.trim() || '',
         math: formData.get('math') as string,
-        website: formData.get('website') as string, // honeypot
+        address: formData.get('address') as string,
       }
 
       // Client-side validation
-      if (data.website) {
+      if (data.address) {
         this.showMessage('Error: Please try again.')
         return
       }
