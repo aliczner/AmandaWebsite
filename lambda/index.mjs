@@ -148,24 +148,39 @@ export const handler = async (event) => {
     const { name, email, message } = body;
 
     // Send email via SES SMTP
+    console.log('Sending email...');
     const nodemailer = await import('nodemailer');
-    const transporter = nodemailer.default.createTransporter({
+    const transporter = nodemailer.default.createTransport({
       host: 'email-smtp.ca-central-1.amazonaws.com',
       port: 587,
       secure: false,
+      connectionTimeout: 10000, // 10 seconds
+      greetingTimeout: 10000,   // 10 seconds
+      socketTimeout: 10000,     // 10 seconds
       auth: {
         user: process.env.SES_USERNAME,
         pass: process.env.SES_PASSWORD,
       },
     });
 
-    await transporter.sendMail({
+    const mailOptions = {
       from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO,
-      replyTo: { name, address: email },
+      replyTo: `${name} <${email}>`,
       subject: 'Amanda Website - Contact Form Submission',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-    });
+      html: `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `
+    };
+
+    console.log('Mail options configured, sending...');
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent via SES SMTP');
 
     console.log('Email sent successfully');
     return json(200, { ok: true, message: 'Email sent successfully' });
