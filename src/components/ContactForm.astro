@@ -126,7 +126,7 @@ const {
   data-error-message={errorMessage}
 >
   <input
-    name="address"
+    name="address2"
     type="text"
     class="address-field"
     tabindex="-1"
@@ -319,11 +319,11 @@ const {
         name: (formData.get('name') as string)?.trim() || '',
         email: (formData.get('email') as string)?.trim() || '',
         message: (formData.get('message') as string)?.trim() || '',
-        address: formData.get('address') as string,
+        address2: formData.get('address2') as string,
       }
 
       // Client-side validation
-      if (data.address) {
+      if (data.address2) {
         this.showMessage('Error: Please try again.')
         return
       }

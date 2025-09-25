@@ -32,11 +32,11 @@ export const handler = async (event) => {
       message = '',
       recaptchaToken: token,
       recaptchaAction: action,
-      address, // honeypot
+      address2, // honeypot
     } = body;
 
     // Honeypot (server-side)
-    if (address && String(address).trim() !== '') {
+    if (address2 && String(address2).trim() !== '') {
       return json(400, { ok: false, reason: 'honeypot' }, corsHeaders);
     }
 
