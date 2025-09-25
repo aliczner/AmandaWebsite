@@ -1,15 +1,10 @@
 const SCORE_THRESHOLD = 0.6;
 
-function json(statusCode, bodyObj, extraHeaders = {}) {
-  return {
-    statusCode,
-    headers: {
-      'Content-Type': 'application/json',
-      ...extraHeaders,
-    },
-    body: JSON.stringify(bodyObj),
-  };
-}
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
 
 const json = (status, body) => ({
   statusCode: status,
@@ -62,7 +57,7 @@ export const handler = async (event) => {
     );
 
     const actionOk    = result.action === 'contact_submit';
-    const scoreOk     = (result.score ?? 0) >= 0.6;
+    const scoreOk     = (result.score ?? 0) >= SCORE_THRESHOLD;
     const freshEnough = !result.challenge_ts ||
       (Date.now() - Date.parse(result.challenge_ts) <= 2 * 60 * 1000);
 
