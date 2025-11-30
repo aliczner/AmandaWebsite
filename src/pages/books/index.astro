@@ -10,55 +10,164 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 const books = [
   {
     title: 'Pollinator ABC Colouring Book',
+    subtitle: 'Learn the Alphabet with Bees, Butterflies & Pollinators',
     type: 'Children\'s Colouring Book',
-    description: 'A delightful ABC journey through the world of pollinators! Perfect for young learners to explore the alphabet while discovering amazing pollinating creatures.',
-    amazonUrl: '#', // TODO: Add actual Amazon URL
-    coverImage: '/pictures/book-pollinator-abc.jpg', // TODO: Add actual book cover image
+    description: 'An educational ABC journey through the fascinating world of pollinators! Perfect for young learners aged 3-8 to explore the alphabet while discovering amazing pollinating creatures including bees, butterflies, hummingbirds, and more. Each page features beautiful illustrations and fun facts about nature\'s most important helpers.',
+    amazonUrl: 'https://www.amazon.ca/dp/B0G45D33KZ',
+    coverImage: '/pictures/pollinator-abc-kids.jpg',
     targetAudience: 'Children',
+    isbn: 'B0G45D33KZ', // Amazon ASIN
+    keywords: 'pollinator coloring book, ABC coloring book, bee coloring book for kids, butterfly coloring book, educational coloring book',
   },
   {
     title: 'A Visit From Santa Bee',
+    subtitle: 'A Festive Holiday Pollinator Adventure',
     type: 'Children\'s Colouring Book',
-    description: 'A whimsical holiday tale featuring Santa Bee! This festive colouring book combines the magic of Christmas with the wonderful world of bees.',
-    amazonUrl: '#', // TODO: Add actual Amazon URL
-    coverImage: '/pictures/book-santa-bee.jpg', // TODO: Add actual book cover image
+    description: 'A delightful holiday tale featuring Santa Bee and his pollinator friends! This festive colouring book combines the magic of Christmas with the wonderful world of bees. Perfect for children aged 3-8 who love nature and holiday stories. Features charming illustrations of Santa Bee delivering presents, decorating hives, and celebrating with his bee family.',
+    amazonUrl: 'https://www.amazon.ca/dp/B0G4GN1V7Q',
+    coverImage: '/pictures/santa-bee.jpg',
     targetAudience: 'Children',
+    isbn: 'B0G4GN1V7Q', // Amazon ASIN
+    keywords: 'Christmas coloring book, bee coloring book, holiday coloring book for kids, Santa coloring book, nature coloring book',
   },
   {
     title: 'Pollinator Colouring Book for Adults',
+    subtitle: 'Intricate Designs for Relaxation & Mindfulness',
     type: 'Adult Colouring Book',
-    description: 'Detailed and intricate illustrations of pollinators in their natural habitats. Perfect for relaxation and mindfulness while learning about these essential creatures.',
-    amazonUrl: '#', // TODO: Add actual Amazon URL
-    coverImage: '/pictures/book-pollinator-adult.jpg', // TODO: Add actual book cover image
+    description: 'Detailed and intricate illustrations of pollinators in their natural habitats. Perfect for relaxation, stress relief, and mindfulness while learning about these essential creatures. Features complex patterns of bees, butterflies, moths, hummingbirds, and native wildflowers. Created by Dr. Amanda Liczner, an ecologist specializing in pollinator conservation.',
+    amazonUrl: '#', // TODO: Add actual Amazon URL when available
+    coverImage: '/pictures/pollinator-adult.jpg', // TODO: Add actual book cover image
     targetAudience: 'Adults',
+    isbn: '', // TODO: Add when available
+    keywords: 'adult coloring book, pollinator coloring book, bee coloring book adults, butterfly coloring book, mindfulness coloring',
   },
 ]
+
+// Generate JSON-LD structured data for SEO
+const structuredData = books
+  .filter(book => book.amazonUrl !== '#')
+  .map(book => ({
+    '@context': 'https://schema.org',
+    '@type': 'Book',
+    'name': book.title,
+    'author': {
+      '@type': 'Person',
+      'name': 'Dr. Amanda Liczner',
+      'jobTitle': 'Ecologist and Conservation Biologist',
+      'url': siteUrl,
+      'sameAs': [
+        siteUrl,
+        `${siteUrl}/experience`
+      ]
+    },
+    'bookFormat': 'https://schema.org/Paperback',
+    'genre': book.targetAudience === 'Children' ? 'Children\'s Educational' : 'Adult Coloring Book',
+    'audience': {
+      '@type': 'Audience',
+      'audienceType': book.targetAudience
+    },
+    'about': 'Pollinators, Bees, Butterflies, Conservation, Nature Education',
+    'description': book.description,
+    'image': `${siteUrl}${book.coverImage}`,
+    'isbn': book.isbn,
+    'offers': {
+      '@type': 'Offer',
+      'availability': 'https://schema.org/InStock',
+      'price': 'Available on Amazon',
+      'priceCurrency': 'CAD',
+      'url': book.amazonUrl,
+      'seller': {
+        '@type': 'Organization',
+        'name': 'Amazon.ca'
+      }
+    },
+    'publisher': {
+      '@type': 'Person',
+      'name': 'Dr. Amanda Liczner'
+    }
+  }))
 ---
 
 <SEO
-  title="Books - Dr. Amanda Liczner"
-  description="Explore Dr. Amanda Liczner's collection of pollinator-themed colouring books for children and adults. Educational and beautifully illustrated books available on Amazon."
+  title="Pollinator Colouring Books by Dr. Amanda Liczner | Educational Books for Kids & Adults"
+  description="Discover beautifully illustrated pollinator-themed colouring books by Dr. Amanda Liczner, an expert ecologist. Featuring ABC learning books for children and intricate designs for adults. Learn about bees, butterflies, and nature's essential pollinators. Available on Amazon Canada."
   canonical={`${siteUrl}/books`}
   openGraph={{
     basic: {
-      title: 'Books by Dr. Amanda Liczner',
+      title: 'Pollinator Colouring Books by Dr. Amanda Liczner - Educational & Beautiful',
       type: 'website',
-      image: `${siteUrl}/pictures/book-pollinator-abc.jpg`,
+      image: `${siteUrl}/pictures/pollinator-abc-kids.jpg`,
       url: `${siteUrl}/books`,
     },
     optional: {
-      description: 'Pollinator-themed colouring books for children and adults.',
-      siteName: 'Amanda Liczner',
+      description: 'Educational pollinator-themed colouring books for children and adults. Learn about bees, butterflies, and conservation through art. By Dr. Amanda Liczner, ecologist.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
+    },
+    image: {
+      url: `${siteUrl}/pictures/pollinator-abc-kids.jpg`,
+      secureUrl: `${siteUrl}/pictures/pollinator-abc-kids.jpg`,
+      alt: 'Pollinator ABC Colouring Book cover featuring educational bee and butterfly illustrations',
+      type: 'image/jpeg',
+      width: 600,
+      height: 800,
     }
   }}
   twitter={{
     card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Pollinator Colouring Books by Dr. Amanda Liczner',
+    description: 'Educational pollinator books for kids & adults. Learn about bees, butterflies & conservation.',
+    image: `${siteUrl}/pictures/pollinator-abc-kids.jpg`,
+    imageAlt: 'Pollinator ABC Colouring Book cover',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'pollinator coloring books, bee coloring book, butterfly coloring book, educational coloring books, children\'s nature books, adult coloring books, Amanda Liczner books, pollinator conservation, ecology books, nature education' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+      { property: 'article:author', content: 'Dr. Amanda Liczner' },
+      { property: 'article:publisher', content: siteUrl },
+      { name: 'geo.region', content: 'CA' },
+      { name: 'geo.placename', content: 'Canada' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/books` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/books` },
+    ]
   }}
 />
 
-<Layout title="Books - Dr. Amanda Liczner">
+<Layout title="Pollinator Colouring Books - Dr. Amanda Liczner">
   <Sidebar class="lg:hidden" />
   <Header />
+
+  <!-- JSON-LD Structured Data -->
+  {structuredData.map(data => (
+    <script type="application/ld+json" set:html={JSON.stringify(data)} />
+  ))}
+
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': siteUrl
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Books',
+        'item': `${siteUrl}/books`
+      }
+    ]
+  })} />
+
   <main>
     <!-- Hero Section -->
     <section class="relative py-20 lg:py-32 overflow-hidden">
@@ -67,29 +176,42 @@ const books = [
 
       <div class="container relative px-4 sm:px-6">
         <div class="max-w-4xl mx-auto text-center">
+          <!-- Breadcrumb Navigation for SEO -->
+          <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center justify-center gap-2 text-sm text-neutral-600">
+              <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" class="text-primary font-medium">Books</li>
+            </ol>
+          </nav>
+
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-medium text-neutral-700 mb-6">
             <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Pollinator Colouring Books
             </span>
           </h1>
-          <p class="text-lg sm:text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          <p class="text-lg sm:text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-4">
             Discover the wonderful world of pollinators through beautifully illustrated colouring books.
             Perfect for all ages, from young learners to adults seeking creative relaxation.
+          </p>
+          <p class="text-base sm:text-lg text-neutral-500 max-w-2xl mx-auto">
+            Created by <a href="/experience" class="text-primary hover:text-primary/80 underline transition-colors">Dr. Amanda Liczner</a>,
+            an ecologist specializing in <strong>bee conservation</strong> and <strong>pollinator research</strong>.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Books Grid -->
-    <section class="py-12 lg:py-20 relative">
+    <section class="py-12 lg:py-20 relative" aria-label="Colouring books collection">
       <div class="container px-4 sm:px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
-          {books.map((book) => (
-            <article class="book-card group">
+          {books.map((book, index) => (
+            <article class="book-card group" itemscope itemtype="https://schema.org/Book">
               <!-- Card Container -->
               <div class="relative h-full">
                 <!-- Gradient Glow Effect -->
-                <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-primary/10 rounded-3xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-primary/10 rounded-3xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
 
                 <!-- Main Card -->
                 <div class="relative h-full bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-primary/10 flex flex-col">
@@ -97,25 +219,29 @@ const books = [
                   <!-- Book Cover Image -->
                   <div class="book-cover-container relative overflow-hidden bg-gradient-to-br from-neutral-50 to-primary/5">
                     <div class="aspect-[3/4] relative">
-                      {/* TODO: Replace with actual book cover images */}
-                      <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 via-white to-secondary/10">
-                        <div class="text-center p-8">
-                          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
-                            <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
+                      {book.amazonUrl === '#' ? (
+                        // Placeholder for unavailable books
+                        <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 via-white to-secondary/10">
+                          <div class="text-center p-8">
+                            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
+                              <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                              </svg>
+                            </div>
+                            <p class="text-sm text-neutral-500 font-medium">Coming Soon</p>
                           </div>
-                          <p class="text-sm text-neutral-500 font-medium">Book Cover</p>
                         </div>
-                      </div>
-                      <img
-                        src={book.coverImage}
-                        alt={`${book.title} cover`}
-                        class="absolute inset-0 w-full h-full object-cover opacity-0"
-                        loading="lazy"
-                        onerror="this.style.opacity='0'"
-                        onload="this.style.opacity='1'"
-                      />
+                      ) : (
+                        <img
+                          src={book.coverImage}
+                          alt={`${book.title} - ${book.subtitle}. ${book.type} featuring educational illustrations of bees, butterflies, and pollinators. By Dr. Amanda Liczner, ecologist.`}
+                          itemprop="image"
+                          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                          width="600"
+                          height="800"
+                        />
+                      )}
                     </div>
 
                     <!-- Audience Badge -->
@@ -129,32 +255,83 @@ const books = [
                   <!-- Book Details -->
                   <div class="p-6 lg:p-8 flex flex-col flex-grow">
                     <div class="flex-grow">
-                      <p class="text-sm font-medium text-secondary mb-2">{book.type}</p>
-                      <h2 class="text-2xl lg:text-3xl font-medium text-neutral-700 mb-4 leading-tight max-w-full">
+                      <p class="text-sm font-medium text-secondary mb-2" itemprop="genre">{book.type}</p>
+                      <h2 class="text-2xl lg:text-3xl font-medium text-neutral-700 mb-2 leading-tight max-w-full" itemprop="name">
                         {book.title}
                       </h2>
-                      <p class="text-neutral-600 leading-relaxed mb-6 max-w-full">
+                      <p class="text-base text-neutral-500 mb-3 italic" itemprop="alternativeHeadline">
+                        {book.subtitle}
+                      </p>
+                      <p class="text-neutral-600 leading-relaxed mb-6 max-w-full" itemprop="description">
                         {book.description}
                       </p>
+
+                      <!-- Hidden metadata for SEO -->
+                      <meta itemprop="author" content="Dr. Amanda Liczner" />
+                      <meta itemprop="bookFormat" content="Paperback" />
+                      {book.isbn && <meta itemprop="isbn" content={book.isbn} />}
                     </div>
 
-                    <!-- Amazon Button -->
-                    <a
-                      href={book.amazonUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="amazon-button inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-gradient-to-r from-[#FF9900] to-[#FFB84D] text-white rounded-xl font-medium shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
-                    >
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726-1.53.406-3.045.608-4.554.608-2.109 0-4.162-.324-6.16-.97-1.985-.641-3.818-1.628-5.496-2.96-.094-.075-.133-.17-.102-.295.03-.127.1-.19.21-.227zM21.94 16.02c-.22-.25-.68-.37-1.03-.13-.86.58-1.73 1.06-2.61 1.44-.88.38-2.04.7-3.48.95-.09.03-.15.12-.15.23 0 .08.05.14.15.17l.5.1c1.05.21 2.14.37 3.27.5 1.13.13 2.27.2 3.42.2.52 0 1.03-.03 1.53-.08.06-.01.1-.05.1-.11 0-.05-.02-.09-.06-.11l-.47-.23c-.22-.1-.42-.21-.6-.33-.37-.24-.62-.54-.62-.94 0-.22.06-.42.18-.59.12-.17.29-.26.52-.26.38 0 .72.16.96.43.24.26.37.58.37.93 0 .52-.22.97-.65 1.35-.43.38-1.02.57-1.76.57-1.17 0-2.34-.09-3.5-.26-1.16-.17-2.27-.42-3.33-.75-1.06-.33-2.03-.75-2.91-1.27-.88-.52-1.6-1.13-2.17-1.82-.14-.17-.21-.37-.21-.6 0-.36.13-.67.4-.91.26-.24.6-.36 1.01-.36.3 0 .57.07.82.22.25.15.45.36.6.62.47.8 1.14 1.46 2.02 1.99.88.52 1.9.92 3.07 1.18 1.17.26 2.4.39 3.69.39 1.78 0 3.37-.28 4.77-.85.06-.03.09-.08.09-.15 0-.08-.04-.14-.11-.17z"/>
-                      </svg>
-                      <span>View on Amazon</span>
-                    </a>
+                    <!-- Amazon Button or Coming Soon -->
+                    {book.amazonUrl === '#' ? (
+                      <div class="inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-gradient-to-r from-neutral-300 to-neutral-400 text-neutral-600 rounded-xl font-medium shadow-lg cursor-not-allowed">
+                        <span>Coming Soon</span>
+                      </div>
+                    ) : (
+                      <a
+                        href={book.amazonUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="amazon-button inline-flex items-center justify-center gap-2 w-full px-6 py-4 bg-gradient-to-r from-[#FF9900] to-[#FFB84D] text-white rounded-xl font-medium shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out"
+                        aria-label={`Buy ${book.title} on Amazon Canada`}
+                        itemprop="offers"
+                        itemscope
+                        itemtype="https://schema.org/Offer"
+                      >
+                        <meta itemprop="price" content="Available" />
+                        <meta itemprop="priceCurrency" content="CAD" />
+                        <meta itemprop="availability" content="https://schema.org/InStock" />
+                        <link itemprop="url" href={book.amazonUrl} />
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726-1.53.406-3.045.608-4.554.608-2.109 0-4.162-.324-6.16-.97-1.985-.641-3.818-1.628-5.496-2.96-.094-.075-.133-.17-.102-.295.03-.127.1-.19.21-.227zM21.94 16.02c-.22-.25-.68-.37-1.03-.13-.86.58-1.73 1.06-2.61 1.44-.88.38-2.04.7-3.48.95-.09.03-.15.12-.15.23 0 .08.05.14.15.17l.5.1c1.05.21 2.14.37 3.27.5 1.13.13 2.27.2 3.42.2.52 0 1.03-.03 1.53-.08.06-.01.1-.05.1-.11 0-.05-.02-.09-.06-.11l-.47-.23c-.22-.1-.42-.21-.6-.33-.37-.24-.62-.54-.62-.94 0-.22.06-.42.18-.59.12-.17.29-.26.52-.26.38 0 .72.16.96.43.24.26.37.58.37.93 0 .52-.22.97-.65 1.35-.43.38-1.02.57-1.76.57-1.17 0-2.34-.09-3.5-.26-1.16-.17-2.27-.42-3.33-.75-1.06-.33-2.03-.75-2.91-1.27-.88-.52-1.6-1.13-2.17-1.82-.14-.17-.21-.37-.21-.6 0-.36.13-.67.4-.91.26-.24.6-.36 1.01-.36.3 0 .57.07.82.22.25.15.45.36.6.62.47.8 1.14 1.46 2.02 1.99.88.52 1.9.92 3.07 1.18 1.17.26 2.4.39 3.69.39 1.78 0 3.37-.28 4.77-.85.06-.03.09-.08.09-.15 0-.08-.04-.14-.11-.17z"/>
+                        </svg>
+                        <span>View on Amazon</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
             </article>
           ))}
+        </div>
+
+        <!-- Educational Content Section for SEO -->
+        <div class="max-w-4xl mx-auto mt-16 lg:mt-24">
+          <div class="bg-gradient-to-br from-white via-neutral-50 to-primary/5 rounded-3xl p-8 lg:p-12 border border-primary/10 shadow-lg">
+            <h2 class="text-3xl lg:text-4xl font-medium text-neutral-700 mb-6">
+              Why Pollinator Education Matters
+            </h2>
+            <div class="prose prose-lg max-w-none text-neutral-600 space-y-4">
+              <p>
+                <strong>Pollinators are essential</strong> to our ecosystem and food supply. Bees, butterflies, hummingbirds, and other pollinators are responsible for pollinating approximately <strong>75% of flowering plants</strong> and <strong>35% of global food crops</strong>. Teaching children and adults about these incredible creatures helps build awareness and appreciation for nature.
+              </p>
+              <p>
+                These colouring books combine <strong>art, education, and conservation</strong> to create an engaging learning experience. Each book features:
+              </p>
+              <ul class="list-disc pl-6 space-y-2">
+                <li><strong>Accurate scientific illustrations</strong> of native pollinators</li>
+                <li><strong>Educational content</strong> about pollinator behavior and ecology</li>
+                <li><strong>Age-appropriate designs</strong> for different skill levels</li>
+                <li><strong>Conservation messages</strong> promoting environmental stewardship</li>
+              </ul>
+              <p>
+                Created by <a href="/experience" class="text-primary hover:text-primary/80 underline transition-colors">Dr. Amanda Liczner</a>,
+                a conservation biologist with expertise in <strong>bumble bee ecology</strong> and <strong>pollinator conservation</strong>.
+                Learn more about her <a href="/experience" class="text-primary hover:text-primary/80 underline transition-colors">research and experience</a>
+                in pollinator science.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -164,16 +341,16 @@ const books = [
       <div class="container mx-auto px-4 sm:px-6">
         <div class="max-w-4xl mx-auto relative">
           <!-- Gradient background with shadow -->
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-primary/10 rounded-3xl blur-sm"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-primary/10 rounded-3xl blur-sm" aria-hidden="true"></div>
 
           <div class="relative border border-primary/20 rounded-3xl overflow-hidden shadow-xl">
             <div class="flex flex-col gap-8 lg:gap-12 bg-gradient-to-br from-white via-neutral-50 to-primary/5 px-6 sm:px-8 lg:px-12 xl:px-16 py-12 lg:py-20 text-center items-center">
               <div class="flex flex-col gap-4">
                 <h2 class="text-neutral-700 text-3xl sm:text-4xl lg:text-5xl font-medium mx-auto">
-                  Love Learning About Pollinators?
+                  Interested in Pollinator Conservation?
                 </h2>
                 <p class="text-neutral-600 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto">
-                  Explore more about pollinator conservation and ecological research on my website.
+                  Explore Dr. Liczner's ecological research, pollinator studies, and conservation work.
                 </p>
               </div>
 
@@ -181,12 +358,14 @@ const books = [
                 <a
                   href="/experience"
                   class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-primary text-white hover:shadow-2xl hover:scale-105 hover:bg-secondary hover:-translate-y-1"
+                  aria-label="View research and experience in pollinator ecology"
                 >
                   View Research
                 </a>
                 <a
                   href="/contact"
                   class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-secondary text-neutral-700 hover:shadow-2xl hover:scale-105 hover:bg-primary hover:text-white hover:-translate-y-1"
+                  aria-label="Contact Dr. Amanda Liczner about collaborations"
                 >
                   Get in Touch
                 </a>
@@ -252,5 +431,19 @@ const books = [
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+  }
+
+  /* Improve readability of prose content */
+  .prose {
+    color: rgb(var(--ac-color-600));
+  }
+
+  .prose strong {
+    color: rgb(var(--ac-color-700));
+    font-weight: 600;
+  }
+
+  .prose a {
+    font-weight: 500;
   }
 </style>
