@@ -12,20 +12,21 @@ const bgColour =
     ? 'bg-primary text-white'
     : 'bg-secondary text-neutral-700'
 
-const hoverEffects = 'hover:shadow-lg hover:bg-secondary'
+const hoverEffects = 'hover:shadow-2xl hover:scale-105 hover:bg-secondary hover:-translate-y-1'
+const baseStyles = 'px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium'
 ---
 
 {
   href ? (
     <a
       href={href}
-      class={`px-8 py-4 rounded-md transition ${className} ${bgColour} ${hoverEffects}`}
+      class={`${baseStyles} ${className} ${bgColour} ${hoverEffects}`}
     >
       {text}
     </a>
   ) : (
     <button
-      class={`px-8 py-4 rounded-md transition ${className} ${bgColour}  ${hoverEffects}`}
+      class={`${baseStyles} ${className} ${bgColour} ${hoverEffects}`}
     >
       {text}
     </button>
