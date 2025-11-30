@@ -9,124 +9,277 @@ import Text from '../../components/Text.astro'
 import Header from '../../components/Header.astro'
 import ProjectCard from '../../components/ProjectCard.astro'
 import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <SEO
-      title="Amanda Liczner - Experience"
-      description="My past experience includes bumble bee conservation, desert plant restoration, and connectivity conservation."
-      openGraph={{
-        basic: {
-          title: 'Amanda Liczner - Experience',
-          type: 'website',
-          image: '/pictures/Experience2.jpg',
-        },
-      }}
-    />
-  </head>
+<SEO
+  title="Experience - Dr. Amanda Liczner | Bumble Bee Research & Conservation Biology"
+  description="Explore Dr. Amanda Liczner's ecological research experience including bumble bee conservation, climate change impacts, pollinator movement tracking, pathogen risk assessment, and connectivity conservation across Canada."
+  canonical={`${siteUrl}/experience`}
+  openGraph={{
+    basic: {
+      title: 'Experience - Dr. Amanda Liczner | Ecological Research & Conservation',
+      type: 'website',
+      image: `${siteUrl}/pictures/Experience2.jpg`,
+      url: `${siteUrl}/experience`,
+    },
+    optional: {
+      description: 'Research experience in bumble bee ecology, climate change, pollinator conservation, and connectivity biology. Postdoctoral research at UBC Okanagan and PhD from York University.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
+    },
+    image: {
+      url: `${siteUrl}/pictures/Experience2.jpg`,
+      secureUrl: `${siteUrl}/pictures/Experience2.jpg`,
+      alt: 'Dr. Amanda Liczner conducting field research with bumble bees',
+      type: 'image/jpeg',
+      width: 1200,
+      height: 800,
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Experience - Dr. Amanda Liczner',
+    description: 'Ecological research in bumble bee conservation, climate change, and pollinator biology',
+    image: `${siteUrl}/pictures/Experience2.jpg`,
+    imageAlt: 'Dr. Amanda Liczner field research',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'bumble bee research, pollinator conservation, climate change ecology, movement tracking, radio telemetry, pathogen ecology, connectivity conservation, York University research, UBC Okanagan, Amanda Liczner research, pollinator biology, bee tracking, conservation biology' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+      { property: 'article:author', content: 'Dr. Amanda Liczner' },
+      { property: 'article:publisher', content: siteUrl },
+      { name: 'geo.region', content: 'CA' },
+      { name: 'geo.placename', content: 'Canada' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/experience` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/experience` },
+    ]
+  }}
+/>
+
+<Layout title="Experience - Dr. Amanda Liczner">
+  <Sidebar class="lg:hidden" />
+  <Header />
+
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': siteUrl
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Experience',
+        'item': `${siteUrl}/experience`
+      }
+    ]
+  })} />
+
+  <!-- Research Projects Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    'name': 'Dr. Amanda Liczner',
+    'jobTitle': 'Ecologist and Conservation Biologist',
+    'url': siteUrl,
+    'worksFor': [
+      {
+        '@type': 'EducationalOrganization',
+        'name': 'University of British Columbia Okanagan',
+        'location': 'British Columbia, Canada'
+      },
+      {
+        '@type': 'EducationalOrganization',
+        'name': 'York University',
+        'location': 'Ontario, Canada'
+      }
+    ],
+    'knowsAbout': [
+      'Bumble Bee Conservation',
+      'Climate Change Ecology',
+      'Pollinator Biology',
+      'Movement Ecology',
+      'Radio Telemetry',
+      'Pathogen Ecology',
+      'Connectivity Conservation',
+      'Native Plant Restoration',
+      'Conservation Planning'
+    ]
+  })} />
 
   <main>
-    <Layout title="Experience - Amanda Liczner">
-      <Sidebar class="lg:hidden" />
-      <Header />
-      <Content>
-        <section>
-          <Article>
-            <Heading
-              slot="header"
-              level={1}
-              gradient
-              class="inline-block py-1"
-              text="Recent work"
-            />
-            <Text class="text-xl"
-              >Click on a project below to learn about my work
-            </Text>
-            <ProjectCard
-              image="/pictures/Project1A.JPG"
-              title="Impacts of environmental stressors on bumble bee queen movement"
-              description="We are testing for possible impacts of pesticides on the movement of bumble bees. We are doing this with the help of tiny radio tags that track their movement!"
-              buttonText="Learn More"
-              buttonLink="/experience/env-stressors"
-            />
-            <ProjectCard
-              image="/pictures/Project2A.jpg"
-              title="Learning their needs by tracking the bees"
-              description="In this project we tagged spring bumble bee queens and late summer bumble bee queens to learn more about their movement behaviour, habitat selection, and about their nesting and overwintering habitat locations."
-              buttonText="Learn More"
-              buttonLink="/experience/bee-needs"
-            />
-            <ProjectCard
-              image="/pictures/pathogen.jpg"
-              title="Pathogen risk to bumble bees across Canada"
-              description="In this project we aim to identify regions in Canada where pathogen spillover from managed bees poses the highest risk to wild bumble bees, helping to prioritize conservation efforts."
-              buttonText="Learn More"
-              buttonLink="/experience/pathogen"
-            />
-            <ProjectCard
-              image="/pictures/urbangardens.jpg"
-              title="Urban bees response to backyard gardens"
-              description="We looked at the diversity of native bees in bee-friendly urban gardens in Kelowna, British Columbia, and to explore how garden characteristics and surrounding urbanization influence bee populations."
-              buttonText="Learn More"
-              buttonLink="/experience/urban-gardens"
-            />
-            <ProjectCard
-              image="/pictures/Project3A.jpg"
-              title="Does soil temperature predict bumble bee queen emergence in spring?"
-              description="To test the impact of soil temperature on queen bumble bee emergence timing, we surveyed for bumble bee queens, while simultaneously measuring soil temperature at different depths."
-              buttonText="Learn More"
-              buttonLink="/experience/soil-temperature"
-            />
-          </Article>
-        </section>
-        <section>
-          <Article>
-            <Heading
-              slot="header"
-              level={1}
-              gradient
-              class="inline-block py-1"
-              text="Past experience"
-              id="past-experience"
-            />
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-32 overflow-hidden">
+      <!-- Gradient Background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/10"></div>
 
-            <ProjectCard
-              image="/pictures/Experience1.JPG"
-              title="Connectivity and Conservation"
-              description="My first postdoctoral fellowship position was at the University of British Columbia Okanagan, supervised by Drs. Jason Pither, Adam Ford, Lael Parrot, Josie Hughes, and Richard Pither. We are working in a large collaborative group to synthesize future research directions for connectivity conservation."
-            />
+      <div class="container relative px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Breadcrumb Navigation for SEO -->
+          <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center justify-center gap-2 text-sm text-neutral-600">
+              <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" class="text-primary font-medium">Experience</li>
+            </ol>
+          </nav>
 
-            <ProjectCard
-              image="/pictures/Experience2.jpg"
-              title="Bumble Bee Conservation"
-              description="My PhD research at York University focused on at-risk bumble bee species' habitat with the Native Pollinator Research Lab (supervised by Dr. Sheila Colla). I used a variety of methods, including literature reviews, local-scale surveys, landscape-scale models, and detection dogs, to map bumble bee conservation priority areas across Canada."
-            />
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-medium text-neutral-700 mb-6">
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Research Experience
+            </span>
+          </h1>
+          <p class="text-lg sm:text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-4">
+            Advancing pollinator conservation through innovative research in ecology, climate change, and movement biology.
+          </p>
+        </div>
+      </div>
+    </section>
 
-            <ProjectCard
-              image="/pictures/Experience3.JPG"
-              title="Native Plant Restoration & Ecological Research"
-              description="Earlier research experiences, including my MSc and BSc, have taken me across various ecosystems. I studied native plant restoration in the Californian deserts, investigated cyanobacteria abundance in northern Ontario lakes, and examined seed germination with and without plant interactions in the alpine-tundra of northern British Columbia."
-            />
+    <Content>
+      <section>
+        <Article>
+          <Heading
+            slot="header"
+            level={2}
+            gradient
+            class="inline-block py-1"
+            text="Recent work"
+          />
+          <Text class="text-xl"
+            >Click on a project below to learn about my work
+          </Text>
+          <ProjectCard
+            image="/pictures/Project1A.JPG"
+            title="Impacts of environmental stressors on bumble bee queen movement"
+            description="We are testing for possible impacts of pesticides on the movement of bumble bees. We are doing this with the help of tiny radio tags that track their movement!"
+            buttonText="Learn More"
+            buttonLink="/experience/env-stressors"
+          />
+          <ProjectCard
+            image="/pictures/Project2A.jpg"
+            title="Learning their needs by tracking the bees"
+            description="In this project we tagged spring bumble bee queens and late summer bumble bee queens to learn more about their movement behaviour, habitat selection, and about their nesting and overwintering habitat locations."
+            buttonText="Learn More"
+            buttonLink="/experience/bee-needs"
+          />
+          <ProjectCard
+            image="/pictures/pathogen.jpg"
+            title="Pathogen risk to bumble bees across Canada"
+            description="In this project we aim to identify regions in Canada where pathogen spillover from managed bees poses the highest risk to wild bumble bees, helping to prioritize conservation efforts."
+            buttonText="Learn More"
+            buttonLink="/experience/pathogen"
+          />
+          <ProjectCard
+            image="/pictures/urbangardens.jpg"
+            title="Urban bees response to backyard gardens"
+            description="We looked at the diversity of native bees in bee-friendly urban gardens in Kelowna, British Columbia, and to explore how garden characteristics and surrounding urbanization influence bee populations."
+            buttonText="Learn More"
+            buttonLink="/experience/urban-gardens"
+          />
+          <ProjectCard
+            image="/pictures/Project3A.jpg"
+            title="Does soil temperature predict bumble bee queen emergence in spring?"
+            description="To test the impact of soil temperature on queen bumble bee emergence timing, we surveyed for bumble bee queens, while simultaneously measuring soil temperature at different depths."
+            buttonText="Learn More"
+            buttonLink="/experience/soil-temperature"
+          />
+        </Article>
+      </section>
+      <section>
+        <Article>
+          <Heading
+            slot="header"
+            level={2}
+            gradient
+            class="inline-block py-1"
+            text="Past experience"
+            id="past-experience"
+          />
 
-            <!-- CV Embed -->
-            <div class="grid place-items-center my-8">
-              <object
-                data="/AmandaLicznerCV.pdf#toolbar=0"
-                type="application/pdf"
-                width="80%"
-                height="800px"
-              >
-              </object>
+          <ProjectCard
+            image="/pictures/Experience1.JPG"
+            title="Connectivity and Conservation"
+            description="My first postdoctoral fellowship position was at the University of British Columbia Okanagan, supervised by Drs. Jason Pither, Adam Ford, Lael Parrot, Josie Hughes, and Richard Pither. We are working in a large collaborative group to synthesize future research directions for connectivity conservation."
+          />
+
+          <ProjectCard
+            image="/pictures/Experience2.jpg"
+            title="Bumble Bee Conservation"
+            description="My PhD research at York University focused on at-risk bumble bee species' habitat with the Native Pollinator Research Lab (supervised by Dr. Sheila Colla). I used a variety of methods, including literature reviews, local-scale surveys, landscape-scale models, and detection dogs, to map bumble bee conservation priority areas across Canada."
+          />
+
+          <ProjectCard
+            image="/pictures/Experience3.JPG"
+            title="Native Plant Restoration & Ecological Research"
+            description="Earlier research experiences, including my MSc and BSc, have taken me across various ecosystems. I studied native plant restoration in the Californian deserts, investigated cyanobacteria abundance in northern Ontario lakes, and examined seed germination with and without plant interactions in the alpine-tundra of northern British Columbia."
+          />
+
+          <!-- CV Embed -->
+          <div class="grid place-items-center my-8">
+            <object
+              data="/AmandaLicznerCV.pdf#toolbar=0"
+              type="application/pdf"
+              width="80%"
+              height="800px"
+            >
+            </object>
+          </div>
+        </Article>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="pb-16 lg:pb-24">
+        <div class="container mx-auto px-4 sm:px-6">
+          <div class="max-w-4xl mx-auto relative">
+            <!-- Gradient background with shadow -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-primary/10 rounded-3xl blur-sm" aria-hidden="true"></div>
+
+            <div class="relative border border-primary/20 rounded-3xl overflow-hidden shadow-xl">
+              <div class="flex flex-col gap-8 lg:gap-12 bg-gradient-to-br from-white via-neutral-50 to-primary/5 px-6 sm:px-8 lg:px-12 xl:px-16 py-12 lg:py-20 text-center items-center">
+                <div class="flex flex-col gap-4">
+                  <h2 class="text-neutral-700 text-3xl sm:text-4xl lg:text-5xl font-medium mx-auto">
+                    Interested in Collaboration?
+                  </h2>
+                  <p class="text-neutral-600 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto">
+                    Let's work together on pollinator conservation, ecological research, or science communication projects.
+                  </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="/contact"
+                    class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-primary text-white hover:shadow-2xl hover:scale-105 hover:bg-secondary hover:-translate-y-1"
+                    aria-label="Contact Dr. Amanda Liczner for collaborations"
+                  >
+                    Get in Touch
+                  </a>
+                  <a
+                    href="/books"
+                    class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-secondary text-neutral-700 hover:shadow-2xl hover:scale-105 hover:bg-primary hover:text-white hover:-translate-y-1"
+                    aria-label="View pollinator education books by Dr. Amanda Liczner"
+                  >
+                    View Books
+                  </a>
+                </div>
+              </div>
             </div>
-          </Article>
-        </section>
-      </Content>
-    </Layout>
+          </div>
+        </div>
+      </section>
+    </Content>
   </main>
-</html>
+</Layout>
