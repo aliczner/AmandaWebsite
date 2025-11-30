@@ -11,20 +11,11 @@ import experience from '../icons/experience.svg?raw'
 
 <section class="py-12 lg:py-20 z-10 relative">
   <div class="container flex flex-col gap-16 px-4 sm:px-6">
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
       <li>
         <Card
           type="primary"
-          icon={bookIcon}
-          title="Books"
-          href="/books"
-        />
-      </li>
-
-      <li>
-        <Card
-          type="primary"
-          icon={bookIcon}
+          icon={bumblebeeIcon}
           title="Skills & Education"
           href="/skills-education"
         />
@@ -33,17 +24,18 @@ import experience from '../icons/experience.svg?raw'
       <li>
         <Card
           type="primary"
-          icon={bumblebeeIcon}
-          title="Recent work"
+          icon={experience}
+          title="Experience"
           href="/experience"
         />
       </li>
+
       <li>
         <Card
           type="primary"
-          icon={experience}
-          title="Experience"
-          href="/experience#past-experience"
+          icon={bookIcon}
+          title="Books"
+          href="/books"
         />
       </li>
       <li>

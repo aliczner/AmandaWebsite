@@ -19,15 +19,17 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
   canonical={`${siteUrl}/`}
   openGraph={{
     basic: {
-      title: 'Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher',
+      title:
+        'Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher',
       type: 'website',
       image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       url: siteUrl,
     },
     optional: {
-      description: "Dr. Amanda Liczner is an ecologist and conservation biologist currently researching bumble bee behaviour.",
+      description:
+        'Dr. Amanda Liczner is an ecologist and conservation biologist currently researching bumble bee behaviour.',
       siteName: 'Amanda Liczner',
-    }
+    },
   }}
   twitter={{
     card: 'summary_large_image',
