@@ -30,7 +30,9 @@ const { title } = Astro.props
 
   html {
     @apply scroll-smooth;
+    scroll-padding-top: 80px;
   }
+
   main {
     @apply min-h-dvh;
   }
@@ -46,5 +48,12 @@ const { title } = Astro.props
 
   p {
     @apply font-light text-pretty max-w-[65ch];
+  }
+
+  /* Improved focus states for accessibility */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid rgb(var(--ac-primary));
+    outline-offset: 2px;
   }
 </style>

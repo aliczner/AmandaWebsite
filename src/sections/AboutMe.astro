@@ -21,39 +21,75 @@ import Article from '../components/Article.astro'
     vertical-align: middle;
   }
 
-  .polaroid {
-    background-color: azure;
-    margin: 0 auto;
-  }
-
   .content-section {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
-  /* Mobile-first responsive design */
+  .content-section:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Modern image container with drop shadow */
   .image-container {
-    max-width: 300px;
+    max-width: 350px;
     margin: 1rem auto;
   }
 
   @media (min-width: 768px) {
     .image-container {
-      max-width: none;
-      margin: 1rem 0;
+      max-width: 100%;
+      margin: 0;
     }
   }
 
-  /* Improved text readability on mobile */
-  .mobile-text {
-    padding-top: 0rem;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+  .image-wrapper {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 253, 250, 0.95) 100%);
+    padding: 0.75rem;
+    border-radius: 1rem;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(var(--ac-primary), 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .image-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05),
+      0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-wrapper img {
+    border-radius: 0.75rem;
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
   }
 
   @media (min-width: 768px) {
-    .mobile-text {
-      padding-top: 1rem;
+    .image-wrapper img {
+      height: 20rem;
+    }
+  }
+
+  /* Improved text readability */
+  .content-text {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  @media (min-width: 768px) {
+    .content-text {
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-text {
       font-size: 1.25rem;
     }
   }
@@ -75,16 +111,16 @@ import Article from '../components/Article.astro'
         
         <!-- First Section: Main Bio -->
         <div class="content-section">
-          <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center md:items-start">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 items-center md:items-start">
             <div class="md:col-span-3 order-2 md:order-1">
-              <div class="mobile-text bee-list">
+              <div class="content-text bee-list">
                 <p class="mb-4">
                   I am a conservation biologist and research scientist passionate
                   about ecological research. My past work has focused largely on
                   bumble bee conservation, but also includes studies on bumble bee
                   movement, habitat connectivity, and ecosystem restoration.
                 </p>
-                
+
                 <p class="mb-4">
                   Currently, I'm a Research Analyst at the Toronto and Region Conservation
                   Authority (TRCA), within the Ecosystem & Climate Science Division on
@@ -92,10 +128,10 @@ import Article from '../components/Article.astro'
                   data, and practical policy guidance to help communities adapt to climate
                   change and support biodiversity.
                 </p>
-                
+
                 <div>
-                  <p class="mb-2"><strong>My research interests are:</strong></p>
-                  <ul class="space-y-1">
+                  <p class="mb-3 font-semibold text-neutral-700"><strong>My research interests are:</strong></p>
+                  <ul class="space-y-2">
                     <li>behavioural ecology</li>
                     <li>conservation</li>
                     <li>restoration</li>
@@ -108,11 +144,11 @@ import Article from '../components/Article.astro'
 
             <div class="md:col-span-2 order-1 md:order-2">
               <div class="image-container">
-                <div class="polaroid p-2 shadow-lg rounded-lg border border-gray-300">
+                <div class="image-wrapper">
                   <img
-                    class="w-full h-64 md:h-80 object-cover rounded"
                     src="/pictures/AmandaLiczner.jpg"
                     alt="Amanda Liczner headshot in the field"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -122,25 +158,25 @@ import Article from '../components/Article.astro'
 
         <!-- Second Section: Research Techniques -->
         <div class="content-section">
-          <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center md:items-start">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 items-center md:items-start">
             <div class="md:col-span-2 order-1">
               <div class="image-container">
-                <div class="polaroid p-2 shadow-lg rounded-lg border border-gray-300">
+                <div class="image-wrapper">
                   <img
-                    class="w-full h-64 md:h-80 object-cover rounded"
                     src="/pictures/Bumble.jpg"
                     alt="Bumble bee with a radio tag on dandelions"
+                    loading="lazy"
                   />
                 </div>
               </div>
             </div>
-            
+
             <div class="md:col-span-3 order-2">
-              <div class="mobile-text bee-list">
+              <div class="content-text bee-list">
                 <p class="mb-4">
                   I have conducted research with a variety of techniques including:
                 </p>
-                <ul class="space-y-1 mb-4">
+                <ul class="space-y-2 mb-4">
                   <li>field sampling of bees, nests, and plants</li>
                   <li>statistical modelling</li>
                   <li>conservation planning</li>
@@ -149,7 +185,7 @@ import Article from '../components/Article.astro'
                 </ul>
                 <p>
                   You can learn more about the skills I have picked up along the way on
-                  my <a href="/skills-education" class="text-blue-600 hover:text-blue-800 underline">skills page</a>.
+                  my <a href="/skills-education" class="text-primary hover:text-primary/80 underline transition-colors">skills page</a>.
                 </p>
               </div>
             </div>
@@ -157,29 +193,29 @@ import Article from '../components/Article.astro'
         </div>
 
         <!-- Third Section: Personal -->
-        <div class="content-section pt-6">
-          <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center md:items-start">
+        <div class="content-section">
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 items-center md:items-start">
             <div class="md:col-span-2 order-1">
               <div class="image-container">
-                <div class="polaroid p-2 shadow-lg rounded-lg border border-gray-300">
+                <div class="image-wrapper">
                   <img
-                    class="w-full h-64 md:h-80 object-cover rounded"
                     src="/pictures/Phoebe.jpg"
                     alt="Amanda Liczner with Phoebe in a kayak"
+                    loading="lazy"
                   />
                 </div>
               </div>
             </div>
-            
+
             <div class="md:col-span-3 order-2">
-              <div class="mobile-text">
+              <div class="content-text">
                 <p class="mb-4">
                   Although my specialty is bumble bee research, I am open to working
                   on any ecological research project, especially those with an applied
-                  angle. View some of my past research examples on my 
-                  <a href="/experience" class="text-blue-600 hover:text-blue-800 underline">experience page</a>.
+                  angle. View some of my past research examples on my
+                  <a href="/experience" class="text-primary hover:text-primary/80 underline transition-colors">experience page</a>.
                 </p>
-                
+
                 <p>
                   When I am not out searching for bumble bees or analyzing data, you can
                   find me hanging out with my dog, gardening, hiking, playing violin, baking

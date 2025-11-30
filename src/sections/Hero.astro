@@ -10,22 +10,22 @@ interface Props {
 const { title, description, align = 'left' } = Astro.props
 ---
 
-<section class="relative h-svh text-neutral-700 overflow-clip">
+<section class="relative min-h-screen h-screen text-neutral-700 overflow-clip">
   <div class="relative flex items-center w-full h-full overflow-clip">
     <HeroGradient />
 
     <div
       class:list={[
-        'relative container flex flex-col gap-16',
-        align === 'center' ? 'text-center' : '',
+        'relative container flex flex-col gap-8 sm:gap-12 lg:gap-16 px-4 sm:px-6',
+        align === 'center' ? 'text-center items-center' : '',
       ]}
     >
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-6 sm:gap-8">
         {
           title && (
             <h1
               class:list={[
-                'text-white text-[12vw] sm:text-[11.5vw] md:text-[11vw] lg:text-[10vw] xl:text-[9vw] leading-none [&>strong]:font-medium ',
+                'text-white text-[clamp(3rem,12vw,10rem)] leading-[0.95] [&>strong]:font-medium drop-shadow-2xl',
                 'font-greatVibes',
                 align === 'center' ? 'mx-auto' : '',
               ]}
@@ -37,7 +37,7 @@ const { title, description, align = 'left' } = Astro.props
           description && (
             <p
               class:list={[
-                'text-white  lg:text-4xl text-xl tracking-wide',
+                'text-white text-lg sm:text-2xl lg:text-4xl tracking-wide drop-shadow-lg max-w-2xl',
                 align === 'center' ? 'mx-auto' : '',
               ]}
               set:html={description}

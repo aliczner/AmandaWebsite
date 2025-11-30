@@ -2,20 +2,20 @@
 import Card from '../components/Card.astro'
 
 import bumblebeeIcon from '../icons/bee.svg?raw'
-import book from '../icons/book.svg?raw'
+import bookIcon from '../icons/book.svg?raw'
 import contact from '../icons/contact.svg?raw'
 import experience from '../icons/experience.svg?raw'
 ---
 
 ---
 
-<section class="py-8 lg:py-16 z-10">
-  <div class="container flex flex-col gap-16">
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-16">
+<section class="py-12 lg:py-20 z-10 relative">
+  <div class="container flex flex-col gap-16 px-4 sm:px-6">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
       <li>
         <Card
           type="primary"
-          icon={book}
+          icon={bumblebeeIcon}
           title="Skills & Education"
           href="/skills-education"
         />
@@ -24,17 +24,18 @@ import experience from '../icons/experience.svg?raw'
       <li>
         <Card
           type="primary"
-          icon={bumblebeeIcon}
-          title="Recent work"
+          icon={experience}
+          title="Experience"
           href="/experience"
         />
       </li>
+
       <li>
         <Card
           type="primary"
-          icon={experience}
-          title="Experience"
-          href="/experience#past-experience"
+          icon={bookIcon}
+          title="Books"
+          href="/books"
         />
       </li>
       <li>
