@@ -1,8 +1,6 @@
 ---
 import Button from '../components/Button.astro'
-import Code from '../components/Code.astro'
 import CTA from '../sections/CTA.astro'
-import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import Hero from '../sections/Hero.astro'
 import Intro from '../sections/Intro.astro'
@@ -11,21 +9,32 @@ import Sidebar from '../layouts/Sidebar.astro'
 import AboutMe from '../sections/AboutMe.astro'
 import { SEO } from 'astro-seo'
 import '../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
 <SEO
-  title="Amanda Liczner - Homepage"
+  title="Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher"
   description="Dr. Amanda Liczner is an ecologist and conservation biologist currently researching bumble bee behaviour. She is a post-doctoral fellow at the University of Guelph and has a radio telemetry network she uses to understand the movement of bumble bees. Come learn more about Amanda's current and past research."
+  canonical={`${siteUrl}/`}
   openGraph={{
     basic: {
-      title: 'Amanda Liczner - Homepage',
+      title: 'Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher',
       type: 'website',
-      image: '/pictures/AmandaLiczner.jpg',
+      image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      url: siteUrl,
     },
+    optional: {
+      description: "Dr. Amanda Liczner is an ecologist and conservation biologist currently researching bumble bee behaviour.",
+      siteName: 'Amanda Liczner',
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
   }}
 />
 
-<Layout title="Homepage - Amanda Licnzer">
+<Layout title="Homepage - Dr. Amanda Liczner">
   <Sidebar class="lg:hidden" />
   <Header />
   <main>
