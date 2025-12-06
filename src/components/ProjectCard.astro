@@ -1,13 +1,14 @@
 ---
 export interface Props {
   image: string
+  imageAlt?: string
   title: string
   description: string
   buttonText?: string
   buttonLink?: string
 }
 import Button from './Button.astro'
-const { image, title, description, buttonText, buttonLink } = Astro.props
+const { image, imageAlt, title, description, buttonText, buttonLink } = Astro.props
 
 const pictureClass = buttonText && buttonLink ? 'md:w-1/3' : 'md:w-1/3'
 const textClass =
@@ -31,7 +32,7 @@ const textClass =
               <a href={buttonLink} class="block h-full">
                 <img
                   src={image}
-                  alt={title}
+                  alt={imageAlt || title}
                   class="w-full h-full min-h-[200px] md:min-h-[250px] object-cover rounded-2xl"
                   loading="lazy"
                 />
@@ -39,7 +40,7 @@ const textClass =
             ) : (
               <img
                 src={image}
-                alt={title}
+                alt={imageAlt || title}
                 class="w-full h-full min-h-[200px] md:min-h-[250px] object-cover rounded-2xl"
                 loading="lazy"
               />
