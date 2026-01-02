@@ -8,19 +8,100 @@ import Header from '../../components/Header.astro'
 import ContactForm from '../../components/ContactForm.astro'
 import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
 <SEO
-  title="Amanda Liczner - Contact"
-  description="Contact me for more information about my research or to collaborate."
+  title="Contact Dr. Amanda Liczner - Bumble Bee Research & Collaboration"
+  description="Get in touch with Dr. Amanda Liczner for speaking engagements, research collaboration, educational programs about pollinator conservation, or consulting on bumble bee ecology. Connect with an expert in bumble bee tracking and conservation biology."
+  canonical={`${siteUrl}/contact`}
   openGraph={{
     basic: {
-      title: 'Amanda Liczner - Contact',
+      title: 'Contact Dr. Amanda Liczner - Bumble Bee Research & Collaboration',
       type: 'website',
-      image: '/pictures/AmandaLiczner.jpg',
+      image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      url: `${siteUrl}/contact`,
     },
+    optional: {
+      description: 'Contact Dr. Amanda Liczner for speaking engagements, research collaboration, educational programs, or consulting on bumble bee ecology and pollinator conservation.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
+    },
+    image: {
+      url: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      secureUrl: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      alt: 'Dr. Amanda Liczner, bumble bee ecologist and conservation biologist',
+      type: 'image/jpeg',
+      width: 600,
+      height: 600,
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Contact Dr. Amanda Liczner - Bumble Bee Research',
+    description: 'Connect for speaking engagements, research collaboration, or educational programs about pollinator conservation.',
+    image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+    imageAlt: 'Dr. Amanda Liczner, bumble bee ecologist',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'contact Amanda Liczner, bumble bee researcher contact, pollinator conservation collaboration, ecology speaking engagements, conservation biology consulting, radio telemetry expert' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'article:author', content: 'Dr. Amanda Liczner' },
+      { name: 'geo.region', content: 'CA' },
+      { name: 'geo.placename', content: 'Canada' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/contact` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/contact` },
+    ]
   }}
 />
+
+<!-- ContactPage Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  'name': 'Contact Dr. Amanda Liczner',
+  'description': 'Get in touch with Dr. Amanda Liczner for speaking engagements, research collaboration, educational programs, or consulting on bumble bee ecology and pollinator conservation.',
+  'url': `${siteUrl}/contact`,
+  'mainEntity': {
+    '@type': 'Person',
+    'name': 'Dr. Amanda Liczner',
+    'jobTitle': 'Ecologist and Conservation Biologist',
+    'url': siteUrl,
+    'image': `${siteUrl}/pictures/AmandaLiczner.jpg`,
+    'sameAs': [
+      siteUrl,
+      `${siteUrl}/experience`,
+      `${siteUrl}/books`
+    ]
+  }
+})} />
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': siteUrl
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Contact',
+      'item': `${siteUrl}/contact`
+    }
+  ]
+})} />
 
 <style>
   .fullscreen-bg {
