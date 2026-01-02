@@ -5,7 +5,110 @@ import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
+import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+---
+
+<SEO
+  title="Tracking Bumble Bees to Learn Their Needs | Radio Telemetry Study"
+  description="Radio telemetry research tracking bumble bee queens to discover nesting and overwintering habitat locations, movement patterns, and habitat selection. Groundbreaking study on bumble bee ecology by Dr. Amanda Liczner."
+  canonical={`${siteUrl}/experience/bee-needs`}
+  openGraph={{
+    basic: {
+      title: 'Learning Bumble Bee Needs Through Radio Tracking Research',
+      type: 'article',
+      image: `${siteUrl}/pictures/Project2A.jpg`,
+      url: `${siteUrl}/experience/bee-needs`,
+    },
+    optional: {
+      description: 'Tracking spring and late-summer bumble bee queens to understand their movement, habitat selection, nesting sites, and overwintering locations using radio telemetry.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
+    },
+    article: {
+      authors: ['Dr. Amanda Liczner'],
+      tags: ['bumble bees', 'radio telemetry', 'habitat selection', 'nesting habitat', 'overwintering', 'pollinator ecology'],
+    },
+    image: {
+      url: `${siteUrl}/pictures/Project2A.jpg`,
+      secureUrl: `${siteUrl}/pictures/Project2A.jpg`,
+      alt: 'Bumble bee foraging on flower during radio telemetry tracking study',
+      type: 'image/jpeg',
+      width: 1200,
+      height: 800,
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Tracking Bumble Bees to Learn Their Habitat Needs',
+    description: 'Radio telemetry study reveals bumble bee nesting sites, overwintering locations, and movement patterns.',
+    image: `${siteUrl}/pictures/Project2A.jpg`,
+    imageAlt: 'Bumble bee on flower in field',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'bumble bee tracking, radio telemetry bees, bumble bee nesting habitat, overwintering sites, bumble bee movement, habitat selection, pollinator ecology research, bumble bee conservation' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'article:author', content: 'Dr. Amanda Liczner' },
+      { property: 'article:section', content: 'Research' },
+      { name: 'geo.region', content: 'CA' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/experience/bee-needs` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/experience/bee-needs` },
+    ]
+  }}
+/>
+
+<!-- ScholarlyArticle Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  'headline': 'Learning Their Needs by Tracking the Bees',
+  'description': 'Radio telemetry research tracking bumble bee queens to discover nesting and overwintering habitat locations, movement behaviour, and habitat selection patterns.',
+  'author': {
+    '@type': 'Person',
+    'name': 'Dr. Amanda Liczner',
+    'jobTitle': 'Ecologist and Conservation Biologist',
+    'url': siteUrl
+  },
+  'about': ['Bumble Bees', 'Radio Telemetry', 'Habitat Selection', 'Nesting Habitat', 'Overwintering Sites', 'Pollinator Movement'],
+  'keywords': 'bumble bees, radio telemetry, nesting habitat, overwintering, movement behaviour, habitat selection',
+  'url': `${siteUrl}/experience/bee-needs`,
+  'image': `${siteUrl}/pictures/Project2A.jpg`,
+  'inLanguage': 'en-CA'
+})} />
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': siteUrl
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Experience',
+      'item': `${siteUrl}/experience`
+    },
+    {
+      '@type': 'ListItem',
+      'position': 3,
+      'name': 'Bumble Bee Tracking Research',
+      'item': `${siteUrl}/experience/bee-needs`
+    }
+  ]
+})} />
 ---
 
 <style>
@@ -15,7 +118,7 @@ import '../../styles/main.scss'
     list-style-type: number;
   }
 </style>
-<Layout title="Homepage - Amanda Licnzer">
+<Layout title="Tracking Bumble Bees to Learn Their Needs - Amanda Liczner">
   <Sidebar class="lg:hidden" />
   <Header />
   <Content>

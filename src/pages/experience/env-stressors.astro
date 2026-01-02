@@ -5,7 +5,110 @@ import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
+import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+---
+
+<SEO
+  title="Pesticide Effects on Bumble Bee Movement | Radio Telemetry Research"
+  description="Investigating sublethal impacts of neonicotinoids and diamide pesticides on bumble bee queen movement using radio telemetry tracking. Dr. Amanda Liczner's research on pollinator conservation and pesticide effects."
+  canonical={`${siteUrl}/experience/env-stressors`}
+  openGraph={{
+    basic: {
+      title: 'Environmental Stressors & Bumble Bee Movement Research',
+      type: 'article',
+      image: `${siteUrl}/pictures/Project1A.JPG`,
+      url: `${siteUrl}/experience/env-stressors`,
+    },
+    optional: {
+      description: 'Research on sublethal pesticide impacts on bumble bee flight behaviour, home range, and habitat selection using radio telemetry.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
+    },
+    article: {
+      authors: ['Dr. Amanda Liczner'],
+      tags: ['bumble bees', 'pesticides', 'neonicotinoids', 'radio telemetry', 'pollinator conservation'],
+    },
+    image: {
+      url: `${siteUrl}/pictures/Project1A.JPG`,
+      secureUrl: `${siteUrl}/pictures/Project1A.JPG`,
+      alt: 'Bumble bee foraging on flowers in agricultural field for pesticide research',
+      type: 'image/jpeg',
+      width: 1200,
+      height: 800,
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Pesticide Effects on Bumble Bee Movement Research',
+    description: 'Radio telemetry study on sublethal impacts of neonicotinoids and diamides on bumble bee queen movement.',
+    image: `${siteUrl}/pictures/Project1A.JPG`,
+    imageAlt: 'Bumble bee on flower in field',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'bumble bee pesticides, neonicotinoid effects, diamide pesticides, radio telemetry bees, sublethal pesticide impacts, pollinator movement tracking, bumble bee conservation research, pesticide regulation' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'article:author', content: 'Dr. Amanda Liczner' },
+      { property: 'article:section', content: 'Research' },
+      { name: 'geo.region', content: 'CA' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/experience/env-stressors` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/experience/env-stressors` },
+    ]
+  }}
+/>
+
+<!-- ScholarlyArticle Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  'headline': 'Impacts of Environmental Stressors on Bumble Bee Queen Movement',
+  'description': 'Research investigating sublethal impacts of neonicotinoid and diamide pesticides on bumble bee queen movement behaviour using radio telemetry tracking.',
+  'author': {
+    '@type': 'Person',
+    'name': 'Dr. Amanda Liczner',
+    'jobTitle': 'Ecologist and Conservation Biologist',
+    'url': siteUrl
+  },
+  'about': ['Bumble Bees', 'Pesticide Effects', 'Radio Telemetry', 'Pollinator Conservation', 'Neonicotinoids', 'Environmental Toxicology'],
+  'keywords': 'bumble bees, pesticides, neonicotinoids, diamides, radio telemetry, sublethal effects, pollinator movement',
+  'url': `${siteUrl}/experience/env-stressors`,
+  'image': `${siteUrl}/pictures/Project1A.JPG`,
+  'inLanguage': 'en-CA'
+})} />
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': siteUrl
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Experience',
+      'item': `${siteUrl}/experience`
+    },
+    {
+      '@type': 'ListItem',
+      'position': 3,
+      'name': 'Environmental Stressors Research',
+      'item': `${siteUrl}/experience/env-stressors`
+    }
+  ]
+})} />
 ---
 
 <style>
@@ -15,7 +118,7 @@ import '../../styles/main.scss'
     list-style-type: number;
   }
 </style>
-<Layout title="Homepage - Amanda Licnzer">
+<Layout title="Environmental Stressors & Bumble Bee Movement - Amanda Liczner">
   <Sidebar class="lg:hidden" />
   <Header />
   <Content>

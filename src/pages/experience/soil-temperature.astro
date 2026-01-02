@@ -5,7 +5,110 @@ import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
+import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+---
+
+<SEO
+  title="Soil Temperature & Bumble Bee Queen Emergence | Hibernation Research"
+  description="Research investigating how soil temperature at different depths affects bumble bee queen emergence timing in spring. Study on early vs late emerging species and hibernation ecology by Dr. Amanda Liczner."
+  canonical={`${siteUrl}/experience/soil-temperature`}
+  openGraph={{
+    basic: {
+      title: 'Soil Temperature & Bumble Bee Emergence Research',
+      type: 'article',
+      image: `${siteUrl}/pictures/Project3A.jpg`,
+      url: `${siteUrl}/experience/soil-temperature`,
+    },
+    optional: {
+      description: 'Investigating the relationship between soil temperature and bumble bee queen emergence timing, comparing early and late emerging species hibernation depths.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
+    },
+    article: {
+      authors: ['Dr. Amanda Liczner'],
+      tags: ['bumble bees', 'soil temperature', 'hibernation', 'queen emergence', 'phenology', 'climate change'],
+    },
+    image: {
+      url: `${siteUrl}/pictures/Project3A.jpg`,
+      secureUrl: `${siteUrl}/pictures/Project3A.jpg`,
+      alt: 'Bumble bee queen emerging in spring for hibernation research',
+      type: 'image/jpeg',
+      width: 1200,
+      height: 800,
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Soil Temperature & Bumble Bee Emergence Research',
+    description: 'Study reveals how soil temperature affects bumble bee queen emergence timing from hibernation.',
+    image: `${siteUrl}/pictures/Project3A.jpg`,
+    imageAlt: 'Bumble bee queen in spring',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'bumble bee hibernation, soil temperature bees, queen emergence timing, bumble bee phenology, overwintering depth, early emerging species, climate change pollinators, hibernation ecology' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'article:author', content: 'Dr. Amanda Liczner' },
+      { property: 'article:section', content: 'Research' },
+      { name: 'geo.region', content: 'CA' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/experience/soil-temperature` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/experience/soil-temperature` },
+    ]
+  }}
+/>
+
+<!-- ScholarlyArticle Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  'headline': 'Does Soil Temperature Predict Bumble Bee Queen Emergence in Spring?',
+  'description': 'Research examining the relationship between soil temperature at different depths and bumble bee queen emergence timing, comparing early and late emerging species.',
+  'author': {
+    '@type': 'Person',
+    'name': 'Dr. Amanda Liczner',
+    'jobTitle': 'Ecologist and Conservation Biologist',
+    'url': siteUrl
+  },
+  'about': ['Bumble Bees', 'Soil Temperature', 'Hibernation', 'Queen Emergence', 'Phenology', 'Climate Adaptation'],
+  'keywords': 'bumble bees, soil temperature, hibernation, emergence timing, phenology, overwintering',
+  'url': `${siteUrl}/experience/soil-temperature`,
+  'image': `${siteUrl}/pictures/Project3A.jpg`,
+  'inLanguage': 'en-CA'
+})} />
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': siteUrl
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Experience',
+      'item': `${siteUrl}/experience`
+    },
+    {
+      '@type': 'ListItem',
+      'position': 3,
+      'name': 'Soil Temperature Research',
+      'item': `${siteUrl}/experience/soil-temperature`
+    }
+  ]
+})} />
 ---
 
 <style>
@@ -15,7 +118,7 @@ import '../../styles/main.scss'
     list-style-type: number;
   }
 </style>
-<Layout title="Homepage - Amanda Licnzer">
+<Layout title="Soil Temperature & Bumble Bee Emergence - Amanda Liczner">
   <Sidebar class="lg:hidden" />
   <Header />
   <Content>
