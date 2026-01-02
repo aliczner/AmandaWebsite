@@ -254,12 +254,12 @@ const structuredData = books
 
                     <!-- Book Cover Image -->
                     <div class="book-cover-container relative overflow-hidden bg-gradient-to-br from-neutral-50 to-primary/5">
-                      <div class="aspect-[3/4] relative max-h-[380px]">
+                      <div class="aspect-[4/3] relative max-h-[380px]">
                         <img
                           src={book.coverImage}
                           alt={`${book.title} - ${book.subtitle}. ${book.type} featuring educational illustrations of bees, butterflies, and pollinators. By Dr. Amanda Liczner, ecologist.`}
                           itemprop="image"
-                          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+                          class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300"
                           loading={index === 0 ? 'eager' : 'lazy'}
                           width="600"
                           height="800"
@@ -342,12 +342,12 @@ const structuredData = books
 
                     <!-- Book Cover Image -->
                     <div class="book-cover-container relative overflow-hidden bg-gradient-to-br from-neutral-50 to-primary/5">
-                      <div class="aspect-[3/4] relative max-h-[380px]">
+                      <div class="aspect-[4/3] relative max-h-[380px]">
                         <img
                           src={book.coverImage}
                           alt={`${book.title} - ${book.subtitle}. ${book.type} featuring detailed illustrations of bees, butterflies, and pollinators. By Dr. Amanda Liczner, ecologist.`}
                           itemprop="image"
-                          class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+                          class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300"
                           loading="lazy"
                           width="600"
                           height="800"
