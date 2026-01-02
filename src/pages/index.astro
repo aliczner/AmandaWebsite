@@ -15,26 +15,112 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 
 <SEO
   title="Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher"
-  description="Dr. Amanda Liczner is an ecologist and conservation biologist currently researching bumble bee behaviour. She is a post-doctoral fellow at the University of Guelph and has a radio telemetry network she uses to understand the movement of bumble bees. Come learn more about Amanda's current and past research."
+  description="Dr. Amanda Liczner is an ecologist and conservation biologist researching bumble bee behaviour and movement using radio telemetry. Post-doctoral fellow at the University of Guelph specializing in pollinator conservation, pesticide effects, and habitat selection."
   canonical={`${siteUrl}/`}
   openGraph={{
     basic: {
-      title:
-        'Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher',
+      title: 'Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher',
       type: 'website',
       image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       url: siteUrl,
     },
     optional: {
-      description:
-        'Dr. Amanda Liczner is an ecologist and conservation biologist currently researching bumble bee behaviour.',
-      siteName: 'Amanda Liczner',
+      description: 'Dr. Amanda Liczner is an ecologist and conservation biologist researching bumble bee behaviour using radio telemetry at the University of Guelph.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
     },
+    image: {
+      url: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      secureUrl: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      alt: 'Dr. Amanda Liczner, bumble bee ecologist and conservation biologist',
+      type: 'image/jpeg',
+      width: 600,
+      height: 600,
+    }
   }}
   twitter={{
     card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Dr. Amanda Liczner - Bumble Bee Ecologist',
+    description: 'Ecologist & conservation biologist researching bumble bee behaviour using radio telemetry.',
+    image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+    imageAlt: 'Dr. Amanda Liczner',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'Amanda Liczner, bumble bee ecologist, conservation biologist, radio telemetry, pollinator research, bumble bee tracking, University of Guelph, pollinator conservation, ecology' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large' },
+      { name: 'geo.region', content: 'CA' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: siteUrl },
+      { rel: 'alternate', hreflang: 'en', href: siteUrl },
+    ]
   }}
 />
+
+<!-- Person Schema (Primary) -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  'name': 'Dr. Amanda Liczner',
+  'givenName': 'Amanda',
+  'familyName': 'Liczner',
+  'honorificPrefix': 'Dr.',
+  'jobTitle': 'Ecologist and Conservation Biologist',
+  'description': 'Post-doctoral fellow at the University of Guelph specializing in bumble bee ecology, conservation biology, and radio telemetry research.',
+  'url': siteUrl,
+  'image': `${siteUrl}/pictures/AmandaLiczner.jpg`,
+  'sameAs': [
+    siteUrl,
+    `${siteUrl}/experience`,
+    `${siteUrl}/books`,
+    'https://twitter.com/amandaliczner'
+  ],
+  'alumniOf': [
+    {
+      '@type': 'Organization',
+      'name': 'York University',
+      'location': 'Toronto, Ontario, Canada'
+    }
+  ],
+  'affiliation': {
+    '@type': 'Organization',
+    'name': 'University of Guelph',
+    'location': 'Guelph, Ontario, Canada'
+  },
+  'knowsAbout': [
+    'Bumble Bee Ecology',
+    'Conservation Biology',
+    'Radio Telemetry',
+    'Pollinator Conservation',
+    'Pesticide Effects on Pollinators',
+    'Habitat Selection',
+    'Animal Movement',
+    'Wildlife Tracking'
+  ],
+  'hasOccupation': {
+    '@type': 'Occupation',
+    'name': 'Ecologist',
+    'occupationalCategory': 'Conservation Biology and Ecology'
+  }
+})} />
+
+<!-- WebSite Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  'name': 'Dr. Amanda Liczner - Ecologist',
+  'url': siteUrl,
+  'description': 'Personal website of Dr. Amanda Liczner, ecologist and conservation biologist specializing in bumble bee research.',
+  'author': {
+    '@type': 'Person',
+    'name': 'Dr. Amanda Liczner'
+  },
+  'inLanguage': 'en-CA'
+})} />
 
 <Layout title="Homepage - Dr. Amanda Liczner">
   <Sidebar class="lg:hidden" />

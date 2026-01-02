@@ -5,7 +5,114 @@ import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
+import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+---
+
+<SEO
+  title="Pathogen Risk to Bumble Bees Across Canada | Disease Spillover Research"
+  description="Mapping pathogen spillover risk from managed bees to wild bumble bee populations across Canada. Conservation research identifying high-risk areas for disease transmission and bumble bee protection by Dr. Amanda Liczner."
+  canonical={`${siteUrl}/experience/urban-gardens`}
+  openGraph={{
+    basic: {
+      title: 'Pathogen Risk & Bumble Bee Conservation Across Canada',
+      type: 'article',
+      image: `${siteUrl}/pictures/urbangardens.jpg`,
+      url: `${siteUrl}/experience/urban-gardens`,
+    },
+    optional: {
+      description: 'Research mapping disease spillover risk from managed bees to wild bumble bees, identifying conservation priority areas at risk across Canada.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
+    },
+    article: {
+      authors: ['Dr. Amanda Liczner'],
+      tags: ['bumble bees', 'pathogen spillover', 'disease transmission', 'conservation', 'managed bees', 'Canada'],
+    },
+    image: {
+      url: `${siteUrl}/pictures/urbangardens.jpg`,
+      secureUrl: `${siteUrl}/pictures/urbangardens.jpg`,
+      alt: 'Bumble bee conservation research related to pathogen risk mapping',
+      type: 'image/jpeg',
+      width: 1200,
+      height: 800,
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Pathogen Risk to Wild Bumble Bees Across Canada',
+    description: 'Mapping disease spillover risk from managed bees to wild populations, identifying conservation hotspots.',
+    image: `${siteUrl}/pictures/urbangardens.jpg`,
+    imageAlt: 'Bumble bee pathogen research',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'bumble bee pathogens, disease spillover, managed bees, wild bees, pathogen transmission, bumble bee conservation, Canada bee health, pollinator disease, conservation priority areas' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'article:author', content: 'Dr. Amanda Liczner' },
+      { property: 'article:section', content: 'Research' },
+      { name: 'geo.region', content: 'CA' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/experience/urban-gardens` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/experience/urban-gardens` },
+    ]
+  }}
+/>
+
+<!-- ScholarlyArticle Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  'headline': 'Pathogen Risk to Bumble Bees Across Canada',
+  'description': 'Research mapping pathogen spillover risk from managed bees to wild bumble bee populations across Canada, identifying high-priority conservation areas at risk of disease transmission.',
+  'author': {
+    '@type': 'Person',
+    'name': 'Dr. Amanda Liczner',
+    'jobTitle': 'Ecologist and Conservation Biologist',
+    'url': siteUrl
+  },
+  'about': ['Bumble Bees', 'Pathogen Spillover', 'Disease Transmission', 'Conservation Biology', 'Managed Bees', 'Wildlife Health'],
+  'keywords': 'bumble bees, pathogens, disease spillover, managed bees, conservation, Canada, bee health',
+  'url': `${siteUrl}/experience/urban-gardens`,
+  'image': `${siteUrl}/pictures/urbangardens.jpg`,
+  'inLanguage': 'en-CA',
+  'spatialCoverage': {
+    '@type': 'Place',
+    'name': 'Canada'
+  }
+})} />
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': siteUrl
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Experience',
+      'item': `${siteUrl}/experience`
+    },
+    {
+      '@type': 'ListItem',
+      'position': 3,
+      'name': 'Pathogen Risk Research',
+      'item': `${siteUrl}/experience/urban-gardens`
+    }
+  ]
+})} />
 ---
 
 <style>

@@ -5,7 +5,115 @@ import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
+import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+---
+
+<SEO
+  title="Urban Pollinator Gardens & Bee Diversity | Kelowna Research Study"
+  description="Research on pollinator-friendly gardens and urban bee diversity in Kelowna, BC. Study evaluating Border Free Bees initiative effectiveness in supporting native bee populations through urban gardens by Dr. Amanda Liczner."
+  canonical={`${siteUrl}/experience/pathogen`}
+  openGraph={{
+    basic: {
+      title: 'Urban Pollinator Gardens & Native Bee Diversity Research',
+      type: 'article',
+      image: `${siteUrl}/pictures/pathogen.jpg`,
+      url: `${siteUrl}/experience/pathogen`,
+    },
+    optional: {
+      description: 'First study examining urban bee diversity in the Okanagan, evaluating how pollinator gardens support native bee populations in cities.',
+      siteName: 'Dr. Amanda Liczner - Ecologist',
+      locale: 'en_CA',
+    },
+    article: {
+      authors: ['Dr. Amanda Liczner'],
+      tags: ['urban bees', 'pollinator gardens', 'native bees', 'urbanization', 'habitat conservation', 'Okanagan'],
+    },
+    image: {
+      url: `${siteUrl}/pictures/pathogen.jpg`,
+      secureUrl: `${siteUrl}/pictures/pathogen.jpg`,
+      alt: 'Pollinator garden supporting urban bee populations in Kelowna',
+      type: 'image/jpeg',
+      width: 1200,
+      height: 800,
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Urban Pollinator Gardens & Bee Diversity Research',
+    description: 'Studying how pollinator-friendly gardens support native bee diversity in urban Kelowna, BC.',
+    image: `${siteUrl}/pictures/pathogen.jpg`,
+    imageAlt: 'Pollinator garden with native bees',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'urban bee diversity, pollinator gardens, native bees, Border Free Bees, Kelowna bees, urban conservation, habitat loss, pollinator-friendly gardens, Okanagan pollinators' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'article:author', content: 'Dr. Amanda Liczner' },
+      { property: 'article:section', content: 'Research' },
+      { name: 'geo.region', content: 'CA-BC' },
+      { name: 'geo.placename', content: 'Kelowna, British Columbia' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/experience/pathogen` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/experience/pathogen` },
+    ]
+  }}
+/>
+
+<!-- ScholarlyArticle Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ScholarlyArticle',
+  'headline': 'Urban Pollinator Gardens and Native Bee Diversity in Kelowna',
+  'description': 'First study examining urban bee diversity in the Okanagan region, evaluating the effectiveness of pollinator-friendly gardens in supporting native bee populations amid urbanization.',
+  'author': {
+    '@type': 'Person',
+    'name': 'Dr. Amanda Liczner',
+    'jobTitle': 'Ecologist and Conservation Biologist',
+    'url': siteUrl
+  },
+  'about': ['Urban Bees', 'Pollinator Gardens', 'Native Bee Diversity', 'Urbanization', 'Habitat Conservation', 'Border Free Bees'],
+  'keywords': 'urban bees, pollinator gardens, native bee diversity, urbanization, habitat conservation, Okanagan',
+  'url': `${siteUrl}/experience/pathogen`,
+  'image': `${siteUrl}/pictures/pathogen.jpg`,
+  'inLanguage': 'en-CA',
+  'spatialCoverage': {
+    '@type': 'Place',
+    'name': 'Kelowna, British Columbia, Canada'
+  }
+})} />
+
+<!-- Breadcrumb Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': siteUrl
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Experience',
+      'item': `${siteUrl}/experience`
+    },
+    {
+      '@type': 'ListItem',
+      'position': 3,
+      'name': 'Urban Pollinator Gardens Research',
+      'item': `${siteUrl}/experience/pathogen`
+    }
+  ]
+})} />
 ---
 
 <style>
