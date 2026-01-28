@@ -1,0 +1,259 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Header from '../../components/Header.astro'
+import { SEO } from 'astro-seo'
+import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+
+const services = [
+  {
+    title: 'Statistical Analyses',
+    description: 'Data analysis, modelling, and R programming for ecological research. Expertise in mixed models, GLMs, machine learning, and big data analysis.',
+    icon: '📊'
+  },
+  {
+    title: 'Literature Reviews & Meta Analyses',
+    description: 'Systematic reviews, evidence synthesis, and meta-analyses to inform conservation decisions and research directions.',
+    icon: '📚'
+  },
+  {
+    title: 'Connectivity Work',
+    description: 'Landscape connectivity analysis, corridor planning, and movement modelling to support habitat conservation and wildlife corridors.',
+    icon: '🔗'
+  },
+  {
+    title: 'Bee Conservation',
+    description: 'Pollinator surveys, bumble bee identification, conservation planning, and habitat assessments for at-risk species.',
+    icon: '🐝'
+  },
+  {
+    title: 'Field Surveys',
+    description: 'Species identification, ecological monitoring protocols, field sampling design, and biodiversity assessments.',
+    icon: '🔍'
+  },
+  {
+    title: 'GIS Analysis',
+    description: 'Spatial analysis, habitat mapping, and landscape modelling using QGIS and R. Climate modelling and conservation prioritization.',
+    icon: '🗺️'
+  },
+  {
+    title: 'Manuscript Writing',
+    description: 'Scientific writing, peer-reviewed publications, technical reports, and grant applications with proven publication record.',
+    icon: '✍️'
+  },
+  {
+    title: 'Ecological Monitoring',
+    description: 'Long-term monitoring program design, protocol development, and data management for conservation and restoration projects.',
+    icon: '📈'
+  },
+  {
+    title: 'Restoration Planning',
+    description: 'Habitat restoration planning, native plant recommendations, and pollinator-friendly landscape design.',
+    icon: '🌱'
+  }
+]
+---
+
+<SEO
+  title="Ecological Consulting Services - Dr. Amanda Liczner | Freelance Ecologist Canada"
+  description="Hire Dr. Amanda Liczner for freelance ecological consulting services including statistical analyses, GIS mapping, bee conservation, literature reviews, field surveys, and restoration planning. Available for projects across Canada."
+  canonical={`${siteUrl}/services`}
+  openGraph={{
+    basic: {
+      title: 'Ecological Consulting Services - Dr. Amanda Liczner | Freelance Ecologist',
+      type: 'website',
+      image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      url: `${siteUrl}/services`,
+    },
+    optional: {
+      description: 'Freelance ecological consulting services: statistical analysis, GIS, bee conservation, field surveys, literature reviews, and more. Available for projects across Canada.',
+      siteName: 'Dr. Amanda Liczner - Freelance Ecological Consultant',
+      locale: 'en_CA',
+    },
+    image: {
+      url: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      secureUrl: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      alt: 'Dr. Amanda Liczner, freelance ecological consultant',
+      type: 'image/jpeg',
+      width: 600,
+      height: 600,
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Ecological Consulting Services - Dr. Amanda Liczner',
+    description: 'Freelance ecological consulting: statistical analysis, GIS, bee conservation, field surveys & more. Available across Canada.',
+    image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+    imageAlt: 'Dr. Amanda Liczner, freelance ecological consultant',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'freelance ecological consultant Canada, hire ecologist Canada, ecological research services, GIS ecological services, bee conservation consultant, statistical analysis ecology, environmental consulting, wildlife surveys Canada, ecological data analysis, R programming ecology' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+      { name: 'geo.region', content: 'CA' },
+      { name: 'geo.placename', content: 'Canada' },
+    ],
+    link: [
+      { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/services` },
+      { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/services` },
+    ]
+  }}
+/>
+
+<Layout title="Services - Dr. Amanda Liczner | Freelance Ecological Consultant">
+  <Sidebar class="lg:hidden" />
+  <Header />
+
+  <!-- Breadcrumb Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': siteUrl
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Services',
+        'item': `${siteUrl}/services`
+      }
+    ]
+  })} />
+
+  <!-- Service Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'serviceType': 'Ecological Consulting',
+    'provider': {
+      '@type': 'Person',
+      'name': 'Dr. Amanda Liczner',
+      'jobTitle': 'Freelance Ecological Consultant',
+      'url': siteUrl,
+      'image': `${siteUrl}/pictures/AmandaLiczner.jpg`
+    },
+    'areaServed': {
+      '@type': 'Country',
+      'name': 'Canada'
+    },
+    'description': 'Freelance ecological consulting services including statistical analyses, GIS mapping, bee conservation, literature reviews, field surveys, and restoration planning.',
+    'hasOfferCatalog': {
+      '@type': 'OfferCatalog',
+      'name': 'Ecological Consulting Services',
+      'itemListElement': services.map((service, index) => ({
+        '@type': 'Offer',
+        'itemOffered': {
+          '@type': 'Service',
+          'name': service.title,
+          'description': service.description
+        }
+      }))
+    }
+  })} />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-32 overflow-hidden">
+      <!-- Gradient Background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/10"></div>
+
+      <div class="container relative px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Breadcrumb Navigation for SEO -->
+          <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center justify-center gap-2 text-sm text-neutral-600">
+              <li><a href="/" class="hover:text-primary transition-colors">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" class="text-primary font-medium">Services</li>
+            </ol>
+          </nav>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-medium text-neutral-700 mb-6">
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Consulting Services
+            </span>
+          </h1>
+          <p class="text-lg sm:text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto leading-relaxed mb-4">
+            Freelance ecological consulting for conservation, research, and environmental projects across Canada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-12 lg:py-20 relative">
+      <div class="container px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium text-center mb-12 lg:mb-16">
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              How I Can Help
+            </span>
+          </h2>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {services.map((service) => (
+              <div class="bg-white p-6 lg:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-2 border border-primary/10">
+                <div class="text-4xl mb-4">{service.icon}</div>
+                <h3 class="text-xl lg:text-2xl font-semibold mb-3 text-neutral-700">
+                  {service.title}
+                </h3>
+                <p class="text-neutral-600 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 lg:py-24">
+      <div class="container mx-auto px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto relative">
+          <!-- Gradient background with shadow -->
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/15 to-primary/10 rounded-3xl blur-sm" aria-hidden="true"></div>
+
+          <div class="relative border border-primary/20 rounded-3xl overflow-hidden shadow-xl">
+            <div class="flex flex-col gap-8 lg:gap-12 bg-gradient-to-br from-white via-neutral-50 to-primary/5 px-6 sm:px-8 lg:px-12 xl:px-16 py-12 lg:py-20 text-center items-center">
+              <div class="flex flex-col gap-4">
+                <h2 class="text-neutral-700 text-3xl sm:text-4xl lg:text-5xl font-medium mx-auto">
+                  Ready to Work Together?
+                </h2>
+                <p class="text-neutral-600 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto">
+                  I'm available for freelance ecological consulting projects. Let's discuss how I can support your conservation, research, or environmental initiatives.
+                </p>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="/contact"
+                  class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-primary text-white hover:shadow-2xl hover:scale-105 hover:bg-secondary hover:-translate-y-1"
+                  aria-label="Contact Dr. Amanda Liczner for consulting inquiries"
+                >
+                  Get in Touch
+                </a>
+                <a
+                  href="/experience"
+                  class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-secondary text-neutral-700 hover:shadow-2xl hover:scale-105 hover:bg-primary hover:text-white hover:-translate-y-1"
+                  aria-label="View Dr. Amanda Liczner's research experience"
+                >
+                  View Experience
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

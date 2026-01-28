@@ -13,19 +13,19 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
 <SEO
-  title="Contact Dr. Amanda Liczner - Bumble Bee Research & Collaboration"
-  description="Get in touch with Dr. Amanda Liczner for speaking engagements, research collaboration, educational programs about pollinator conservation, or consulting on bumble bee ecology. Connect with an expert in bumble bee tracking and conservation biology."
+  title="Hire Dr. Amanda Liczner - Freelance Ecological Consulting Inquiries"
+  description="Contact Dr. Amanda Liczner for freelance ecological consulting projects, research collaboration, or speaking engagements. Available for bee conservation, statistical analysis, GIS mapping, and environmental research projects across Canada."
   canonical={`${siteUrl}/contact`}
   openGraph={{
     basic: {
-      title: 'Contact Dr. Amanda Liczner - Bumble Bee Research & Collaboration',
+      title: 'Hire Dr. Amanda Liczner - Freelance Ecological Consulting',
       type: 'website',
       image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       url: `${siteUrl}/contact`,
     },
     optional: {
-      description: 'Contact Dr. Amanda Liczner for speaking engagements, research collaboration, educational programs, or consulting on bumble bee ecology and pollinator conservation.',
-      siteName: 'Dr. Amanda Liczner - Ecologist',
+      description: 'Contact Dr. Amanda Liczner for freelance ecological consulting projects, research collaboration, or speaking engagements across Canada.',
+      siteName: 'Dr. Amanda Liczner - Freelance Ecological Consultant',
       locale: 'en_CA',
     },
     image: {
@@ -41,14 +41,14 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     card: 'summary_large_image',
     site: '@amandaliczner',
     creator: '@amandaliczner',
-    title: 'Contact Dr. Amanda Liczner - Bumble Bee Research',
-    description: 'Connect for speaking engagements, research collaboration, or educational programs about pollinator conservation.',
+    title: 'Hire Dr. Amanda Liczner - Freelance Ecological Consultant',
+    description: 'Contact for freelance ecological consulting projects, research collaboration, or speaking engagements across Canada.',
     image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
-    imageAlt: 'Dr. Amanda Liczner, bumble bee ecologist',
+    imageAlt: 'Dr. Amanda Liczner, freelance ecological consultant',
   }}
   extend={{
     meta: [
-      { name: 'keywords', content: 'contact Amanda Liczner, bumble bee researcher contact, pollinator conservation collaboration, ecology speaking engagements, conservation biology consulting, radio telemetry expert' },
+      { name: 'keywords', content: 'hire ecologist Canada, freelance ecological consultant contact, ecological consulting inquiry, conservation biology consulting, bee conservation consultant, environmental research collaboration' },
       { name: 'author', content: 'Dr. Amanda Liczner' },
       { name: 'robots', content: 'index, follow' },
       { property: 'article:author', content: 'Dr. Amanda Liczner' },
@@ -66,19 +66,20 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 <script type="application/ld+json" set:html={JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  'name': 'Contact Dr. Amanda Liczner',
-  'description': 'Get in touch with Dr. Amanda Liczner for speaking engagements, research collaboration, educational programs, or consulting on bumble bee ecology and pollinator conservation.',
+  'name': 'Hire Dr. Amanda Liczner - Freelance Ecological Consulting',
+  'description': 'Contact Dr. Amanda Liczner for freelance ecological consulting projects, research collaboration, or speaking engagements across Canada.',
   'url': `${siteUrl}/contact`,
   'mainEntity': {
     '@type': 'Person',
     'name': 'Dr. Amanda Liczner',
-    'jobTitle': 'Ecologist and Conservation Biologist',
+    'jobTitle': 'Freelance Ecological Consultant',
     'url': siteUrl,
     'image': `${siteUrl}/pictures/AmandaLiczner.jpg`,
     'sameAs': [
       siteUrl,
       `${siteUrl}/experience`,
-      `${siteUrl}/books`
+      `${siteUrl}/books`,
+      `${siteUrl}/services`
     ]
   }
 })} />
@@ -155,7 +156,7 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
         level={1}
         gradient
         class="inline-block mx-auto text-shadow-white-glow"
-        text="Contact Dr. Amanda Liczner - Bumble Bee Research Collaboration"
+        text="Get in Touch - Freelance Ecological Consulting"
       />
 
       <div class="contact-form-container">
