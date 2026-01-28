@@ -10,9 +10,9 @@ const { text, href, className, variant } = Astro.props
 const bgColour =
   variant === 'primary'
     ? 'bg-primary text-white'
-    : 'bg-secondary text-neutral-700'
+    : 'bg-primary/90 text-white'
 
-const hoverEffects = 'hover:shadow-2xl hover:scale-105 hover:bg-secondary hover:-translate-y-1'
+const hoverEffects = 'hover:shadow-2xl hover:scale-105 hover:bg-primary/80 hover:-translate-y-1'
 const baseStyles = 'px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium'
 ---
 

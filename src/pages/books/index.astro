@@ -96,6 +96,17 @@ const books = [
     isbn: 'B0GG6TWY2N', // Amazon ASIN
     keywords: 'easy adult coloring book, stress relief coloring book, mindfulness coloring, beginner coloring book adults, relaxation coloring book',
   },
+  {
+    title: 'Be Mine',
+    subtitle: 'Bold & Comfy Valentine\'s Day Colouring',
+    type: 'Adult Colouring Book',
+    description: 'Celebrate love with this charming Valentine\'s Day colouring book featuring bold, easy-to-colour designs. Perfect for a relaxing creative activity during the season of love, this book includes romantic hearts, flowers, and sweet bee-themed illustrations. Ideal for adults seeking a calming, festive colouring experience with generous spaces and clear designs.',
+    amazonUrl: 'https://www.amazon.ca/dp/B0GJSX3LKL',
+    coverImage: '/pictures/bee-mine.jpg',
+    targetAudience: 'Adults',
+    isbn: 'B0GJSX3LKL', // Amazon ASIN
+    keywords: 'Valentine coloring book adults, romantic coloring book, love coloring book, heart coloring book, Valentine\'s Day gift',
+  },
 ]
 
 // Generate JSON-LD structured data for SEO
@@ -453,26 +464,26 @@ const structuredData = books
                   </span>
                 </h2>
                 <p class="text-neutral-600 leading-relaxed mb-4">
-                  <strong>Dr. Amanda Liczner</strong> is a conservation biologist specializing in bumble bee ecology.
-                  She holds a PhD in Biology from York University and currently conducts leading research
-                 on pollinator ecology and animal movement across North America. 
+                  <strong>Dr. Amanda Liczner</strong> is a freelance ecological consultant and conservation biologist specializing in bumble bee ecology.
+                  She holds a PhD in Biology from York University and brings extensive research experience
+                  in pollinator ecology and animal movement across North America.
                 </p>
                 <p class="text-neutral-600 leading-relaxed mb-6">
                   Her research has been published in leading scientific journals, and she's dedicated to making
-                  pollinator science accessible to all ages through education and art.
+                  pollinator science accessible to all ages through education and art. She is available for freelance consulting projects across Canada.
                 </p>
                 <div class="flex flex-wrap gap-4">
                   <a
-                    href="/experience"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl hover:bg-secondary transition-colors"
+                    href="/services"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary/80 transition-colors"
                   >
-                    View Research Experience
+                    Consulting Services
                   </a>
                   <a
-                    href="/skills-education"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-neutral-700 rounded-xl hover:bg-primary hover:text-white transition-colors"
+                    href="/experience"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary/90 text-white rounded-xl hover:bg-primary/80 transition-colors"
                   >
-                    Education & Expertise
+                    View Research Experience
                   </a>
                 </div>
               </div>
@@ -528,14 +539,14 @@ const structuredData = books
               <div class="flex flex-col sm:flex-row gap-4">
                 <a
                   href="/experience"
-                  class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-primary text-white hover:shadow-2xl hover:scale-105 hover:bg-secondary hover:-translate-y-1"
+                  class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-primary text-white hover:shadow-2xl hover:scale-105 hover:bg-primary/80 hover:-translate-y-1"
                   aria-label="View bumble bee research and radio telemetry studies"
                 >
                   See the Research Behind the Books
                 </a>
                 <a
                   href="/contact"
-                  class="px-8 py-4 rounded-xl transition-all duration-300 ease-out font-medium border-2 border-primary text-primary bg-white hover:bg-primary hover:text-white hover:shadow-2xl hover:scale-105 hover:-translate-y-1"
+                  class="px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-lg font-medium bg-primary/90 text-white hover:shadow-2xl hover:scale-105 hover:bg-primary/80 hover:-translate-y-1"
                   aria-label="Contact Dr. Amanda Liczner for educational programs"
                 >
                   Contact me

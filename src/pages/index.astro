@@ -14,42 +14,49 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
 <SEO
-  title="Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher"
-  description="Dr. Amanda Liczner is an ecologist and conservation biologist researching bumble bee behaviour and movement using radio telemetry. Post-doctoral fellow at the University of Guelph specializing in pollinator conservation, pesticide effects, and habitat selection."
+  title="Dr. Amanda Liczner - Freelance Ecological Consultant | Bee Conservation & Data Analysis"
+  description="Dr. Amanda Liczner is a freelance ecological consultant available for conservation projects across Canada. Specializing in bee conservation, statistical analysis, GIS mapping, and ecological research. Available for consulting engagements."
   canonical={`${siteUrl}/`}
   openGraph={{
     basic: {
-      title: 'Dr. Amanda Liczner - Ecologist & Bumble Bee Conservation Researcher',
+      title:
+        'Dr. Amanda Liczner - Freelance Ecological Consultant | Bee Conservation & Data Analysis',
       type: 'website',
       image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       url: siteUrl,
     },
     optional: {
-      description: 'Dr. Amanda Liczner is an ecologist and conservation biologist researching bumble bee behaviour using radio telemetry at the University of Guelph.',
-      siteName: 'Dr. Amanda Liczner - Ecologist',
+      description:
+        'Dr. Amanda Liczner is a freelance ecological consultant specializing in bee conservation, statistical analysis, and GIS mapping. Available for projects across Canada.',
+      siteName: 'Dr. Amanda Liczner - Freelance Ecological Consultant',
       locale: 'en_CA',
     },
     image: {
       url: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       secureUrl: `${siteUrl}/pictures/AmandaLiczner.jpg`,
-      alt: 'Dr. Amanda Liczner, bumble bee ecologist and conservation biologist',
+      alt: 'Dr. Amanda Liczner, freelance ecological consultant',
       type: 'image/jpeg',
       width: 600,
       height: 600,
-    }
+    },
   }}
   twitter={{
     card: 'summary_large_image',
     site: '@amandaliczner',
     creator: '@amandaliczner',
-    title: 'Dr. Amanda Liczner - Bumble Bee Ecologist',
-    description: 'Ecologist & conservation biologist researching bumble bee behaviour using radio telemetry.',
+    title: 'Dr. Amanda Liczner - Freelance Ecological Consultant',
+    description:
+      'Freelance ecological consultant specializing in bee conservation, data analysis, and GIS. Available for projects across Canada.',
     image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
     imageAlt: 'Dr. Amanda Liczner',
   }}
   extend={{
     meta: [
-      { name: 'keywords', content: 'Amanda Liczner, bumble bee ecologist, conservation biologist, radio telemetry, pollinator research, bumble bee tracking, University of Guelph, pollinator conservation, ecology' },
+      {
+        name: 'keywords',
+        content:
+          'Amanda Liczner, freelance ecologist, ecological consultant Canada, bee conservation consultant, freelance ecological consultant, GIS ecological services, statistical analysis ecology, pollinator conservation, hire ecologist Canada',
+      },
       { name: 'author', content: 'Dr. Amanda Liczner' },
       { name: 'robots', content: 'index, follow, max-image-preview:large' },
       { name: 'geo.region', content: 'CA' },
@@ -57,70 +64,85 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     link: [
       { rel: 'alternate', hreflang: 'en-ca', href: siteUrl },
       { rel: 'alternate', hreflang: 'en', href: siteUrl },
-    ]
+    ],
   }}
 />
 
 <!-- Person Schema (Primary) -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  'name': 'Dr. Amanda Liczner',
-  'givenName': 'Amanda',
-  'familyName': 'Liczner',
-  'honorificPrefix': 'Dr.',
-  'jobTitle': 'Ecologist and Conservation Biologist',
-  'description': 'Post-doctoral fellow at the University of Guelph specializing in bumble bee ecology, conservation biology, and radio telemetry research.',
-  'url': siteUrl,
-  'image': `${siteUrl}/pictures/AmandaLiczner.jpg`,
-  'sameAs': [
-    siteUrl,
-    `${siteUrl}/experience`,
-    `${siteUrl}/books`,
-    'https://twitter.com/amandaliczner'
-  ],
-  'alumniOf': [
-    {
-      '@type': 'Organization',
-      'name': 'York University',
-      'location': 'Toronto, Ontario, Canada'
-    }
-  ],
-  'affiliation': {
-    '@type': 'Organization',
-    'name': 'University of Guelph',
-    'location': 'Guelph, Ontario, Canada'
-  },
-  'knowsAbout': [
-    'Bumble Bee Ecology',
-    'Conservation Biology',
-    'Radio Telemetry',
-    'Pollinator Conservation',
-    'Pesticide Effects on Pollinators',
-    'Habitat Selection',
-    'Animal Movement',
-    'Wildlife Tracking'
-  ],
-  'hasOccupation': {
-    '@type': 'Occupation',
-    'name': 'Ecologist',
-    'occupationalCategory': 'Conservation Biology and Ecology'
-  }
-})} />
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Dr. Amanda Liczner',
+    givenName: 'Amanda',
+    familyName: 'Liczner',
+    honorificPrefix: 'Dr.',
+    jobTitle: 'Freelance Ecological Consultant',
+    description:
+      'Freelance ecological consultant specializing in bee conservation, statistical analysis, GIS mapping, and ecological research. Available for projects across Canada.',
+    url: siteUrl,
+    image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+    sameAs: [
+      siteUrl,
+      `${siteUrl}/experience`,
+      `${siteUrl}/books`,
+      `${siteUrl}/services`,
+      'https://twitter.com/amandaliczner',
+    ],
+    alumniOf: [
+      {
+        '@type': 'Organization',
+        name: 'York University',
+        location: 'Toronto, Ontario, Canada',
+      },
+    ],
+    knowsAbout: [
+      'Bumble Bee Ecology',
+      'Conservation Biology',
+      'Radio Telemetry',
+      'Pollinator Conservation',
+      'Statistical Analysis',
+      'GIS Mapping',
+      'Habitat Selection',
+      'Animal Movement',
+      'Wildlife Tracking',
+    ],
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Freelance Ecological Consultant',
+      occupationalCategory: 'Conservation Biology and Ecology',
+    },
+    makesOffer: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Ecological Consulting Services',
+        description:
+          'Statistical analyses, GIS mapping, bee conservation, field surveys, literature reviews, and restoration planning',
+        url: `${siteUrl}/services`,
+      },
+    },
+  })}
+/>
 
 <!-- WebSite Schema -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  'name': 'Dr. Amanda Liczner - Ecologist',
-  'url': siteUrl,
-  'description': 'Personal website of Dr. Amanda Liczner, ecologist and conservation biologist specializing in bumble bee research.',
-  'author': {
-    '@type': 'Person',
-    'name': 'Dr. Amanda Liczner'
-  },
-  'inLanguage': 'en-CA'
-})} />
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Dr. Amanda Liczner - Ecologist',
+    url: siteUrl,
+    description:
+      'Personal website of Dr. Amanda Liczner, ecologist and conservation biologist specializing in bumble bee research.',
+    author: {
+      '@type': 'Person',
+      name: 'Dr. Amanda Liczner',
+    },
+    inLanguage: 'en-CA',
+  })}
+/>
 
 <Layout title="Homepage - Dr. Amanda Liczner">
   <Sidebar class="lg:hidden" />
@@ -131,12 +153,18 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
       title=" <strong>Dr. Amanda Liczner</strong>"
       description="Ecologist • Bumble Bees • Conservation"
     >
-      <div>
+      <div class="flex flex-col sm:flex-row gap-4">
         <Button
           href="/#about-me"
           text="About me"
           variant="primary"
-          className="lg:text-2xl text-lg  tracking-wide"
+          className="lg:text-2xl text-lg tracking-wide"
+        />
+        <Button
+          href="/services"
+          text="View Services"
+          variant="secondary"
+          className="lg:text-2xl text-lg tracking-wide"
         />
       </div>
     </Hero>
@@ -144,15 +172,23 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     <AboutMe />
     <CTA
       align="center"
-      title="Learn more</strong>"
-      description="Find out about my research and find the latest updates on my projects."
+      title="Ready to Work Together?"
+      description="I'm available for freelance ecological consulting projects across Canada. Let's discuss how I can support your conservation or research initiatives."
     >
-      <Button
-        href="/experience"
-        text="Experience"
-        className="text-xl tracking-wide"
-        variant="primary"
-      />
+      <div class="flex flex-col sm:flex-row gap-4">
+        <Button
+          href="/services"
+          text="View Services"
+          className="text-xl tracking-wide"
+          variant="primary"
+        />
+        <Button
+          href="/contact"
+          text="Get in Touch"
+          className="text-xl tracking-wide"
+          variant="secondary"
+        />
+      </div>
     </CTA>
   </main>
 </Layout>
