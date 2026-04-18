@@ -7,10 +7,54 @@ import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
 import ProjectCard from '../../components/ProjectCard.astro'
 import Text from '../../components/Text.astro'
+import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
+
+const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
-<Layout title="Current Work - Amanda Liczner">
+<SEO
+  title="Current Research Projects - Dr. Amanda Liczner | Bumble Bee & Pollinator Ecology"
+  description="Explore Dr. Amanda Liczner's active bumble bee research projects including pesticide impact studies, radio telemetry tracking, pathogen risk mapping, urban garden surveys, and soil temperature research across Canada."
+  canonical={`${siteUrl}/current-work`}
+  openGraph={{
+    basic: {
+      title: 'Current Research Projects - Dr. Amanda Liczner | Bumble Bee Ecology',
+      type: 'website',
+      image: `${siteUrl}/pictures/Project1A.JPG`,
+      url: `${siteUrl}/current-work`,
+    },
+    optional: {
+      description: 'Active bumble bee research: pesticide impacts, radio telemetry, pathogen risk mapping, urban gardens, and soil temperature studies across Canada.',
+      siteName: 'Dr. Amanda Liczner - Freelance Ecological Consultant',
+      locale: 'en_CA',
+    },
+    image: {
+      url: `${siteUrl}/pictures/Project1A.JPG`,
+      secureUrl: `${siteUrl}/pictures/Project1A.JPG`,
+      alt: 'Bumble bee queen with radio telemetry tag - current research by Dr. Amanda Liczner',
+      type: 'image/jpeg',
+    }
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@amandaliczner',
+    creator: '@amandaliczner',
+    title: 'Current Research Projects - Dr. Amanda Liczner',
+    description: 'Active bumble bee research: pesticide impacts, radio telemetry, pathogen risk mapping, urban gardens & soil temperature studies.',
+    image: `${siteUrl}/pictures/Project1A.JPG`,
+    imageAlt: 'Bumble bee queen with radio telemetry tag - current research by Dr. Amanda Liczner',
+  }}
+  extend={{
+    meta: [
+      { name: 'keywords', content: 'bumble bee research Canada, pollinator ecology, pesticide impact bees, radio telemetry bees, pathogen spillover bumble bees, urban pollinator gardens, soil temperature bee emergence, conservation biology' },
+      { name: 'author', content: 'Dr. Amanda Liczner' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+    ]
+  }}
+/>
+
+<Layout title="Current Research - Dr. Amanda Liczner | Bumble Bee & Pollinator Ecology">
   <Sidebar class="lg:hidden" />
   <Header />
   <Content>

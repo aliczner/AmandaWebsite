@@ -64,7 +64,7 @@ const services = [
     basic: {
       title: 'Ecological Consulting Services - Dr. Amanda Liczner | Freelance Ecologist',
       type: 'website',
-      image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      image: `${siteUrl}/pictures/AmandaLiczner.webp`,
       url: `${siteUrl}/services`,
     },
     optional: {
@@ -73,10 +73,10 @@ const services = [
       locale: 'en_CA',
     },
     image: {
-      url: `${siteUrl}/pictures/AmandaLiczner.jpg`,
-      secureUrl: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+      url: `${siteUrl}/pictures/AmandaLiczner.webp`,
+      secureUrl: `${siteUrl}/pictures/AmandaLiczner.webp`,
       alt: 'Dr. Amanda Liczner, freelance ecological consultant',
-      type: 'image/jpeg',
+      type: 'image/webp',
       width: 600,
       height: 600,
     }
@@ -87,7 +87,7 @@ const services = [
     creator: '@amandaliczner',
     title: 'Ecological Consulting Services - Dr. Amanda Liczner',
     description: 'Freelance ecological consulting: statistical analysis, GIS, bee conservation, field surveys & more. Available across Canada.',
-    image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
+    image: `${siteUrl}/pictures/AmandaLiczner.webp`,
     imageAlt: 'Dr. Amanda Liczner, freelance ecological consultant',
   }}
   extend={{
@@ -139,7 +139,7 @@ const services = [
       'name': 'Dr. Amanda Liczner',
       'jobTitle': 'Freelance Ecological Consultant',
       'url': siteUrl,
-      'image': `${siteUrl}/pictures/AmandaLiczner.jpg`
+      'image': `${siteUrl}/pictures/AmandaLiczner.webp`
     },
     'areaServed': {
       '@type': 'Country',
@@ -158,6 +158,46 @@ const services = [
         }
       }))
     }
+  })} />
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': 'What ecological consulting services does Dr. Amanda Liczner offer?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Dr. Amanda Liczner offers a range of ecological consulting services including statistical analyses, literature reviews and meta-analyses, landscape connectivity analysis, bee conservation and pollinator surveys, field surveys, GIS analysis, scientific manuscript writing, ecological monitoring, and restoration planning.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'Where is Dr. Amanda Liczner available for ecological consulting?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Dr. Amanda Liczner is available for freelance ecological consulting projects across Canada, with expertise in Canadian ecosystems, native bee species, and national conservation priorities.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'What is Dr. Amanda Liczner\'s area of expertise?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Dr. Amanda Liczner specializes in bumble bee conservation, pollinator ecology, and movement behaviour research. She holds a PhD and has expertise in statistical analysis (R programming, mixed models, GLMs), GIS spatial analysis, radio telemetry, and ecological field surveys.'
+        }
+      },
+      {
+        '@type': 'Question',
+        'name': 'How can I hire Dr. Amanda Liczner for a consulting project?',
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'You can reach Dr. Amanda Liczner through the contact page at amandaliczner.ca/contact to discuss your project needs and consulting requirements.'
+        }
+      }
+    ]
   })} />
 
   <main>
