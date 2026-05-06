@@ -14,27 +14,27 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
 <SEO
-  title="Dr. Amanda Liczner - Freelance Ecological Consultant | Bee Conservation & Data Analysis"
-  description="Dr. Amanda Liczner is a freelance ecological consultant available for conservation projects across Canada. Specializing in bee conservation, statistical analysis, GIS mapping, and ecological research. Available for consulting engagements."
+  title="Dr. Amanda Liczner - Post-Doctoral Researcher | Ecologist & Conservation Biologist"
+  description="Dr. Amanda Liczner is a Post-Doctoral Researcher at Western University studying songbird migration behaviour. Conservation biologist specializing in bee conservation, statistical analysis, GIS mapping, and ecological research."
   canonical={`${siteUrl}/`}
   openGraph={{
     basic: {
       title:
-        'Dr. Amanda Liczner - Freelance Ecological Consultant | Bee Conservation & Data Analysis',
+        'Dr. Amanda Liczner - Post-Doctoral Researcher | Ecologist & Conservation Biologist',
       type: 'website',
       image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       url: siteUrl,
     },
     optional: {
       description:
-        'Dr. Amanda Liczner is a freelance ecological consultant specializing in bee conservation, statistical analysis, and GIS mapping. Available for projects across Canada.',
-      siteName: 'Dr. Amanda Liczner - Freelance Ecological Consultant',
+        'Post-Doctoral Researcher at Western University studying songbird migration behaviour. Conservation biologist specializing in bee conservation, statistical analysis, and GIS mapping.',
+      siteName: 'Dr. Amanda Liczner - Ecologist & Researcher',
       locale: 'en_CA',
     },
     image: {
       url: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       secureUrl: `${siteUrl}/pictures/AmandaLiczner.jpg`,
-      alt: 'Dr. Amanda Liczner, freelance ecological consultant',
+      alt: 'Dr. Amanda Liczner, ecologist and conservation biologist',
       type: 'image/jpeg',
       width: 600,
       height: 600,
@@ -44,9 +44,9 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     card: 'summary_large_image',
     site: '@amandaliczner',
     creator: '@amandaliczner',
-    title: 'Dr. Amanda Liczner - Freelance Ecological Consultant',
+    title: 'Dr. Amanda Liczner - Post-Doctoral Researcher & Ecologist',
     description:
-      'Freelance ecological consultant specializing in bee conservation, data analysis, and GIS. Available for projects across Canada.',
+      'Post-Doctoral Researcher at Western University studying songbird migration behaviour. Conservation biologist specializing in bee conservation, data analysis, and GIS.',
     image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
     imageAlt: 'Dr. Amanda Liczner',
   }}
@@ -55,7 +55,7 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
       {
         name: 'keywords',
         content:
-          'Amanda Liczner, freelance ecologist, ecological consultant Canada, bee conservation consultant, freelance ecological consultant, GIS ecological services, statistical analysis ecology, pollinator conservation, hire ecologist Canada',
+          'Amanda Liczner, ecologist, post-doctoral researcher Western University, songbird migration, bee conservation, ecological consultant Canada, GIS ecological services, statistical analysis ecology, pollinator conservation, conservation biologist',
       },
       { name: 'author', content: 'Dr. Amanda Liczner' },
       { name: 'robots', content: 'index, follow, max-image-preview:large' },
@@ -78,9 +78,14 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     givenName: 'Amanda',
     familyName: 'Liczner',
     honorificPrefix: 'Dr.',
-    jobTitle: 'Freelance Ecological Consultant',
+    jobTitle: 'Post-Doctoral Researcher',
     description:
-      'Freelance ecological consultant specializing in bee conservation, statistical analysis, GIS mapping, and ecological research. Available for projects across Canada.',
+      'Post-Doctoral Researcher at Western University studying songbird migration behaviour. Conservation biologist specializing in bee conservation, statistical analysis, GIS mapping, and ecological research.',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Western University',
+      url: 'https://www.uwo.ca/index.html',
+    },
     url: siteUrl,
     image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
     sameAs: [
@@ -110,7 +115,7 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     ],
     hasOccupation: {
       '@type': 'Occupation',
-      name: 'Freelance Ecological Consultant',
+      name: 'Post-Doctoral Researcher',
       occupationalCategory: 'Conservation Biology and Ecology',
     },
     makesOffer: {
@@ -151,7 +156,7 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     <Hero
       align="center"
       title=" <strong>Dr. Amanda Liczner</strong>"
-      description="Ecologist • Bumble Bees • Conservation"
+      description="Ecologist • Bumble Bees • Songbird Migration • Conservation"
     >
       <div class="flex flex-col sm:flex-row gap-4">
         <Button
@@ -173,7 +178,7 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     <CTA
       align="center"
       title="Ready to Work Together?"
-      description="I'm available for freelance ecological consulting projects across Canada. Let's discuss how I can support your conservation or research initiatives."
+      description="Interested in collaborating on research or consulting projects? Let's discuss how I can support your conservation or research initiatives."
     >
       <div class="flex flex-col sm:flex-row gap-4">
         <Button

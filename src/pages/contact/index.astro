@@ -13,19 +13,19 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
 <SEO
-  title="Hire Dr. Amanda Liczner - Freelance Ecological Consulting Inquiries"
-  description="Contact Dr. Amanda Liczner for freelance ecological consulting projects, research collaboration, or speaking engagements. Available for bee conservation, statistical analysis, GIS mapping, and environmental research projects across Canada."
+  title="Contact Dr. Amanda Liczner - Researcher & Ecologist"
+  description="Contact Dr. Amanda Liczner, Post-Doctoral Researcher at Western University, for research collaboration, consulting projects, or speaking engagements. Expertise in songbird migration, bee conservation, statistical analysis, and GIS mapping."
   canonical={`${siteUrl}/contact`}
   openGraph={{
     basic: {
-      title: 'Hire Dr. Amanda Liczner - Freelance Ecological Consulting',
+      title: 'Contact Dr. Amanda Liczner - Researcher & Ecologist',
       type: 'website',
       image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       url: `${siteUrl}/contact`,
     },
     optional: {
-      description: 'Contact Dr. Amanda Liczner for freelance ecological consulting projects, research collaboration, or speaking engagements across Canada.',
-      siteName: 'Dr. Amanda Liczner - Freelance Ecological Consultant',
+      description: 'Contact Dr. Amanda Liczner, Post-Doctoral Researcher at Western University, for research collaboration, consulting, or speaking engagements.',
+      siteName: 'Dr. Amanda Liczner - Ecologist & Researcher',
       locale: 'en_CA',
     },
     image: {
@@ -41,14 +41,14 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     card: 'summary_large_image',
     site: '@amandaliczner',
     creator: '@amandaliczner',
-    title: 'Hire Dr. Amanda Liczner - Freelance Ecological Consultant',
-    description: 'Contact for freelance ecological consulting projects, research collaboration, or speaking engagements across Canada.',
+    title: 'Contact Dr. Amanda Liczner - Researcher & Ecologist',
+    description: 'Contact for research collaboration, ecological consulting, or speaking engagements. Post-Doctoral Researcher at Western University.',
     image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
-    imageAlt: 'Dr. Amanda Liczner, freelance ecological consultant',
+    imageAlt: 'Dr. Amanda Liczner, ecologist and conservation biologist',
   }}
   extend={{
     meta: [
-      { name: 'keywords', content: 'hire ecologist Canada, freelance ecological consultant contact, ecological consulting inquiry, conservation biology consulting, bee conservation consultant, environmental research collaboration' },
+      { name: 'keywords', content: 'contact ecologist Canada, Amanda Liczner researcher, Western University post-doc, songbird migration research, ecological consulting inquiry, conservation biology, bee conservation, environmental research collaboration' },
       { name: 'author', content: 'Dr. Amanda Liczner' },
       { name: 'robots', content: 'index, follow' },
       { property: 'article:author', content: 'Dr. Amanda Liczner' },
@@ -66,13 +66,13 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 <script type="application/ld+json" set:html={JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  'name': 'Hire Dr. Amanda Liczner - Freelance Ecological Consulting',
-  'description': 'Contact Dr. Amanda Liczner for freelance ecological consulting projects, research collaboration, or speaking engagements across Canada.',
+  'name': 'Contact Dr. Amanda Liczner - Researcher & Ecologist',
+  'description': 'Contact Dr. Amanda Liczner, Post-Doctoral Researcher at Western University, for research collaboration, consulting projects, or speaking engagements.',
   'url': `${siteUrl}/contact`,
   'mainEntity': {
     '@type': 'Person',
     'name': 'Dr. Amanda Liczner',
-    'jobTitle': 'Freelance Ecological Consultant',
+    'jobTitle': 'Post-Doctoral Researcher',
     'url': siteUrl,
     'image': `${siteUrl}/pictures/AmandaLiczner.jpg`,
     'sameAs': [
