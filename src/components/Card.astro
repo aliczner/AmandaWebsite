@@ -5,14 +5,15 @@ interface Props {
   type: 'primary' | 'secondary' | 'light'
   icon?: string
   title?: string
+  description?: string
   iconClasses?: string
-  href?: string // New: Hyperlink
+  href?: string
 }
 
-const { icon, title, href } = Astro.props
+const { icon, title, description, href } = Astro.props
 
 const cardClasses = [
-  'flex flex-col items-center justify-center text-center gap-6 h-full min-h-[200px]',
+  'flex flex-col items-center text-center gap-4 h-full min-h-[200px]',
   'bg-gradient-to-br from-primary/10 via-white to-secondary/10 rounded-3xl p-6 lg:p-8',
   'shadow-md hover:shadow-2xl',
   'transition-all duration-300 ease-out',
@@ -22,17 +23,20 @@ const cardClasses = [
   .filter(Boolean)
   .join(' ')
 
-const iconClasses = ['w-20 h-20 text-primary  stroke-primary stroke-2']
+const iconClasses = ['w-14 h-14 text-primary stroke-primary stroke-2']
   .filter(Boolean)
   .join(' ')
 ---
 
-<a href={href} class="block no-underline">
+<a href={href} class="block no-underline h-full">
   <article class={cardClasses}>
     <div
-      class="icon"
+      class="icon mt-2"
       set:html={icon?.replace('<svg ', `<svg class="${iconClasses}" `)}
     />
-    <h3 class="text-neutral-700 text-xl lg:text-2xl font-medium">{title}</h3>
+    <div class="flex flex-col gap-1">
+      <h3 class="text-neutral-700 text-lg lg:text-xl font-semibold">{title}</h3>
+      {description && <p class="text-neutral-500 text-sm leading-relaxed">{description}</p>}
+    </div>
   </article>
 </a>
