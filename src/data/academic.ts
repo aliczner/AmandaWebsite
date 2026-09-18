@@ -407,7 +407,7 @@ export const degrees: Degree[] = [
   {
     name: 'Spec. Hons. B.Sc. Biology',
     institution: 'York University, Canada',
-    years: '2009–2013',
+    years: '2009–2014',
     thesisLabel: 'Honours thesis',
     thesis:
       'A desert nurse plant (Larrea tridentata) facilitates the germination and seed characteristics of winter annuals in California',

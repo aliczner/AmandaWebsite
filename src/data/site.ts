@@ -12,11 +12,11 @@ export const LOCATION = 'London, Ontario, Canada'
 export const CV_PATH = '/AmandaLicznerCV.pdf'
 
 /**
- * The CV PDF currently in public/ omits the Western appointment and carries a
- * personal email rather than an institutional one. Flip to true once an updated
- * PDF is in place; until then the CV is presented as an HTML record only.
+ * Whether public/AmandaLicznerCV.pdf is current enough to link publicly. The
+ * PDF now carries the Western appointment and an institutional address, so the
+ * download links are exposed. Set back to false if the PDF falls behind.
  */
-export const CV_PDF_IS_CURRENT = false
+export const CV_PDF_IS_CURRENT = true
 
 /** Off-site academic identities. These feed Person.sameAs in PersonSchema. */
 export const ORCID_URL = 'https://orcid.org/0000-0002-4265-0269'

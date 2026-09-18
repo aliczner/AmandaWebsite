@@ -1,10 +1,6 @@
 /**
  * Research appointments, from the CV. Shared by /experience and
  * /skills-education so the two never drift apart.
- *
- * NOTE: the Western appointment is not listed on the current CV PDF; dates are
- * inferred from the Guelph fellowship ending in July 2025 and should be
- * confirmed. It runs concurrently with the applied research roles below.
  */
 
 export interface Position {
@@ -23,10 +19,11 @@ export const positions: Position[] = [
   {
     title: 'Postdoctoral Research Associate',
     organisation: 'Western University',
-    unit: 'Faculty of Science',
+    unit: 'Department of Biology and the Centre for Animals on the Move',
+    supervisors: 'Dr. Yolanda Morbey and Dr. Alice Boyle',
     focus:
-      'Modelling the movement of migratory birds and bats, using the continental Motus Wildlife Tracking System to identify priority areas for migration across the Great Lakes region of northeastern North America.',
-    dates: '2025 – present',
+      'Identifying key migratory areas for conserving birds, using the continental Motus Wildlife Tracking System to model movement across the Great Lakes region of northeastern North America.',
+    dates: 'May 2026 – present',
     current: true,
   },
   {
@@ -34,8 +31,7 @@ export const positions: Position[] = [
     organisation: 'Apex RMS',
     focus:
       'Landscape connectivity assessments under environmental change, and habitat suitability modelling.',
-    dates: 'Jan 2026 – present',
-    current: true,
+    dates: 'Jan 2026 – May 2026',
   },
   {
     title: 'Research Analyst',
