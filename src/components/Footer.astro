@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'free-astro-components'
+import { footerAcademic, footerAlso, NAME, LOCATION } from '../data/site'
 ---
 
 <footer class="py-8 lg:py-12 border-t border-neutral-300/50">
@@ -11,24 +11,50 @@ import { Icon } from 'free-astro-components'
         <a
           href="/"
           class="text-primary hover:text-secondary transition duration-300 ease-in-out"
-          aria-label="Free Astro components"
+          aria-label={`${NAME} home`}
         >
-          <span>Amanda Liczner</span>
+          <span>{NAME}</span>
           <br />
-          <span> Guelph, Ontario</span>
-          <br />
-          <span> Canada</span>
+          <span>{LOCATION}</span>
         </a>
       </div>
-      <div class="flex flex-col gap-4 lg:flex-row lg:gap-8">
+      <div class="flex flex-col gap-8 sm:flex-row sm:gap-12 lg:gap-16">
         <div class="flex flex-col gap-4">
-          <h4 class="text-neutral-700 text-lg">Resources</h4>
+          <h4 class="text-neutral-700 text-lg">Research</h4>
           <ul class="text-neutral-500 flex flex-col gap-2">
-            <li><a href="/skills-education">Skills & Education</a></li>
-            <li><a href="/experience">Experience</a></li>
-            <li><a href="/contact">Contact</a></li>
+            {
+              footerAcademic.map((item) => (
+                <li>
+                  <a
+                    class="hover:text-primary transition duration-300 ease-in-out"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </div>
+        {
+          footerAlso.length > 0 && (
+            <div class="flex flex-col gap-4">
+              <h4 class="text-neutral-700 text-lg">Also</h4>
+              <ul class="text-neutral-500 flex flex-col gap-2">
+                {footerAlso.map((item) => (
+                  <li>
+                    <a
+                      class="hover:text-primary transition duration-300 ease-in-out"
+                      href={item.href}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
       </div>
     </div>
   </div>

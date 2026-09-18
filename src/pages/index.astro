@@ -7,46 +7,47 @@ import Intro from '../sections/Intro.astro'
 import Layout from '../layouts/Layout.astro'
 import Sidebar from '../layouts/Sidebar.astro'
 import AboutMe from '../sections/AboutMe.astro'
+import PersonSchema from '../components/PersonSchema.astro'
 import { SEO } from 'astro-seo'
 import '../styles/main.scss'
 
 const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+
+const description =
+  'Behavioural and conservation ecologist studying how animal decision-making, habitat selection and movement shape where populations persist.'
 ---
 
 <SEO
-  title="Dr. Amanda Liczner - Post-Doctoral Researcher | Ecologist & Conservation Biologist"
-  description="Dr. Amanda Liczner is a Post-Doctoral Researcher at Western University studying songbird migration behaviour. Conservation biologist specializing in bee conservation, statistical analysis, GIS mapping, and ecological research."
+  title="Dr. Amanda Liczner | Behavioural & Conservation Ecologist"
+  description={description}
   canonical={`${siteUrl}/`}
   openGraph={{
     basic: {
-      title:
-        'Dr. Amanda Liczner - Post-Doctoral Researcher | Ecologist & Conservation Biologist',
+      title: 'Dr. Amanda Liczner | Behavioural & Conservation Ecologist',
       type: 'website',
       image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       url: siteUrl,
     },
     optional: {
       description:
-        'Post-Doctoral Researcher at Western University studying songbird migration behaviour. Conservation biologist specializing in bee conservation, statistical analysis, and GIS mapping.',
-      siteName: 'Dr. Amanda Liczner - Ecologist & Researcher',
+        'Behavioural and conservation ecologist working on animal movement, habitat selection, and spatial conservation planning, with bumble bees as a model organism.',
+      siteName: 'Dr. Amanda Liczner - Behavioural & Conservation Ecologist',
       locale: 'en_CA',
     },
     image: {
       url: `${siteUrl}/pictures/AmandaLiczner.jpg`,
       secureUrl: `${siteUrl}/pictures/AmandaLiczner.jpg`,
-      alt: 'Dr. Amanda Liczner, ecologist and conservation biologist',
+      alt: 'Dr. Amanda Liczner, behavioural and conservation ecologist',
       type: 'image/jpeg',
-      width: 600,
-      height: 600,
+      width: 450,
+      height: 542,
     },
   }}
   twitter={{
     card: 'summary_large_image',
-    site: '@amandaliczner',
-    creator: '@amandaliczner',
-    title: 'Dr. Amanda Liczner - Post-Doctoral Researcher & Ecologist',
+    title: 'Dr. Amanda Liczner - Behavioural & Conservation Ecologist',
     description:
-      'Post-Doctoral Researcher at Western University studying songbird migration behaviour. Conservation biologist specializing in bee conservation, data analysis, and GIS.',
+      'Animal movement, habitat selection, and conservation planning, with bumble bees as a model organism.',
     image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
     imageAlt: 'Dr. Amanda Liczner',
   }}
@@ -55,7 +56,7 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
       {
         name: 'keywords',
         content:
-          'Amanda Liczner, ecologist, post-doctoral researcher Western University, songbird migration, bee conservation, ecological consultant Canada, GIS ecological services, statistical analysis ecology, pollinator conservation, conservation biologist',
+          'Amanda Liczner, behavioural ecology, conservation ecology, animal movement, movement ecology, habitat selection, radio telemetry, bumble bee model organism, pollinator conservation, landscape connectivity, spatial conservation planning, avian migration, conservation biologist Canada',
       },
       { name: 'author', content: 'Dr. Amanda Liczner' },
       { name: 'robots', content: 'index, follow, max-image-preview:large' },
@@ -68,79 +69,19 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
   }}
 />
 
-<!-- Person Schema (Primary) -->
-<script
-  type="application/ld+json"
-  set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Dr. Amanda Liczner',
-    givenName: 'Amanda',
-    familyName: 'Liczner',
-    honorificPrefix: 'Dr.',
-    jobTitle: 'Post-Doctoral Researcher',
-    description:
-      'Post-Doctoral Researcher at Western University studying songbird migration behaviour. Conservation biologist specializing in bee conservation, statistical analysis, GIS mapping, and ecological research.',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Western University',
-      url: 'https://www.uwo.ca/index.html',
-    },
-    url: siteUrl,
-    image: `${siteUrl}/pictures/AmandaLiczner.jpg`,
-    sameAs: [
-      siteUrl,
-      `${siteUrl}/experience`,
-      `${siteUrl}/books`,
-      `${siteUrl}/services`,
-      'https://twitter.com/amandaliczner',
-    ],
-    alumniOf: [
-      {
-        '@type': 'Organization',
-        name: 'York University',
-        location: 'Toronto, Ontario, Canada',
-      },
-    ],
-    knowsAbout: [
-      'Bumble Bee Ecology',
-      'Conservation Biology',
-      'Radio Telemetry',
-      'Pollinator Conservation',
-      'Statistical Analysis',
-      'GIS Mapping',
-      'Habitat Selection',
-      'Animal Movement',
-      'Wildlife Tracking',
-    ],
-    hasOccupation: {
-      '@type': 'Occupation',
-      name: 'Post-Doctoral Researcher',
-      occupationalCategory: 'Conservation Biology and Ecology',
-    },
-    makesOffer: {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: 'Ecological Consulting Services',
-        description:
-          'Statistical analyses, GIS mapping, bee conservation, field surveys, literature reviews, and restoration planning',
-        url: `${siteUrl}/services`,
-      },
-    },
-  })}
-/>
+<PersonSchema />
 
 <!-- WebSite Schema -->
 <script
   type="application/ld+json"
+  is:inline
   set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Dr. Amanda Liczner - Ecologist',
+    name: 'Dr. Amanda Liczner - Behavioural & Conservation Ecologist',
     url: siteUrl,
     description:
-      'Personal website of Dr. Amanda Liczner, ecologist and conservation biologist specializing in bumble bee research.',
+      'Personal website of Dr. Amanda Liczner, behavioural and conservation ecologist working on animal movement, habitat selection, and conservation planning.',
     author: {
       '@type': 'Person',
       name: 'Dr. Amanda Liczner',
@@ -149,47 +90,32 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
   })}
 />
 
-<Layout title="Homepage - Dr. Amanda Liczner">
+<Layout title="Dr. Amanda Liczner - Behavioural & Conservation Ecologist">
   <Sidebar class="lg:hidden" />
   <Header />
   <main>
     <Hero
       align="center"
       title=" <strong>Dr. Amanda Liczner</strong>"
-      description="Ecologist • Bumble Bees • Songbird Migration • Conservation"
-    >
-      <div class="flex flex-col sm:flex-row gap-4">
-        <Button
-          href="/#about-me"
-          text="About me"
-          variant="primary"
-          className="lg:text-2xl text-lg tracking-wide"
-        />
-        <Button
-          href="/services"
-          text="View Services"
-          variant="secondary"
-          className="lg:text-2xl text-lg tracking-wide"
-        />
-      </div>
-    </Hero>
+      description="Behavioural conservation &bull; Animal movement &amp; habitat selection"
+    />
     <Intro />
     <AboutMe />
     <CTA
       align="center"
-      title="Ready to Work Together?"
-      description="Interested in collaborating on research or consulting projects? Let's discuss how I can support your conservation or research initiatives."
+      title="Let's talk about the science"
+      description="I welcome enquiries from prospective graduate students, collaborators, and search committees. If you are interested in animal behaviour, habitat selection, or conservation planning, I would like to hear from you."
     >
       <div class="flex flex-col sm:flex-row gap-4">
         <Button
-          href="/services"
-          text="View Services"
+          href="/contact"
+          text="Get in touch"
           className="text-xl tracking-wide"
           variant="primary"
         />
         <Button
-          href="/contact"
-          text="Get in Touch"
+          href="/skills-education"
+          text="CV & Expertise"
           className="text-xl tracking-wide"
           variant="secondary"
         />

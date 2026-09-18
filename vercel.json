@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/current-work",
+      "destination": "/experience",
+      "permanent": true
+    }
+  ]
+}

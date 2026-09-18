@@ -9,7 +9,11 @@ export default {
       current: 'currentColor',
       primary: 'rgb(var(--ac-primary), <alpha-value>)',
       secondary: 'rgb(var(--ac-secondary), <alpha-value>)',
+      // NOTE: `white` is the cream page background (#F3E9DC), not #fff.
+      // Use `surface` for cards that need to sit brighter than the page.
       white: 'rgb(var(--ac-white), <alpha-value>)',
+      surface: 'rgb(var(--ac-surface), <alpha-value>)',
+      highlight: 'rgb(var(--ac-highlight), <alpha-value>)',
       black: 'rgb(0, 0, 0)',
       dark: 'rgb(var(--ac-dark), <alpha-value>)',
       gray: {

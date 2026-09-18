@@ -5,15 +5,18 @@ import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
+import ProjectMeta from '../../components/ProjectMeta.astro'
+import { projectBySlug } from '../../data/projects'
 import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
 
 const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+const project = projectBySlug('bee-needs')!
 ---
 
 <SEO
-  title="Tracking Bumble Bees to Learn Their Needs | Radio Telemetry Study"
-  description="Radio telemetry research tracking bumble bee queens to discover nesting and overwintering habitat locations, movement patterns, and habitat selection. Groundbreaking study on bumble bee ecology by Dr. Amanda Liczner."
+  title="Tracking Bumble Bee Queens | Nesting & Overwintering"
+  description="Radio-tagging spring and late-summer bumble bee queens to locate nesting and overwintering sites and measure their habitat selection."
   canonical={`${siteUrl}/experience/bee-needs`}
   openGraph={{
     basic: {
@@ -36,8 +39,8 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
       secureUrl: `${siteUrl}/pictures/Project2A.jpg`,
       alt: 'Bumble bee foraging on flower during radio telemetry tracking study',
       type: 'image/jpeg',
-      width: 1200,
-      height: 800,
+      width: 2200,
+      height: 1572,
     }
   }}
   twitter={{
@@ -112,10 +115,12 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
 <style>
-  li {
+  /* Numbered reference lists only - must not leak into the breadcrumb or
+     the outputs list, which are also <li> elements on these pages. */
+  .references li {
     margin-left: 5%;
     margin-bottom: 5px;
-    list-style-type: number;
+    list-style-type: decimal;
   }
 </style>
 <Layout title="Tracking Bumble Bees to Learn Their Needs - Amanda Liczner">
@@ -131,6 +136,28 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
         text="Learning their needs by tracking the bees"
       />
 
+      <div class="flex flex-col gap-6">
+        <nav aria-label="Breadcrumb" class="text-sm text-neutral-600">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li>
+              <a href="/" class="hover:text-primary transition-colors">Home</a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <a href="/experience" class="hover:text-primary transition-colors"
+                >Research</a
+              >
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="text-primary font-medium">
+              {project.title}
+            </li>
+          </ol>
+        </nav>
+
+        <ProjectMeta rows={project.meta} />
+      </div>
+
       <div class="mx-auto overflow-hidden md:max-w-3xl my-4 md:text-xl">
         <div class="md:flex my-4 md:space-x-4">
           <div class="md:w-3/5">
@@ -143,9 +170,10 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
           </div>
           <div class="md:w-2/5 my-4">
             <img
-              class="h-72 w-full object-cover md:h-full rounded-full"
+              class="h-72 w-full object-cover md:h-full rounded-2xl"
               src="/pictures/Project2A.jpg"
               alt="A bumble bee landed on a flower in the field"
+              loading="lazy"
             />
           </div>
         </div>
@@ -173,29 +201,60 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
           </div>
           <div class="md:w-1/2 my-4">
             <img
-              class="h-72 w-full object-cover md:h-full rounded-full"
+              class="h-72 w-full object-cover md:h-full rounded-2xl"
               src="/pictures/Project2B.jpg"
               alt="A bumble bee with a radio tag on its back climbing on Amanda's finger"
+              loading="lazy"
             />
           </div>
         </div>
         <div class="md:flex md:space-x-4">
           <div class="md:w-1/2 my-4">
             <img
-              class="h-72 w-full object-cover md:h-full rounded-full"
+              class="h-72 w-full object-cover md:h-full rounded-2xl"
               src="/pictures/Project1C.jpg"
               alt="Amanda inspecting a radiotelemetry tower "
+              loading="lazy"
             />
           </div>
           <div class="md:w-1/2 my-4">
             Their movements are tracked using radio towers set up at our study
             sites. Using this data, we have compared the flight distance, home
-            range, habitat usage and selection of bumble bee queens. The results
-            are still preliminary, but it unfortunately looks like a newer class
-            of pesticide called diamides are just as harmful as neonicotinoids
-            when we look at their flight behaviour.
+            range, habitat usage and selection of bumble bee queens.
           </div>
         </div>
+      </div>
+
+      <div class="mx-auto md:max-w-3xl w-full flex flex-col gap-10">
+        <section>
+          <Heading
+            level={2}
+            gradient
+            class="inline-block mb-4"
+            text="Research significance"
+          />
+          <p class="text-neutral-600 text-base md:text-lg leading-relaxed">
+            {project.significance}
+          </p>
+        </section>
+
+        <section>
+          <Heading
+            level={2}
+            gradient
+            class="inline-block mb-4"
+            text="Outputs"
+          />
+          <ul class="list-disc pl-5 space-y-3">
+            {
+              project.outputs.map((output) => (
+                <li class="text-neutral-600 text-sm md:text-base leading-relaxed">
+                  {output}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
       </div>
     </Article>
   </Content>

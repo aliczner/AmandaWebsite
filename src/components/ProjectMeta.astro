@@ -1,0 +1,37 @@
+---
+/**
+ * Compact research-record strip for a project page: role, institution,
+ * collaborators, study system, methods, status, years. Only renders the rows
+ * it is given, so a project with unknown fields simply shows fewer.
+ */
+import type { ProjectMetaRow } from '../data/projects'
+
+interface Props {
+  rows: ProjectMetaRow[]
+  class?: string
+}
+
+const { rows, class: className } = Astro.props
+---
+
+{
+  rows.length > 0 && (
+    <div
+      class:list={[
+        'bg-surface rounded-3xl shadow-lg border border-primary/10 p-6 lg:p-8',
+        className,
+      ]}
+    >
+      <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-base">
+        {rows.map((row) => (
+          <div class="flex flex-col gap-1">
+            <dt class="text-xs uppercase tracking-wide text-neutral-500 font-semibold">
+              {row.label}
+            </dt>
+            <dd class="text-neutral-700">{row.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  )
+}

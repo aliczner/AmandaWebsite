@@ -1,23 +1,35 @@
 ---
 import Card from '../components/Card.astro'
+import { METRICS } from '../data/site'
 
-import bumblebeeIcon from '../icons/bee.svg?raw'
 import bookIcon from '../icons/book.svg?raw'
 import contact from '../icons/contact.svg?raw'
-import experience from '../icons/experience.svg?raw'
----
-
+import graduation from '../icons/graduation.svg?raw'
 ---
 
 <section class="py-12 lg:py-20 z-10 relative">
-  <div class="container flex flex-col gap-16 px-4 sm:px-6">
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+  <div class="container px-4 sm:px-6">
+    <!-- max-w matches the content column used by Content.astro (max-w-6xl),
+         so this row lines up with the About section below it. -->
+    <ul
+      class="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
+    >
       <li class="h-full">
         <Card
           type="primary"
-          icon={bumblebeeIcon}
-          title="Skills & Education"
-          description="PhD in Biology with expertise in statistical modelling, GIS, and field ecology."
+          icon={bookIcon}
+          title="Publications"
+          description={`${METRICS.publications} peer-reviewed papers in ecology and conservation, ${METRICS.leadAuthor} as lead author.`}
+          href="/publications"
+        />
+      </li>
+
+      <li class="h-full">
+        <Card
+          type="primary"
+          icon={graduation}
+          title="CV & Expertise"
+          description="Education, fellowships, teaching, mentorship, and technical expertise."
           href="/skills-education"
         />
       </li>
@@ -25,29 +37,10 @@ import experience from '../icons/experience.svg?raw'
       <li class="h-full">
         <Card
           type="primary"
-          icon={experience}
-          title="Experience"
-          description="Research roles across government, university, and conservation organisations."
-          href="/experience"
-        />
-      </li>
-
-      <li class="h-full">
-        <Card
-          type="primary"
-          icon={bookIcon}
-          title="Books"
-          description="Pollinator-themed colouring books for children and adults."
-          href="/books"
-        />
-      </li>
-      <li class="h-full">
-        <Card
-          type="primary"
           icon={contact}
-          title="Collaborate & Contact"
-          description="Open to research collaborations, consulting projects, and speaking engagements."
-          href="/contact"
+          title="Outreach & contact"
+          description="Science communication, community science, and how to reach me."
+          href="/outreach"
         />
       </li>
     </ul>
