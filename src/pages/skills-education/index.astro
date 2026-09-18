@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
 import PersonSchema from '../../components/PersonSchema.astro'
+import ProfileLinks from '../../components/ProfileLinks.astro'
 import { SEO } from 'astro-seo'
 import {
   CV_PATH,
@@ -791,6 +792,8 @@ const sections = [
                   </div>
                 )
               }
+
+              <ProfileLinks align="center" />
 
               <div class="flex flex-col sm:flex-row gap-4">
                 <a

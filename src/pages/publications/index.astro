@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
 import PersonSchema from '../../components/PersonSchema.astro'
+import ProfileLinks from '../../components/ProfileLinks.astro'
 import { SEO } from 'astro-seo'
 import { METRICS, CV_PATH, CV_PDF_IS_CURRENT } from '../../data/site'
 import {
@@ -199,6 +200,8 @@ const metricTiles = [
             Peer-reviewed research in behavioural ecology, animal movement,
             habitat selection, and conservation planning.
           </p>
+
+          <ProfileLinks align="center" class="mt-8" />
         </div>
       </div>
     </section>

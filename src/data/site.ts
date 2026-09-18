@@ -18,9 +18,10 @@ export const CV_PATH = '/AmandaLicznerCV.pdf'
  */
 export const CV_PDF_IS_CURRENT = false
 
-/** Off-site academic identities. Fill these in and they appear everywhere. */
-export const ORCID_URL = ''
-export const SCHOLAR_URL = ''
+/** Off-site academic identities. These feed Person.sameAs in PersonSchema. */
+export const ORCID_URL = 'https://orcid.org/0000-0002-4265-0269'
+export const SCHOLAR_URL =
+  'https://scholar.google.ca/citations?user=jwadmkwAAAAJ&hl=en'
 export const BLUESKY_URL = 'https://bsky.app/profile/bumblebeehaviour.bsky.social'
 export const INSTAGRAM_URL = 'https://www.instagram.com/bumblebeehaviour/'
 

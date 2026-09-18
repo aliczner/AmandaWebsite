@@ -1,0 +1,75 @@
+---
+/**
+ * Off-site academic profile links (ORCID, Google Scholar). Renders nothing for
+ * a profile whose URL is not set in src/data/site.ts.
+ */
+import { ORCID_URL, SCHOLAR_URL } from '../data/site'
+
+interface Props {
+  /** Centre the row (page heros) or leave it left-aligned (in-page sections). */
+  align?: 'center' | 'left'
+  class?: string
+}
+
+const { align = 'center', class: className } = Astro.props
+
+const orcidId = ORCID_URL.replace(/^https?:\/\/orcid\.org\//, '')
+---
+
+{
+  (ORCID_URL || SCHOLAR_URL) && (
+    <ul
+      class:list={[
+        'flex flex-wrap gap-3 items-center',
+        align === 'center' ? 'justify-center' : '',
+        className,
+      ]}
+    >
+      {ORCID_URL && (
+        <li>
+          <a
+            href={ORCID_URL}
+            target="_blank"
+            rel="noopener noreferrer me"
+            class="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-surface border border-primary/20 text-neutral-700 hover:text-primary hover:border-primary transition-colors"
+          >
+            <svg
+              viewBox="0 0 256 256"
+              class="w-4 h-4 shrink-0"
+              aria-hidden="true"
+            >
+              <circle cx="128" cy="128" r="128" fill="#A6CE39" />
+              <path
+                fill="#fff"
+                d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"
+              />
+            </svg>
+            <span>ORCID {orcidId}</span>
+          </a>
+        </li>
+      )}
+
+      {SCHOLAR_URL && (
+        <li>
+          <a
+            href={SCHOLAR_URL}
+            target="_blank"
+            rel="noopener noreferrer me"
+            class="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-surface border border-primary/20 text-neutral-700 hover:text-primary hover:border-primary transition-colors"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="w-4 h-4 shrink-0 text-primary"
+              aria-hidden="true"
+            >
+              <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3z" />
+              <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+            </svg>
+            <span>Google Scholar</span>
+          </a>
+        </li>
+      )}
+    </ul>
+  )
+}
