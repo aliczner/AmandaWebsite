@@ -6,6 +6,8 @@ $ac-primary: #062f0c;
 $ac-secondary: #7B886B;
 $ac-accent: #062f0c; // header 
 $ac-dark: #3D2B3D;
+$ac-highlight: #E8B84B; // gold: active nav item on the dark header
+$ac-surface: #FCF8F1;   // card surface: a touch brighter than the cream page, not stark white
 
 :root { 
     --ac-white: #{color.channel($ac-white, "red")}, #{color.channel($ac-white, "green")}, #{color.channel($ac-white, "blue")};
@@ -13,6 +15,8 @@ $ac-dark: #3D2B3D;
     --ac-secondary: #{color.channel($ac-secondary, "red")}, #{color.channel($ac-secondary, "green")}, #{color.channel($ac-secondary, "blue")};
     --ac-accent: #{color.channel($ac-accent, "red")}, #{color.channel($ac-accent, "green")}, #{color.channel($ac-accent, "blue")};
     --ac-dark: #{color.channel($ac-dark, "red")}, #{color.channel($ac-dark, "green")}, #{color.channel($ac-dark, "blue")};
+    --ac-highlight: #{color.channel($ac-highlight, "red")}, #{color.channel($ac-highlight, "green")}, #{color.channel($ac-highlight, "blue")};
+    --ac-surface: #{color.channel($ac-surface, "red")}, #{color.channel($ac-surface, "green")}, #{color.channel($ac-surface, "blue")};
     --ac-gray-100: 245, 245, 245;
     --ac-gray-200: 233, 233, 233;
     --ac-gray-300: 200, 200, 200;

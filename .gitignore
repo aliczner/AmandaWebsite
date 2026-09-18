@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # vercel
 .vercel/
+# job application materials - never commit, never serve from public/
+application-materials/
+*.docx

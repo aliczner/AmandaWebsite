@@ -2,25 +2,23 @@
 import Content from '../layouts/Content.astro'
 import Heading from '../components/Heading.astro'
 import Article from '../components/Article.astro'
+import {
+  CV_PATH,
+  CV_PDF_IS_CURRENT,
+  SHOW_JOB_MARKET_NOTICE,
+} from '../data/site'
+
+const researchInterests = [
+  'behavioural ecology and animal decision-making',
+  'habitat selection across the life cycle',
+  'movement ecology and animal tracking',
+  'landscape connectivity and spatial conservation planning',
+  'pollinator and avian conservation',
+  'evidence synthesis for conservation decision-making',
+]
 ---
 
 <style>
-  .bee-list {
-    list-style-type: none;
-  }
-
-  .bee-list li::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-image: url('./pictures/bumblebee2.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-
   .content-section {
     margin-bottom: 3rem;
   }
@@ -97,6 +95,11 @@ import Article from '../components/Article.astro'
       font-size: 1.25rem;
     }
   }
+
+  .interest-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
 </style>
 
 <Content>
@@ -112,69 +115,100 @@ import Article from '../components/Article.astro'
       />
 
       <div class="overflow-hidden my-4">
-        <!-- First Section: Main Bio -->
+        <!-- First Section: Research statement -->
         <div class="content-section">
           <div
             class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 items-center md:items-start"
           >
             <div class="md:col-span-3 order-2 md:order-1">
-              <div class="content-text bee-list">
+              <div class="content-text">
                 <p class="mb-4">
-                  I am a conservation biologist and research scientist
-                  passionate about ecological research. My past work has focused
-                  largely on bumble bee conservation, but also includes studies
-                  on bumble bee movement, habitat connectivity, and ecosystem
-                  restoration.
+                  I am a behavioural and conservation ecologist. Habitat loss
+                  and environmental change are leading causes of biodiversity
+                  loss, but species differ enormously in how they respond, and
+                  those differences are hard to predict from habitat alone. My
+                  research asks how animal behaviour, meaning what an animal
+                  chooses, where it settles and how it moves, determines whether
+                  a population persists, and how that knowledge becomes
+                  conservation action that names specific places and measures.
                 </p>
 
                 <p class="mb-4">
-                  I am currently a Post-Doctoral Researcher at <a href="https://www.uwo.ca/index.html" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Western University</a>,
-                  studying songbird migration behaviour. I bring experience from
-                  my previous roles as a Research Scientist at the <a href="https://trca.ca/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Toronto and
-                  Region Conservation Authority (TRCA)</a>, <a href="https://www.uoguelph.ca/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">University of Guelph</a>,
-                  <a href="https://www.ubc.ca/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">University of British Columbia</a>, and <a href="https://www.yorku.ca/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">York University</a>. I also
-                  offer expertise in statistical analysis, GIS mapping, bee
-                  conservation, literature reviews, and more, supporting
-                  conservation and biodiversity initiatives across Canada.
+                  I am currently a Postdoctoral Research Associate in the
+                  Faculty of Science at <a
+                    href="https://www.uwo.ca/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary hover:underline">Western University</a
+                  >. Before that I held postdoctoral fellowships at the <a
+                    href="https://www.uoguelph.ca/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary hover:underline"
+                    >University of Guelph</a
+                  >, on the effects of environmental stressors on bumble bee
+                  movement, and at <a
+                    href="https://ok.ubc.ca/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary hover:underline"
+                    >UBC Okanagan</a
+                  > with the BRAES Institute, on connectivity conservation in landscape
+                  ecology. I have also worked as a Research Analyst in Ecosystem
+                  and Climate Science at the <a
+                    href="https://trca.ca/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary hover:underline"
+                    >Toronto and Region Conservation Authority</a
+                  > and as a quantitative ecologist on landscape connectivity and
+                  habitat suitability modelling. I completed my PhD, MSc, and BSc
+                  at <a
+                    href="https://www.yorku.ca/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary hover:underline">York University</a
+                  >.
                 </p>
 
                 <div>
                   <p class="mb-3 font-semibold text-neutral-700">
                     <strong>My research interests are:</strong>
                   </p>
-                  <ul class="space-y-2">
-                    <li>behavioural ecology</li>
-                    <li>conservation</li>
-                    <li>restoration</li>
-                    <li>songbird migration</li>
-                    <li>pollinators</li>
-                    <li>all things bumble bees!</li>
+                  <ul class="interest-list space-y-2">
+                    {researchInterests.map((interest) => <li>{interest}</li>)}
                   </ul>
                 </div>
 
-                <div
-                  class="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/10"
-                >
-                  <p class="font-semibold text-neutral-700 mb-2">
-                    Looking to hire an ecologist?
-                  </p>
-                  <p class="text-neutral-600 mb-3">
-                    I'm available for consulting projects across Canada.
-                  </p>
-                  <div class="flex flex-wrap gap-3">
-                    <a
-                      href="/services"
-                      class="text-primary hover:text-primary/80 underline transition-colors font-medium"
-                      >View Services</a
-                    >
-                    <span class="text-neutral-400">|</span>
-                    <a
-                      href="/contact"
-                      class="text-primary hover:text-primary/80 underline transition-colors font-medium"
-                      >Contact Me</a
-                    >
-                  </div>
-                </div>
+                {
+                  SHOW_JOB_MARKET_NOTICE && (
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/10">
+                      <p class="font-semibold text-neutral-700 mb-2">
+                        On the faculty job market
+                      </p>
+                      <p class="text-neutral-600 mb-3">
+                        I am seeking a tenure-track position where I can build
+                        an independent research group in behavioural
+                        conservation.
+                      </p>
+                      <div class="flex flex-wrap gap-3">
+                        <a
+                          href="/experience"
+                          class="text-primary hover:text-primary/80 underline transition-colors font-medium"
+                        >
+                          Research
+                        </a>
+                        <span class="text-neutral-400">|</span>
+                        <a
+                          href={CV_PDF_IS_CURRENT ? CV_PATH : '/skills-education'}
+                          class="text-primary hover:text-primary/80 underline transition-colors font-medium"
+                        >
+                          {CV_PDF_IS_CURRENT ? 'Download CV' : 'CV & expertise'}
+                        </a>
+                      </div>
+                    </div>
+                  )
+                }
               </div>
             </div>
 
@@ -192,7 +226,7 @@ import Article from '../components/Article.astro'
           </div>
         </div>
 
-        <!-- Second Section: Research Techniques -->
+        <!-- Second Section: Bumble bees as a model organism -->
         <div class="content-section">
           <div
             class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 items-center md:items-start"
@@ -210,32 +244,30 @@ import Article from '../components/Article.astro'
             </div>
 
             <div class="md:col-span-3 order-2">
-              <div class="content-text bee-list">
+              <div class="content-text">
                 <p class="mb-4">
-                  I have conducted research with a variety of techniques
-                  including:
+                  My research uses bumble bees as a model organism for
+                  behavioural conservation questions, because their colony cycle
+                  isolates decisions that matter. In spring a solitary queen
+                  must find and secure a nest site, and that single choice
+                  determines whether her colony succeeds over the months that
+                  follow. Later in the cycle, workers must learn to handle
+                  flowers, judge their quality, and navigate home; new queens
+                  must find mates and secure a safe overwintering site. Each
+                  stage is a different decision under different information,
+                  which makes the system unusually well suited to testing how
+                  behaviour translates into persistence. And because the habitat
+                  selection dynamics of these pollinators are so poorly
+                  understood, the answers matter directly for their
+                  conservation.
                 </p>
-                <ul class="space-y-2 mb-4">
-                  <li>field sampling of bees, nests, and plants</li>
-                  <li>statistical modelling</li>
-                  <li>conservation planning</li>
-                  <li>systematic literature reviews</li>
-                  <li>radio telemetry to study movement behaviour</li>
-                </ul>
-                <p>
-                  You can learn more about the skills I have picked up along the
-                  way on my <a
-                    href="/skills-education"
-                    class="text-primary hover:text-primary/80 underline transition-colors"
-                    >skills page</a
-                  >.
-                </p>
+
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Third Section: Personal -->
+        <!-- Third Section: Across taxa and scales -->
         <div class="content-section">
           <div
             class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 items-center md:items-start"
@@ -255,21 +287,28 @@ import Article from '../components/Article.astro'
             <div class="md:col-span-3 order-2">
               <div class="content-text">
                 <p class="mb-4">
-                  Although my specialty is bumble bee research, I am open to
-                  working on any ecological research project, especially those
-                  with an applied angle. View some of my past research examples
-                  on my
+                  The same questions scale up, and I work across taxa to ask
+                  them. I have modelled movement for migratory birds and bats as
+                  well as bees, using the continental Motus Wildlife Tracking
+                  System to identify priority areas for migration across the
+                  Great Lakes region of northeastern North America. My bumble
+                  bee telemetry work was the first of its kind, using an
+                  expansive radio tower array to follow free-flying individuals,
+                  and it sits at the opposite end of the scale. Between an insect
+                  tracked over hundreds of metres and a bird tracked over
+                  thousands of kilometres, the two bracket the scales at which
+                  behaviour and movement limit population persistence. You can
+                  read more on my
                   <a
                     href="/experience"
                     class="text-primary hover:text-primary/80 underline transition-colors"
-                    >experience page</a
+                    >research page</a
                   >.
                 </p>
 
                 <p>
-                  When I am not out searching for bumble bees or analyzing data,
-                  you can find me hanging out with my dog, gardening, hiking,
-                  playing violin, baking or crafting!
+                  Away from the field and the data, I garden, hike, play violin,
+                  bake, and spend time with my dog.
                 </p>
               </div>
             </div>

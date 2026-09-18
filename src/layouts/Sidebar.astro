@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro'
 import NavLink from '../components/NavLink.astro'
+import { sidebarNav } from '../data/site'
 
 const { class: className } = Astro.props
 ---
@@ -16,12 +17,7 @@ const { class: className } = Astro.props
     class="w-full h-full lg:border-r border-neutral-300/50 px-5 py-4 overflow-y-auto"
   >
     <Nav>
-      <NavLink href="/" label="Home" />
-      <NavLink href="/skills-education" label="Skills & Education" />
-      <NavLink href="/services" label="Services" />
-      <NavLink href="/experience" label="Experience" />
-      <NavLink href="/books" label="Books" />
-      <NavLink href="/contact" label="Contact" />
+      {sidebarNav.map((item) => <NavLink href={item.href} label={item.label} />)}
     </Nav>
   </div>
 </aside>

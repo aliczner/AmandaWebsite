@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is Dr. Amanda Liczner's personal website - a portfolio site showcasing her research in ecology and bumble bee conservation. The site is built with Astro.js, deployed on Vercel, and features a contact form backed by AWS Lambda and SES.
+This is Dr. Amanda Liczner's personal academic website, positioned for faculty applications. It presents her research programme in behavioural conservation - how animal behaviour, habitat selection and movement determine where populations persist, using bumble bees as a model organism alongside landscape-scale tracking of migratory birds and bats. Built with Astro.js, deployed on Vercel, with a contact form backed by AWS Lambda and SES.
 
 ## Development Commands
 
@@ -27,10 +27,10 @@ astro check
 
 ### Tech Stack
 
-- **Framework**: Astro.js 5.x with SSR (serverless mode)
+- **Framework**: Astro.js 5.x, static output (no adapter is registered in `astro.config.mjs`, so `astro build` produces a static site)
 - **Styling**: Tailwind CSS with custom theming via CSS variables
 - **UI Components**: Free Astro Components library
-- **Deployment**: Vercel (serverless functions)
+- **Deployment**: Vercel (static, plus `vercel.json` for redirects)
 - **Email**: AWS Lambda + SES for contact form
 - **Anti-spam**: Google reCAPTCHA v3
 
@@ -40,11 +40,15 @@ astro check
 src/
 ├── components/      # Reusable UI components (Button, Card, Nav, etc.)
 ├── layouts/         # Page layouts (Layout.astro, Sidebar.astro, Content.astro)
-├── pages/           # Route pages and endpoints
-│   ├── index.astro
-│   ├── experience/  # Research project pages
-│   ├── contact/     # Contact page with form
-│   └── ...
+├── pages/           # Route pages
+│   ├── index.astro          # Hero + Intro cards + AboutMe + CTA
+│   ├── experience/          # Research programme (index) + 5 project pages
+│   ├── publications/        # Publication record, driven by data/publications.ts
+│   ├── skills-education/    # CV & expertise: the full academic record
+│   ├── outreach/            # Science communication, media, community science
+│   ├── books/               # Colouring books (demoted from main nav)
+│   ├── services/            # Consulting (demoted from main nav)
+│   └── contact/             # Contact page with form
 ├── sections/        # Page section components (Hero, CTA, AboutMe, Intro)
 ├── data/            # TypeScript data files for component configurations
 ├── styles/          # Global SCSS and CSS files
@@ -60,6 +64,48 @@ The site uses a custom CSS variable-based theming system defined in `src/styles/
 - Tailwind config references these via `rgb(var(--ac-primary), <alpha-value>)`
 - Custom animations for gradient backgrounds: `move-circle`, `move-circle-reverse`
 - Font: Poppins (Google Fonts) as primary, Quicksand as fallback
+
+### Content Data Files
+
+Page content that repeats or needs to stay consistent lives in `src/data/`, not
+in the templates:
+
+- `site.ts` — **single source of truth for navigation** plus shared facts
+  (name, job title, institution, CV path) and the metric figures used on
+  `/publications`. `Header.astro`, `Sidebar.astro` and `Footer.astro` all map
+  over this array, so adding a nav item is a one-line change.
+- `publications.ts` — the publication record (15 peer-reviewed, 1 in press,
+  3 in preparation). `doi` fields are empty; fill one in and the entry renders
+  a DOI link automatically.
+- `positions.ts` — research appointments and graduate research.
+- `academic.ts` — awards, grants, teaching, mentorship, talks, service, peer
+  review, degrees, and the research-expertise groupings.
+- `projects.ts` — the three research themes and the five project pages'
+  metadata, research significance, and outputs.
+- `outreach.ts` — media coverage, her own popular writing, public engagement.
+
+### Feature Flags
+
+`src/data/site.ts` holds four booleans that control visibility:
+
+| Flag | Effect when `true` |
+|---|---|
+| `SHOW_CONSULTING_IN_NAV` | Puts `/services` back in the header and sidebar, and shows the consulting note on `/outreach` |
+| `SHOW_BOOKS_IN_NAV` | Puts `/books` back in the header and sidebar |
+| `SHOW_JOB_MARKET_NOTICE` | Shows the "on the faculty job market" callout in the About section |
+| `SHOW_TEACHING_STATEMENT` | Shows the teaching-approach paragraph on `/skills-education` |
+| `CV_PDF_IS_CURRENT` | Exposes the CV PDF download links (off while `public/AmandaLicznerCV.pdf` is out of date) |
+
+Consulting and colouring books are still live pages and keep all their links and
+structured data — they are reachable from the footer and, for the books, from
+`/outreach`. They are only out of the main navigation.
+
+### Job Application Materials
+
+Cover letters, research statements and similar documents must **never** be put
+in `public/` — Astro copies that directory verbatim to the site root, which
+would publish them. Keep them in `application-materials/`, which is gitignored
+along with `*.docx`.
 
 ### Contact Form Architecture
 
