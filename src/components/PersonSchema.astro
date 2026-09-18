@@ -1,0 +1,84 @@
+---
+/**
+ * The single Person entity for the site. Import this on every page that should
+ * assert who she is, so the same facts are emitted everywhere.
+ *
+ * Deliberately carries NO consulting `makesOffer`; the consulting Offer lives
+ * on /services, where it is contextually correct.
+ */
+import {
+  SITE_URL,
+  NAME,
+  JOB_TITLE,
+  INSTITUTION,
+  INSTITUTION_URL,
+  ORCID_URL,
+  SCHOLAR_URL,
+  BLUESKY_URL,
+  INSTAGRAM_URL,
+} from '../data/site'
+
+const sameAs = [ORCID_URL, SCHOLAR_URL, BLUESKY_URL, INSTAGRAM_URL].filter(
+  Boolean
+)
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: NAME,
+  givenName: 'Amanda',
+  familyName: 'Liczner',
+  honorificPrefix: 'Dr.',
+  jobTitle: JOB_TITLE,
+  description:
+    'Behavioural and conservation ecologist studying how animal decision-making, habitat selection, and movement determine where populations persist. Uses bumble bees as a model organism, alongside landscape-scale tracking of migratory birds and bats.',
+  url: SITE_URL,
+  image: `${SITE_URL}/pictures/AmandaLiczner.jpg`,
+  affiliation: {
+    '@type': 'Organization',
+    name: INSTITUTION,
+    url: INSTITUTION_URL,
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: INSTITUTION,
+    url: INSTITUTION_URL,
+  },
+  ...(sameAs.length > 0 && { sameAs }),
+  alumniOf: [
+    {
+      '@type': 'EducationalOrganization',
+      name: 'York University',
+      location: 'Toronto, Ontario, Canada',
+    },
+  ],
+  knowsAbout: [
+    'Behavioural Ecology',
+    'Movement Ecology',
+    'Conservation Biology',
+    'Habitat Selection',
+    'Animal Behaviour',
+    'Landscape Connectivity',
+    'Spatial Conservation Planning',
+    'Radio Telemetry',
+    'Avian Migration',
+    'Pollinator Conservation',
+    'Bumble Bee Ecology',
+    'Evidence Synthesis',
+    'Species Distribution Modelling',
+    'Restoration Ecology',
+  ],
+  award: [
+    'NSERC Postdoctoral Fellowship (2023-2025)',
+    'Susan Mann Dissertation Scholarship, York University (2020)',
+    'NSERC Postgraduate Scholarship - Doctoral (2018-2020)',
+  ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: JOB_TITLE,
+    occupationalCategory: 'Behavioural Ecology and Conservation Biology',
+  },
+}
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(person)} />

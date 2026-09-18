@@ -5,58 +5,62 @@ import Article from '../../components/Article.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Header from '../../components/Header.astro'
+import ProjectMeta from '../../components/ProjectMeta.astro'
+import { projectBySlug } from '../../data/projects'
 import { SEO } from 'astro-seo'
 import '../../styles/main.scss'
 
 const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
+const project = projectBySlug('urban-gardens')!
 ---
 
 <SEO
-  title="Pathogen Risk to Bumble Bees Across Canada | Disease Spillover Research"
-  description="Mapping pathogen spillover risk from managed bees to wild bumble bee populations across Canada. Conservation research identifying high-risk areas for disease transmission and bumble bee protection by Dr. Amanda Liczner."
+  title="Urban Bees & Backyard Pollinator Gardens | Kelowna"
+  description="Native bee diversity in bee-friendly gardens across Kelowna, and whether garden size, floral diversity or urbanisation explains it."
   canonical={`${siteUrl}/experience/urban-gardens`}
   openGraph={{
     basic: {
-      title: 'Pathogen Risk & Bumble Bee Conservation Across Canada',
+      title: 'Urban Pollinator Gardens & Native Bee Diversity Research',
       type: 'article',
       image: `${siteUrl}/pictures/urbangardens.jpg`,
       url: `${siteUrl}/experience/urban-gardens`,
     },
     optional: {
-      description: 'Research mapping disease spillover risk from managed bees to wild bumble bees, identifying conservation priority areas at risk across Canada.',
+      description: 'First study examining urban bee diversity in the Okanagan, evaluating how pollinator gardens support native bee populations in cities.',
       siteName: 'Dr. Amanda Liczner - Ecologist',
       locale: 'en_CA',
     },
     article: {
       authors: ['Dr. Amanda Liczner'],
-      tags: ['bumble bees', 'pathogen spillover', 'disease transmission', 'conservation', 'managed bees', 'Canada'],
+      tags: ['urban bees', 'pollinator gardens', 'native bees', 'urbanization', 'habitat conservation', 'Okanagan'],
     },
     image: {
       url: `${siteUrl}/pictures/urbangardens.jpg`,
       secureUrl: `${siteUrl}/pictures/urbangardens.jpg`,
-      alt: 'Bumble bee conservation research related to pathogen risk mapping',
+      alt: 'A bumble bee flying to a lavender spike in a pollinator garden',
       type: 'image/jpeg',
-      width: 1200,
-      height: 800,
+      width: 2500,
+      height: 1667,
     }
   }}
   twitter={{
     card: 'summary_large_image',
     site: '@amandaliczner',
     creator: '@amandaliczner',
-    title: 'Pathogen Risk to Wild Bumble Bees Across Canada',
-    description: 'Mapping disease spillover risk from managed bees to wild populations, identifying conservation hotspots.',
+    title: 'Urban Pollinator Gardens & Bee Diversity Research',
+    description: 'Studying how pollinator-friendly gardens support native bee diversity in urban Kelowna, BC.',
     image: `${siteUrl}/pictures/urbangardens.jpg`,
-    imageAlt: 'Bumble bee pathogen research',
+    imageAlt: 'A bumble bee flying to a lavender spike in a pollinator garden',
   }}
   extend={{
     meta: [
-      { name: 'keywords', content: 'bumble bee pathogens, disease spillover, managed bees, wild bees, pathogen transmission, bumble bee conservation, Canada bee health, pollinator disease, conservation priority areas' },
+      { name: 'keywords', content: 'urban bee diversity, pollinator gardens, native bees, Border Free Bees, Kelowna bees, urban conservation, habitat loss, pollinator-friendly gardens, Okanagan pollinators' },
       { name: 'author', content: 'Dr. Amanda Liczner' },
       { name: 'robots', content: 'index, follow' },
       { property: 'article:author', content: 'Dr. Amanda Liczner' },
       { property: 'article:section', content: 'Research' },
-      { name: 'geo.region', content: 'CA' },
+      { name: 'geo.region', content: 'CA-BC' },
+      { name: 'geo.placename', content: 'Kelowna, British Columbia' },
     ],
     link: [
       { rel: 'alternate', hreflang: 'en-ca', href: `${siteUrl}/experience/urban-gardens` },
@@ -69,22 +73,22 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 <script type="application/ld+json" set:html={JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'ScholarlyArticle',
-  'headline': 'Pathogen Risk to Bumble Bees Across Canada',
-  'description': 'Research mapping pathogen spillover risk from managed bees to wild bumble bee populations across Canada, identifying high-priority conservation areas at risk of disease transmission.',
+  'headline': 'Urban Pollinator Gardens and Native Bee Diversity in Kelowna',
+  'description': 'First study examining urban bee diversity in the Okanagan region, evaluating the effectiveness of pollinator-friendly gardens in supporting native bee populations amid urbanization.',
   'author': {
     '@type': 'Person',
     'name': 'Dr. Amanda Liczner',
-    'jobTitle': 'Ecologist and Conservation Biologist',
+    'jobTitle': 'Behavioural and Conservation Ecologist',
     'url': siteUrl
   },
-  'about': ['Bumble Bees', 'Pathogen Spillover', 'Disease Transmission', 'Conservation Biology', 'Managed Bees', 'Wildlife Health'],
-  'keywords': 'bumble bees, pathogens, disease spillover, managed bees, conservation, Canada, bee health',
+  'about': ['Urban Bees', 'Pollinator Gardens', 'Native Bee Diversity', 'Urbanization', 'Habitat Conservation', 'Border Free Bees'],
+  'keywords': 'urban bees, pollinator gardens, native bee diversity, urbanization, habitat conservation, Okanagan',
   'url': `${siteUrl}/experience/urban-gardens`,
   'image': `${siteUrl}/pictures/urbangardens.jpg`,
   'inLanguage': 'en-CA',
   'spatialCoverage': {
     '@type': 'Place',
-    'name': 'Canada'
+    'name': 'Kelowna, British Columbia, Canada'
   }
 })} />
 
@@ -102,13 +106,13 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
     {
       '@type': 'ListItem',
       'position': 2,
-      'name': 'Experience',
+      'name': 'Research',
       'item': `${siteUrl}/experience`
     },
     {
       '@type': 'ListItem',
       'position': 3,
-      'name': 'Pathogen Risk Research',
+      'name': 'Urban Pollinator Gardens Research',
       'item': `${siteUrl}/experience/urban-gardens`
     }
   ]
@@ -116,13 +120,15 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 ---
 
 <style>
-  li {
+  /* Numbered reference lists only - must not leak into the breadcrumb or
+     the outputs list, which are also <li> elements on these pages. */
+  .references li {
     margin-left: 5%;
     margin-bottom: 5px;
-    list-style-type: number;
+    list-style-type: decimal;
   }
 </style>
-<Layout title="Urban Gardens - Amanda Liczner">
+<Layout title="Urban Bees & Backyard Gardens - Amanda Liczner">
   <Sidebar class="lg:hidden" />
   <Header />
   <Content>
@@ -132,49 +138,104 @@ const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
         level={1}
         gradient
         class="inline-block"
-        text="Pathogen risk to bumble bees across Canada"
+        text="Urban bees response to backyard gardens"
       />
+
+      <div class="flex flex-col gap-6">
+        <nav aria-label="Breadcrumb" class="text-sm text-neutral-600">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li>
+              <a href="/" class="hover:text-primary transition-colors">Home</a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <a href="/experience" class="hover:text-primary transition-colors"
+                >Research</a
+              >
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="text-primary font-medium">
+              {project.title}
+            </li>
+          </ol>
+        </nav>
+
+        <ProjectMeta rows={project.meta} />
+      </div>
 
       <div class="mx-auto overflow-hidden md:max-w-3xl my-4 md:text-xl">
         <div class="md:flex my-4 md:space-x-4">
           <div class="md:w-3/5">
-            Bumble bees are facing many challenges, and one growing concern is
-            the spread of diseases from managed bees to wild populations. While
-            scientists have known about this risk for years, few studies have
-            mapped out where the danger is highest. Our research looked at this
-            issue across Canada, identifying areas where conservation efforts
-            for bumble bees overlap with regions at risk of disease spillover
-            from managed bees.
+            Urbanization has led to significant habitat loss, posing challenges
+            for native bee populations. In response, initiatives like &ldquo;Border
+            Free Bees&rdquo; in Kelowna, British Columbia, have encouraged landowners
+            to create pollinator-friendly gardens, providing forage and nesting
+            resources to support urban bee diversity. But how effective are
+            these gardens in sustaining native bee populations, and how does
+            urbanization influence their impact?
           </div>
           <div class="md:w-2/5 my-4">
             <img
-              class="h-72 w-full object-cover md:h-full rounded-full"
+              class="h-72 w-full object-cover md:h-full rounded-2xl"
               src="/pictures/urbangardens.jpg"
-              alt="Pathogen research related to bumble bee conservation"
+              alt="A bumble bee with pollen-laden legs flying to a lavender spike in a garden"
+              loading="lazy"
             />
           </div>
         </div>
         <div class="md:flex md:space-x-4">
           <div class="my-4">
-            We found that more than 15% of high-priority conservation areas for
-            bumble bees are at risk, with hotspots in southwest Alberta,
-            southern British Columbia, southern Ontario, and southern
-            Quebec—places that also happen to be home to the richest diversity
-            of bumble bee species. The risk isn’t limited to farms or cities;
-            even natural areas could be affected.
+            Surprisingly, we didn&rsquo;t find a clear link between the number or
+            variety of bees and things like garden size, plant diversity, or how
+            urbanized the surrounding area was. This suggests that while
+            pollinator gardens are important, other factors, like access to
+            nesting areas or nearby wild habitats, may play a bigger role in
+            supporting bee populations.
           </div>
         </div>
         <div class="md:flex md:space-x-4">
           <div class="my-4">
-            To help protect wild bumble bees, we need to adopt better management
-            practices, such as screening managed bees for disease, improving
-            colony care, treating infections, and setting up national monitoring
-            and reporting programs. Our findings give conservation groups and
-            policymakers the tools to focus their efforts where they’re needed
-            most, helping to safeguard these essential pollinators and the
-            ecosystems they support.
+            This is the first study to look at urban bee diversity in the
+            Okanagan, a region known for its rich pollinator communities. While
+            planting pollinator-friendly gardens is a great step, our findings
+            highlight the need to think beyond individual gardens and consider
+            how we can create connected, bee-friendly landscapes. Supporting
+            bees in cities takes a big-picture approach, and every garden is a
+            valuable piece of the puzzle.
           </div>
         </div>
+      </div>
+
+      <div class="mx-auto md:max-w-3xl w-full flex flex-col gap-10">
+        <section>
+          <Heading
+            level={2}
+            gradient
+            class="inline-block mb-4"
+            text="Research significance"
+          />
+          <p class="text-neutral-600 text-base md:text-lg leading-relaxed">
+            {project.significance}
+          </p>
+        </section>
+
+        <section>
+          <Heading
+            level={2}
+            gradient
+            class="inline-block mb-4"
+            text="Outputs"
+          />
+          <ul class="list-disc pl-5 space-y-3">
+            {
+              project.outputs.map((output) => (
+                <li class="text-neutral-600 text-sm md:text-base leading-relaxed">
+                  {output}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
       </div>
     </Article>
   </Content>
