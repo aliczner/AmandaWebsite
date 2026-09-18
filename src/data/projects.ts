@@ -100,7 +100,7 @@ export const projects: Project[] = [
     image: '/pictures/Project2A.jpg',
     imageAlt:
       'A radio-tagged bumble bee queen, used to track movement and locate nesting and overwintering sites',
-    themes: ['behaviour-movement', 'habitat-life-cycle'],
+    themes: ['behaviour-movement'],
     meta: [
       { label: 'Role', value: 'Postdoctoral research fellow' },
       { label: 'Institution', value: 'University of Guelph' },

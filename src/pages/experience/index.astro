@@ -11,15 +11,14 @@ import '../../styles/main.scss'
 
 const siteUrl = Astro.site?.toString() || 'https://amandaliczner.ca'
 
-// TODO: replace with the migration/connectivity photo once Amanda supplies it.
-// Drop the file in public/pictures/ and set this to its path, e.g.
-// const migrationImage = '/pictures/migration.jpg'
-const migrationImage: string | null = null
+const migrationImage: string | null = '/pictures/western-postdoc.jpg'
+const migrationImageAlt =
+  'A male scarlet tanager perched on a bare branch in spring woodland, one of the migratory songbirds tracked through the Motus network'
 ---
 
 <SEO
-  title="Research - Dr. Amanda Liczner | Behavioural Conservation & Animal Movement"
-  description="Dr. Amanda Liczner's research: how behavioural decisions, habitat selection, and movement determine where populations persist. Radio telemetry, Motus wildlife tracking, habitat selection across the life cycle, and spatial conservation planning, with bumble bees as a model organism."
+  title="Research | Dr. Amanda Liczner, Behavioural Ecologist"
+  description="Research on animal behaviour, habitat selection and movement: Motus tracking of birds and bats, radio-tagged bumble bees, and conservation planning."
   canonical={`${siteUrl}/experience`}
   openGraph={{
     basic: {
@@ -39,8 +38,8 @@ const migrationImage: string | null = null
       secureUrl: `${siteUrl}/pictures/Experience2.jpg`,
       alt: 'Dr. Amanda Liczner conducting field research',
       type: 'image/jpeg',
-      width: 1200,
-      height: 800,
+      width: 1500,
+      height: 1576,
     },
   }}
   twitter={{
@@ -170,23 +169,6 @@ const migrationImage: string | null = null
                   beyond static connectivity maps towards representations that
                   reflect the actual movement and behaviour of organisms.
                 </p>
-                <p class="text-neutral-600 text-base lg:text-lg leading-relaxed">
-                  During my PhD I used spatial priority mapping to identify
-                  where conservation action for bumble bees would be most
-                  effective across Canada under different future climate
-                  scenarios, and characterised habitat at both local and
-                  landscape scales. Broad recommendations for creating or
-                  conserving pollinator habitat are unlikely to benefit all
-                  at-risk species, because their needs differ.
-                </p>
-                <p class="text-base">
-                  <a
-                    href="/publications"
-                    class="text-primary hover:text-primary/80 underline transition-colors font-medium"
-                  >
-                    Related publications
-                  </a>
-                </p>
               </div>
 
               <div class="md:col-span-2">
@@ -194,8 +176,10 @@ const migrationImage: string | null = null
                   migrationImage ? (
                     <img
                       src={migrationImage}
-                      alt="Migratory bird tracking fieldwork for the Motus movement analysis"
+                      alt={migrationImageAlt}
                       loading="lazy"
+                      width="1600"
+                      height="1067"
                       class="w-full h-64 md:h-full md:min-h-[18rem] object-cover rounded-2xl shadow-md"
                     />
                   ) : (
@@ -371,7 +355,7 @@ const migrationImage: string | null = null
             Dissertation titles, awards, teaching, and service are listed on the
             <a
               href="/skills-education"
-              class="text-primary hover:text-primary/80 underline transition-colors"
+              class="link"
               >CV and expertise page</a
             >.
           </p>

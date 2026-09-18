@@ -28,3 +28,6 @@ pnpm-debug.log*
 # job application materials - never commit, never serve from public/
 application-materials/
 *.docx
+
+# full-resolution image originals (optimised copies live in public/pictures)
+image-originals/
